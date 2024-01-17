@@ -12,10 +12,9 @@
     <div class="h-screen w-screen flex flex-col">
         <!-- header -->
         <div class="px-20 flex flex-row justify-between items-center py-2">
-                        <a class="w-16 h-16" href="./index.html">
-
+            <a class="w-16 h-16" href="./index.html">
                 <img src="../media/logo.png" alt="logo">
-            </div>
+            </a>
             <nav class="flex flex-row gap-10 text-primary text-lg">
                 <a href="./educacion.html">Educación</a>
                 <a href="./pedir-cita.html">Pedir Cita</a>
@@ -25,26 +24,15 @@
             <button class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10">Mi Cuenta</button>
         </div>
         <!-- body -->
-        <div class="flex flex-col w-full h-full items-center">
-            <div class="flex flex-col gap-4 text-center">
-                <p class="text-title">Comunidad</p>
-                <p class="text-subtitle">Respuesta</p>
-            </div>
-            <div class="flex flex-col w-full h-[600px] justify-center items-center relative">
-                <img src="../media/fondo-contacto.png" alt="fondo" class="w-full h-full">
-                <form action="" class="flex flex-col justify-center gap-8 absolute z-30 text-white w-[550px]">
-
-                    <textarea name="cuerpo" id="cuerpo"
-                        class="border border-white resize-none w-full h-24 bg-transparent p-1 outline-none"
-                        placeholder="Cuerpo"></textarea>
-                    <input type="file">
-                    <div class="flex justify-between items-center w-full">
-                        <button type="submit"
-                            class="w-52 bg-transparent border-2 border-white rounded-full text-center py-2">Enviar</button>
-                        <a href=""
-                            class="w-52 bg-transparent border-2 border-white rounded-full text-center py-2">Volver</a>
-                    </div>
-                </form>
+        <div class="flex flex-col w-full h-full items-end justify-center relative overflow-hidden">
+            <!-- <img src="../media/bg-index.png" alt="bgindex" class="w-full z-10"> -->
+            <video src="../media/videoindex.mp4" muted autoplay loop class="w-full z-10"></video>
+            <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full">
+                <div class="flex flex-col gap-2 text-title text-right text-white items-end">
+                    <p class="">Centro de Excelencia en el</p>
+                    <p class="flex flex-row">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
+                </div>
+                <button class="rounded-full border-2 border-white text-white px-20 py-2 text-2xl">Pedir Cita</button>
             </div>
         </div>
     </div>
