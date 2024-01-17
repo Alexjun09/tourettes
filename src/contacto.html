@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <title>Pedir Cita</title>
+</head>
+
+<body class="grid grid-rows-[1fr_min-content] text-primary">
+    <div class="h-screen w-screen flex flex-col">
+        <!-- header -->
+        <div class="px-20 flex flex-row justify-between items-center py-2">
+            <div class="w-16 h-16">
+                <img src="../media/logo.png" alt="logo">
+            </div>
+            <nav class="flex flex-row gap-10 text-primary text-lg">
+                <a href="./educacion.html">Educación</a>
+                <a href="./pedir-cita.html">Pedir Cita</a>
+                <a href="./comunidad.html">Comunidad</a>
+                <a href="./about-us.html">About Us</a>
+            </nav>
+            <button class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10">Mi Cuenta</button>
+        </div>
+        <!-- body -->
+        <div class="flex flex-col w-full h-full">
+            <p class="text-title text-center">Contacto</p>
+            <p class="text-subtitle text-center">Formulario de Contacto</p>
+            <div class="w-full h-full relative flex flex-col justify-center items-center">
+                <img src="../media/fondo-contacto.png" alt="" class="w-full h-[500px] absolute z-10">
+                <form action="" class="text-white absolute flex flex-col z-30 gap-8 w-[40%]">
+                    <input type="text" required placeholder="Nombre Completo"
+                        class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
+                    <input type="text" required placeholder="Telefono"
+                        class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
+                    <input type="email" required placeholder="Email"
+                        class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
+                    <textarea name="motivo" required id="motivo"
+                        class="border border-white text-white bg-transparent p-2 outline-none">Motivo</textarea>
+                    <div class="flex flex-row items-center gap-2">
+                        <input type="checkbox" required>
+                        <p>Terminos y condiciones</p>
+                    </div>
+                    <button class="border-2 border-white py-2 px-8 bg-transparent rounded-full w-fit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="h-28 flex flex-row bg-contraste px-12 items-center justify-between">
+        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+        <div class="flex flex-row gap-4">
+            <a href="">
+                <img class="w-10 h-10" src="../media/x.png" alt="x">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
