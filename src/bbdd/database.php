@@ -12,6 +12,7 @@ $sqlPacientes = "CREATE TABLE IF NOT EXISTS Pacientes (
 )";
 $sqlCuenta = "CREATE TABLE IF NOT EXISTS Cuenta (
     Email VARCHAR(255) PRIMARY KEY,
+    NombreUsuario VARCHAR(255) UNIQUE,
     Contrasena VARCHAR(255),
     IDPaciente INT,
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
@@ -47,27 +48,27 @@ if ($conn->query($sqlPacientes) === TRUE) {
 }
 
 if ($conn->query($sqlCuenta) === TRUE) {
-    echo "Tabla 'Cuenta' creada exitosamente o ya existe.";
+    echo "Tabla 'Cuenta' creada exitosamente o ya existe.<br>";
 } else {
-    echo "Error al crear la tabla 'Cuenta': " . $conn->error;
+    echo "Error al crear la tabla 'Cuenta': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlPsicologos) === TRUE) {
-    echo "Tabla 'Psicologos' creada exitosamente o ya existe.";
+    echo "Tabla 'Psicologos' creada exitosamente o ya existe.<br>";
 } else {
-    echo "Error al crear la tabla 'Psicologos': " . $conn->error;
+    echo "Error al crear la tabla 'Psicologos': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlForo) === TRUE) {
-    echo "Tabla 'Foro' creada exitosamente o ya existe.";
+    echo "Tabla 'Foro' creada exitosamente o ya existe.<br>";
 } else {
-    echo "Error al crear la tabla 'Foro': " . $conn->error;
+    echo "Error al crear la tabla 'Foro': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlRespuestas) === TRUE) {
-    echo "Tabla 'Respuestas' creada exitosamente o ya existe.";
+    echo "Tabla 'Respuestas' creada exitosamente o ya existe.<br>";
 } else {
-    echo "Error al crear la tabla 'Respuestas': " . $conn->error;
+    echo "Error al crear la tabla 'Respuestas': " . $conn->error . "<br>";
 }
 
 // Función para verificar e insertar datos
@@ -101,20 +102,20 @@ $sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil) VAL
 ('Pedro López', '656789012')";
 verificarEInsertar($conn, 'Pacientes', $sqlInsertPacientes);
 
-$sqlInsertCuenta = "INSERT INTO Cuenta (Email, Contrasena, IDPaciente) VALUES
-('juanperez@mail.com', 'contraseña1', 1),
-('anagarcia@mail.com', 'contraseña2', 2),
-('carlossanchez@mail.com', 'contraseña3', 3),
-('lauragomez@mail.com', 'contraseña4', 4),
-('pedrolopez@mail.com', 'contraseña5', 5);";
+$sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES
+('juanperez@mail.com','juanperez01','a8]F{d!(5A', 1),
+('anagarcia@mail.com', 'anitagarcia09','N:>m.uu3.', 2),
+('carlossanchez@mail.com','carlosanchezz_1','1tE:3ZpNX', 3),
+('lauragomez@mail.com', 'lauriita01','d&5?;0?1ts', 4),
+('pedrolopez@mail.com', 'pedro_lopez19','euiULE?.1', 5);";
 verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 
 $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion) VALUES
-('Dra. Ana Martínez', 'Terapia Cognitiva', 'Madrid', 'Español', 'Presencial', 'Universidad Complutense de Madrid'),
-('Dr. Luis Fernández', 'Terapia de Conducta', 'Barcelona', 'Español, Catalán', 'Online', 'Universidad de Barcelona'),
-('Dra. Marta Ruiz', 'Psicoanálisis', 'Valencia', 'Español, Inglés', 'Presencial y Online', 'Universidad de Valencia'),
-('Dr. Juan Navarro', 'Terapia Gestalt', 'Sevilla', 'Español', 'Presencial', 'Universidad de Sevilla'),
-('Dra. Carmen López', 'Terapia Humanista', 'Zaragoza', 'Español', 'Online', 'Universidad de Zaragoza');";
+('Dr. Hassan Raza', 'Psicología Clínica con énfasis en terapias para el Síndrome de Tourette', 'Santiago de Chile, Chile', 'Español, Inglés', 'Terapias conductuales especializadas, Técnicas de relajación y control de tics', 'Doctorado en Psicología Clínica, Universidad de Santiago de Chile, 2020'),
+('Dra. Rachel Anderson', 'Psicología Pediátrica y Trastornos de Tic', 'Bogotá, Colombia', 'Español, Portugués', 'Intervención cognitivo-conductual, Educación y apoyo a familias', 'Máster en Psicología Pediátrica, Universidad Nacional de Colombia, 2021'),
+('Dr. Carlos Herrera', 'Psicoterapia para trastornos del espectro tic y Síndrome de Tourette', 'Ciudad de México, México', 'Español, Inglés', 'Intervención en psicología positiva, Estrategias de afrontamiento', 'Especialidad en Psicología Clínica, Universidad Nacional Autónoma de México, 2017'),
+('Dra. Laura Gómez', 'Psicología Infantil, enfocada en Síndrome de Tourette', 'Madrid, España', 'Español, Inglés', 'Terapia cognitivo-conductual, Técnicas de modificación de hábitos', 'Máster en Psicología Clínica y de la Salud, Universidad Autónoma de Madrid, 2018'),
+('Dr. David Abioye', 'Psicología Clínica con subespecialidad en Neuropsicología', 'Lagos, Nigeria', 'Inglés, Yoruba, Español', 'Evaluación neuropsicológica, Intervenciones psicoeducativas', 'Doctorado en Psicología Clínica, Universidad de Ibadan, 2019');";
 verificarEInsertar($conn, 'Psicologos', $sqlInsertPsicologos);
 
 $sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo) VALUES
