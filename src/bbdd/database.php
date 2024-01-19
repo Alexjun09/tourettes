@@ -8,8 +8,10 @@ $conn = getConexion();
 $sqlPacientes = "CREATE TABLE IF NOT EXISTS Pacientes (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     NombreCompleto VARCHAR(255),
-    TelefonoMovil VARCHAR(20)
+    TelefonoMovil VARCHAR(20),
+    Edad INT NOT NULL
 )";
+
 $sqlCuenta = "CREATE TABLE IF NOT EXISTS Cuenta (
     Email VARCHAR(255) PRIMARY KEY,
     NombreUsuario VARCHAR(255) UNIQUE,
@@ -17,6 +19,7 @@ $sqlCuenta = "CREATE TABLE IF NOT EXISTS Cuenta (
     IDPaciente INT,
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
 )";
+
 $sqlPsicologos = "CREATE TABLE IF NOT EXISTS Psicologos (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     NombreCompleto VARCHAR(255),
@@ -26,18 +29,34 @@ $sqlPsicologos = "CREATE TABLE IF NOT EXISTS Psicologos (
     Metodologia VARCHAR(255),
     Educacion VARCHAR(255)
 )";
+
 $sqlForo = "CREATE TABLE IF NOT EXISTS Foro (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Titulo VARCHAR(255),
     PalabrasClave VARCHAR(255),
     Archivo VARCHAR(255),
-    Cuerpo TEXT
+    Cuerpo TEXT,
+    IDPaciente INT,
+    FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
 )";
+
 $sqlRespuestas = "CREATE TABLE IF NOT EXISTS Respuestas (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Respuesta TEXT,
     IDForo INT,
-    FOREIGN KEY (IDForo) REFERENCES Foro(ID)
+    IDPaciente INT,
+    FOREIGN KEY (IDForo) REFERENCES Foro(ID),
+    FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
+)";
+
+$sqlCitas = "CREATE TABLE IF NOT EXISTS Citas (
+    IDCita INT AUTO_INCREMENT PRIMARY KEY,
+    IDPaciente INT,
+    IDPsicologo INT,
+    FechaCita DATETIME,
+    Sintomas TEXT,
+    FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID),
+    FOREIGN KEY (IDPsicologo) REFERENCES Psicologos(ID)
 )";
 
 // Ejecutar las consultas para crear las tablas
@@ -71,6 +90,12 @@ if ($conn->query($sqlRespuestas) === TRUE) {
     echo "Error al crear la tabla 'Respuestas': " . $conn->error . "<br>";
 }
 
+if ($conn->query($sqlCitas) === TRUE) {
+    echo "Tabla 'Citas' creada exitosamente.<br>";
+} else {
+    echo "Error al crear la tabla 'Citas': " . $conn->error . "<br>";
+}
+
 // Función para verificar e insertar datos
 function verificarEInsertar($conn, $tabla, $sqlInsert)
 {
@@ -93,21 +118,20 @@ function verificarEInsertar($conn, $tabla, $sqlInsert)
     }
 }
 
-// Insertar datos en 'Pacientes'
-$sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil) VALUES
-('Juan Pérez', '612345678'),
-('Ana García', '623456789'),
-('Carlos Sánchez', '634567890'),
-('Laura Gómez', '645678901'),
-('Pedro López', '656789012')";
+$sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, Edad) VALUES
+('Juan Pérez', '612345678', 30),
+('Ana García', '623456789', 25),
+('Carlos Sánchez', '634567890', 40),
+('Laura Gómez', '645678901', 35),
+('Pedro López', '656789012', 28)";
 verificarEInsertar($conn, 'Pacientes', $sqlInsertPacientes);
 
 $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES
-('juanperez@mail.com','juanperez01','a8]F{d!(5A', 1),
-('anagarcia@mail.com', 'anitagarcia09','N:>m.uu3.', 2),
-('carlossanchez@mail.com','carlosanchezz_1','1tE:3ZpNX', 3),
-('lauragomez@mail.com', 'lauriita01','d&5?;0?1ts', 4),
-('pedrolopez@mail.com', 'pedro_lopez19','euiULE?.1', 5);";
+('juanperez@mail.com','juanperez1','contrasena1', 1),
+('anagarcia@mail.com', 'anitagarcia2','contrasena2', 2),
+('carlossanchez@mail.com','carlosanchez3','contrasena3', 3),
+('lauragomez@mail.com', 'laurita4','contrasena4', 4),
+('pedrolopez@mail.com', 'pedrolopez5','contrasena5', 5);";
 verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 
 $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion) VALUES
@@ -118,21 +142,29 @@ $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ub
 ('Dr. David Abioye', 'Psicología Clínica con subespecialidad en Neuropsicología', 'Lagos, Nigeria', 'Inglés, Yoruba, Español', 'Evaluación neuropsicológica, Intervenciones psicoeducativas', 'Doctorado en Psicología Clínica, Universidad de Ibadan, 2019');";
 verificarEInsertar($conn, 'Psicologos', $sqlInsertPsicologos);
 
-$sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo) VALUES
-('Ansiedad y estrés', 'ansiedad, estrés, salud mental', 'archivo1.pdf', 'Contenido del tema sobre ansiedad...'),
-('Depresión en adolescentes', 'depresión, adolescentes', 'archivo2.pdf', 'Contenido del tema sobre depresión...'),
-('Autoestima y autoconcepto', 'autoestima, autoconcepto', 'archivo3.pdf', 'Contenido sobre autoestima...'),
-('Gestión de emociones', 'emociones, gestión, inteligencia emocional', 'archivo4.pdf', 'Contenido sobre gestión de emociones...'),
-('Mindfulness y meditación', 'mindfulness, meditación, relajación', 'archivo5.pdf', 'Contenido sobre mindfulness...');";
+$sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES
+('Ansiedad y estrés', 'ansiedad, estrés, salud mental', 'archivo1.pdf', 'Contenido del tema sobre ansiedad...', 1),
+('Depresión en adolescentes', 'depresión, adolescentes', 'archivo2.pdf', 'Contenido del tema sobre depresión...', 2),
+('Autoestima y autoconcepto', 'autoestima, autoconcepto', 'archivo3.pdf', 'Contenido sobre autoestima...', 3),
+('Gestión de emociones', 'emociones, gestión, inteligencia emocional', 'archivo4.pdf', 'Contenido sobre gestión de emociones...', 4),
+('Mindfulness y meditación', 'mindfulness, meditación, relajación', 'archivo5.pdf', 'Contenido sobre mindfulness...', 5)";
 verificarEInsertar($conn, 'Foro', $sqlInsertForo);
 
-$sqlInsertRespuestas = "INSERT INTO Respuestas (Respuesta, IDForo) VALUES
-('Estoy de acuerdo con el tema de ansiedad...', 1),
-('En mi experiencia, la depresión adolescente...', 2),
-('El autoconcepto es fundamental...', 3),
-('La gestión de emociones es clave...', 4),
-('He practicado mindfulness y realmente ayuda...', 5);";
+$sqlInsertRespuestas = "INSERT INTO Respuestas (Respuesta, IDForo, IDPaciente) VALUES
+('Estoy de acuerdo con el tema de ansiedad...', 1, 1),
+('En mi experiencia, la depresión adolescente...', 2, 2),
+('El autoconcepto es fundamental...', 3, 3),
+('La gestión de emociones es clave...', 4, 4),
+('He practicado mindfulness y realmente ayuda...', 5, 5)";
 verificarEInsertar($conn, 'Respuestas', $sqlInsertRespuestas);
+
+$sqlInsertCitas = "INSERT INTO Citas (IDPaciente, IDPsicologo, FechaCita, Sintomas) VALUES
+(1, 2, '2024-01-30', 'Ansiedad y dificultad para dormir'),
+(2, 3, '2024-02-05', 'Sentimientos de tristeza y aislamiento'),
+(3, 1, '2024-02-15', 'Estrés y problemas de concentración'),
+(4, 5, '2024-03-01', 'Baja autoestima y ansiedad social'),
+(5, 4, '2024-03-20', 'Dificultades en la gestión de la ira')";
+verificarEInsertar($conn, 'Citas', $sqlInsertCitas);
 
 // Cerrar la conexión
 $conn->close();
