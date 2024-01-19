@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./output.css">
-    <title>Pedir Cita</title>
+    <title>Entrada al Foro</title>
 </head>
 
 <body class="grid grid-rows-[1fr_min-content] text-primary">
@@ -25,44 +25,31 @@
             <button class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10">Mi Cuenta</button>
         </div>
         <!-- body -->
-        <div class="flex flex-col w-full h-full items-center justify-between">
+        <div class="flex flex-col w-full h-full items-center">
             <div class="flex flex-col gap-4 text-center">
-                <p class="text-title">Pedir Cita</p>
-                <p class="text-subtitle"> Formulario para pedir una cita</p>
+                <p class="text-title">Comunidad</p>
+                <p class="text-subtitle"> Añadir una Entrada al Foro</p>
             </div>
-            <div class="grid grid-cols-2 w-full h-full px-44 py-12">
-                <!-- card -->
-                <div class="w-96 shadow-md shadow-primary h-full relative flex flex-col items-center">
-                    <img src="../media/elipse.png" alt="" class="absolute z-10">
-                    <img src="../media/face.png" alt="" class="absolute z-20 mt-8 w-32 h-32">
-                    <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16">
-                        <p class="text-2xl">Dra Rachel Anderson</p>
-                        <p class="text-base">Psiquiatra experta en síndrome de Tourette</p>
-                        <img src="../media/maps.png" alt="">
-                    </div>
-
-
-                </div>
-                <!-- form -->
-                <form action="" class="flex flex-col justify-center gap-8">
-                    <input type="date" required placeholder="Fecha"
-                        class="outline-none border-b border-black w-full text-opacity-50">
-                    <input type="text" required placeholder="Motivo de la Consulta"
-                        class="outline-none border-b border-black w-full">
-                    <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
-                        <input type="radio" name="visita" id="si">
-                        <input type="radio" name="visita" id="no">
-                    </div>
+            <div class="flex flex-col w-full h-[600px] justify-center items-center relative">
+                <img src="../media/fondo-contacto.png" alt="fondo" class="w-full h-full">
+                <form action="" class="flex flex-col justify-center gap-8 absolute z-30 text-white w-[550px]">
+                    <input type="text" name="title" id="titulo" placeholder="Titulo"
+                        class="outline-none border-b border-white w-full py-1 bg-transparent">
+                    <input type="text" name="palabrasclave" id="clave"
+                        placeholder="Palabras Clave (Separadas por un espacio)"
+                        class="outline-none border-b border-white w-full py-1 bg-transparent">
+                    <textarea name="cuerpo" id="cuerpo"
+                        class="border border-white resize-none w-full h-24 bg-transparent p-1 outline-none"
+                        placeholder="Cuerpo"></textarea>
+                    <input type="file">
                     <div class="flex flex-row items-center gap-2">
                         <input type="checkbox" required>
                         <p>Terminos y condiciones</p>
                     </div>
-                    <div class="flex justify-center w-full">
-                        <button type="submit"
-                            class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-4 px-20 w-fit">Pedir
-                            Cita</button>
+                    <div class="flex justify-between items-center w-full">
+                        <button type="submit" class="w-52 bg-transparent border-2 border-white rounded-full text-center py-2">Enviar</button>
+                        <a href="" class="w-52 bg-transparent border-2 border-white rounded-full text-center py-2">Volver</a>
                     </div>
-
                 </form>
             </div>
         </div>
