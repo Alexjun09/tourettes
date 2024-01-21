@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <title>Editar Mi Cuenta</title>
+</head>
+
+<body class="grid grid-rows-[1fr_min-content] text-primary">
+    <!-- header -->
+    <div class="px-20 flex flex-row justify-between items-center py-4">
+        <a class="h-16" href="./index.html">
+            <img src="../media/logoindex.png" alt="" class="h-full">
+        </a>
+        <nav class="flex flex-row gap-10 text-primary text-lg">
+            <a href="./educacion.html">Educación</a>
+            <a href="./pedir-cita.html">Pedir Cita</a>
+            <a href="./comunidad.html">Comunidad</a>
+            <a href="./about-us.html">About Us</a>
+        </nav>
+        <button class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10">Mi Cuenta</button>
+    </div>
+    <!-- body -->
+    <div class="flex flex-col w-full h-screen items-center">
+        <div class="px-6 bg-contraste rounded-t-md">
+            <p class="text-subtitle">Mi Cuenta</p>
+        </div>
+        <img src="../media/bgcuenta.png" alt="">
+
+        <div class="w-full h-full bg-contraste flex flex-col justify-center relative">
+            <div class="w-full h-full px-4 bg-transparent absolute flex flex-col items-start justify-start">
+                <a href="" class="bg-white p-1 italic text-primary px-4 w-min">Editar</a>
+            </div>
+            <div class="w-[80%] bg-secondary flex flex-row rounded-r-3xl py-20 px-10 justify-between">
+                <div class="flex flex-col items-center relative">
+                    <img src="../media/imgmicuenta.png" alt="" class="z-30 w-64">
+                    <div class="absolute z-0 flex flex-col justify-end items-center w-full h-full">
+                        <div
+                            class="bg-white w-[90%] hover:bg-gray-300 h-1/2 text-center text-primary flex flex-col justify-end items-center pb-4">
+                            <a class="z-40 text-xl" href="">Editar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col items-center">
+                    <form action="" class="flex flex-col gap-8 w-1/2 justify-center">
+                        <input type="text" required placeholder="Nombre"
+                            class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <input type="email" required placeholder="Email"
+                            class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <input type="number" required placeholder="Telefono"
+                            class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <input type="number" required placeholder="Edad"
+                            class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <div class="flex flex-row items-center justify-between">
+                            <a href="./mi-cuenta.html"
+                                class="rounded-tr-xl rounded-bl-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Cancelar</a>
+                            <button type="submit"
+                                class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Pedir
+                                Cita</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- footer -->
+    <div class="h-28 flex flex-row bg-contraste px-12 items-center justify-between">
+        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+        <div class="flex flex-row gap-4">
+            <a href="">
+                <img class="w-10 h-10" src="../media/x.png" alt="x">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
