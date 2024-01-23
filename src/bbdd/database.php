@@ -9,7 +9,9 @@ $sqlPacientes = "CREATE TABLE IF NOT EXISTS Pacientes (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     NombreCompleto VARCHAR(255),
     TelefonoMovil VARCHAR(20),
-    Edad INT NOT NULL
+    Edad INT NOT NULL,
+    FotoPerfil VARCHAR(255),
+    Banner VARCHAR(255)
 )";
 
 $sqlCuenta = "CREATE TABLE IF NOT EXISTS Cuenta (
@@ -132,13 +134,14 @@ function verificarEInsertar($conn, $tabla, $sqlInsert)
     }
 }
 
-$sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, Edad) VALUES
-('Juan Pérez', '612345678', 30),
-('Ana García', '623456789', 25),
-('Carlos Sánchez', '634567890', 40),
-('Laura Gómez', '645678901', 35),
-('Pedro López', '656789012', 28)";
+$sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, Edad, FotoPerfil, Banner) VALUES
+('Juan Pérez', '612345678', 30, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
+('Ana García', '623456789', 25, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
+('Carlos Sánchez', '634567890', 40, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
+('Laura Gómez', '645678901', 35, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
+('Pedro López', '656789012', 28, '../../media/profile/image.jpg', '../../media/banner/image.jpg')";
 verificarEInsertar($conn, 'Pacientes', $sqlInsertPacientes);
+
 
 $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES
 ('juanperez@mail.com','juanperez1','contrasena1', 1),
