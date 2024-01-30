@@ -18,7 +18,7 @@ function getConexion()
     $nombre_bd = "tourette";
     $sqlDB = "CREATE DATABASE IF NOT EXISTS $nombre_bd CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
     if ($conexion->query($sqlDB) === TRUE) {
-        echo "Base de datos creada exitosamente o ya existe.\n";
+        //echo "Base de datos creada exitosamente o ya existe.\n";
         // Si se creó la base de datos, ahora sí seleccionarla
         $conexion->select_db($nombre_bd);
     } else {

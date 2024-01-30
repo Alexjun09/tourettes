@@ -1,5 +1,5 @@
 <?php
-require_once 'conecta.php';
+require_once 'connect.php';
 
 // Obtener la conexión
 $conn = getConexion();
@@ -73,43 +73,43 @@ $sqlInformes = "CREATE TABLE IF NOT EXISTS Informes (
 
 // Ejecutar las consultas para crear las tablas
 if ($conn->query($sqlPacientes) === TRUE) {
-    echo "Tabla 'Pacientes' creada exitosamente o ya existe.<br>";
+    //echo "Tabla 'Pacientes' creada exitosamente o ya existe.<br>";
 } else {
     echo "Error al crear la tabla 'Pacientes': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlCuenta) === TRUE) {
-    echo "Tabla 'Cuenta' creada exitosamente o ya existe.<br>";
+    //echo "Tabla 'Cuenta' creada exitosamente o ya existe.<br>";
 } else {
     echo "Error al crear la tabla 'Cuenta': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlPsicologos) === TRUE) {
-    echo "Tabla 'Psicologos' creada exitosamente o ya existe.<br>";
+    //echo "Tabla 'Psicologos' creada exitosamente o ya existe.<br>";
 } else {
     echo "Error al crear la tabla 'Psicologos': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlForo) === TRUE) {
-    echo "Tabla 'Foro' creada exitosamente o ya existe.<br>";
+    //echo "Tabla 'Foro' creada exitosamente o ya existe.<br>";
 } else {
     echo "Error al crear la tabla 'Foro': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlRespuestas) === TRUE) {
-    echo "Tabla 'Respuestas' creada exitosamente o ya existe.<br>";
+    //echo "Tabla 'Respuestas' creada exitosamente o ya existe.<br>";
 } else {
     echo "Error al crear la tabla 'Respuestas': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlCitas) === TRUE) {
-    echo "Tabla 'Citas' creada exitosamente.<br>";
+    //echo "Tabla 'Citas' creada exitosamente.<br>";
 } else {
     echo "Error al crear la tabla 'Citas': " . $conn->error . "<br>";
 }
 
 if ($conn->query($sqlInformes) === TRUE) {
-    echo "Tabla 'Informes' creada exitosamente.<br>";
+    //echo "Tabla 'Informes' creada exitosamente.<br>";
 } else {
     echo "Error al crear la tabla 'Informes': " . $conn->error . "<br>";
 }
@@ -124,12 +124,12 @@ function verificarEInsertar($conn, $tabla, $sqlInsert)
         $row = $result->fetch_row();
         if ($row[0] == 0) {
             if ($conn->query($sqlInsert) === TRUE) {
-                echo "Datos insertados en '$tabla' exitosamente.<br>";
+                //echo "Datos insertados en '$tabla' exitosamente.<br>";
             } else {
                 echo "Error al insertar datos en '$tabla': " . $conn->error . "<br>";
             }
         } else {
-            echo "La tabla '$tabla' ya tiene datos.<br>";
+            //echo "La tabla '$tabla' ya tiene datos.<br>";
         }
     } else {
         echo "Error al verificar datos en la tabla '$tabla': " . $conn->error . "<br>";
@@ -153,12 +153,12 @@ $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaci
 ('pedrolopez@mail.com', 'pedrolopez5','contrasena5', 5);";
 verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 
-$sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion) VALUES
-('Dr. Hassan Raza', 'Psicología Clínica con énfasis en terapias para el Síndrome de Tourette', 'Santiago de Chile, Chile', 'Español, Inglés', 'Terapias conductuales especializadas, Técnicas de relajación y control de tics', 'Doctorado en Psicología Clínica, Universidad de Santiago de Chile, 2020'),
-('Dra. Rachel Anderson', 'Psicología Pediátrica y Trastornos de Tic', 'Bogotá, Colombia', 'Español, Portugués', 'Intervención cognitivo-conductual, Educación y apoyo a familias', 'Máster en Psicología Pediátrica, Universidad Nacional de Colombia, 2021'),
-('Dr. Carlos Herrera', 'Psicoterapia para trastornos del espectro tic y Síndrome de Tourette', 'Ciudad de México, México', 'Español, Inglés', 'Intervención en psicología positiva, Estrategias de afrontamiento', 'Especialidad en Psicología Clínica, Universidad Nacional Autónoma de México, 2017'),
-('Dra. Laura Gómez', 'Psicología Infantil, enfocada en Síndrome de Tourette', 'Madrid, España', 'Español, Inglés', 'Terapia cognitivo-conductual, Técnicas de modificación de hábitos', 'Máster en Psicología Clínica y de la Salud, Universidad Autónoma de Madrid, 2018'),
-('Dr. David Abioye', 'Psicología Clínica con subespecialidad en Neuropsicología', 'Lagos, Nigeria', 'Inglés, Yoruba, Español', 'Evaluación neuropsicológica, Intervenciones psicoeducativas', 'Doctorado en Psicología Clínica, Universidad de Ibadan, 2019');";
+$sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion, FotoPsicologo) VALUES
+('Dr. Hassan Raza', 'Psicología Clínica con énfasis en terapias para el Síndrome de Tourette', 'Santiago de Chile, Chile', 'Español, Inglés', 'Terapias conductuales especializadas, Técnicas de relajación y control de tics', 'Doctorado en Psicología Clínica, Universidad de Santiago de Chile, 2020','../../media/banner/image.jpg'),
+('Dra. Rachel Anderson', 'Psicología Pediátrica y Trastornos de Tic', 'Bogotá, Colombia', 'Español, Portugués', 'Intervención cognitivo-conductual, Educación y apoyo a familias', 'Máster en Psicología Pediátrica, Universidad Nacional de Colombia, 2021','../../media/banner/image.jpg'),
+('Dr. Carlos Herrera', 'Psicoterapia para trastornos del espectro tic y Síndrome de Tourette', 'Ciudad de México, México', 'Español, Inglés', 'Intervención en psicología positiva, Estrategias de afrontamiento', 'Especialidad en Psicología Clínica, Universidad Nacional Autónoma de México, 2017','../../media/banner/image.jpg'),
+('Dra. Laura Gómez', 'Psicología Infantil, enfocada en Síndrome de Tourette', 'Madrid, España', 'Español, Inglés', 'Terapia cognitivo-conductual, Técnicas de modificación de hábitos', 'Máster en Psicología Clínica y de la Salud, Universidad Autónoma de Madrid, 2018','../../media/banner/image.jpg'),
+('Dr. David Abioye', 'Psicología Clínica con subespecialidad en Neuropsicología', 'Lagos, Nigeria', 'Inglés, Yoruba, Español', 'Evaluación neuropsicológica, Intervenciones psicoeducativas', 'Doctorado en Psicología Clínica, Universidad de Ibadan, 2019','../../media/banner/image.jpg');";
 verificarEInsertar($conn, 'Psicologos', $sqlInsertPsicologos);
 
 $sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES
@@ -187,12 +187,12 @@ $sqlInsertRespuestas = "INSERT INTO Respuestas (Respuesta, IDForo, IDPaciente) V
 ('Hablar abiertamente sobre problemas es el primer paso para resolverlos...', 5, 2)";
 verificarEInsertar($conn, 'Respuestas', $sqlInsertRespuestas);
 
-$sqlInsertCitas = "INSERT INTO Citas (IDPaciente, IDPsicologo, FechaCita, Sintomas) VALUES
-(1, 2, '2024-01-30 09:00:00', 'Ansiedad y dificultad para dormir'),
-(2, 3, '2024-02-05 15:00:00', 'Sentimientos de tristeza y aislamiento'),
-(3, 1, '2024-02-15 11:00:00', 'Estrés y problemas de concentración'),
-(4, 5, '2024-03-01 14:00:00', 'Baja autoestima y ansiedad social'),
-(5, 4, '2024-03-20 16:30:00', 'Dificultades en la gestión de la ira')";
+$sqlInsertCitas = "INSERT INTO Citas (IDPaciente, IDPsicologo, FechaCita, Sintomas, VisitadoAntes) VALUES
+(1, 2, '2024-01-30 09:00:00', 'Ansiedad y dificultad para dormir',1),
+(2, 3, '2024-02-05 15:00:00', 'Sentimientos de tristeza y aislamiento',0),
+(3, 1, '2024-02-15 11:00:00', 'Estrés y problemas de concentración',1),
+(4, 5, '2024-03-01 14:00:00', 'Baja autoestima y ansiedad social',0),
+(5, 4, '2024-03-20 16:30:00', 'Dificultades en la gestión de la ira',0)";
 verificarEInsertar($conn, 'Citas', $sqlInsertCitas);
 
 $sqlInsertInformes = "INSERT INTO Informes (IDPaciente, FechaInforme, RutaPDF) VALUES
