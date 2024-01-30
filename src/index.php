@@ -1,3 +1,7 @@
+<?php
+include 'bbdd/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
