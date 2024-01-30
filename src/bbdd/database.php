@@ -29,7 +29,8 @@ $sqlPsicologos = "CREATE TABLE IF NOT EXISTS Psicologos (
     Ubicacion VARCHAR(255),
     Idiomas VARCHAR(255),
     Metodologia VARCHAR(255),
-    Educacion VARCHAR(255)
+    Educacion VARCHAR(255),
+    FotoPsicologo VARCHAR(255)
 )";
 
 $sqlForo = "CREATE TABLE IF NOT EXISTS Foro (
@@ -57,6 +58,7 @@ $sqlCitas = "CREATE TABLE IF NOT EXISTS Citas (
     IDPsicologo INT,
     FechaCita DATETIME,
     Sintomas TEXT,
+    VisitadoAntes TINYINT NOT NULL DEFAULT 0,
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID),
     FOREIGN KEY (IDPsicologo) REFERENCES Psicologos(ID)
 )";
