@@ -19,12 +19,12 @@
                 <p class="border-2 border-primary px-6 py-4 rounded-full">Crear Cuenta con Google</p>
                 <p class="border-2 border-primary px-6 py-4 rounded-full">Crear Cuenta con Facebook</p>
             </div> -->
-                <form class="flex flex-col gap-8" action="crear_cuenta.php">
-                    <input type="text" placeholder="Nombre Completo" class="outline-none border-b border-black w-full">
-                    <input type="text" placeholder="Nombre de Usuario" class="outline-none border-b border-black w-full">
-                    <input type="email" placeholder="Email" class="outline-none border-b border-black w-full">
-                    <input type="number" placeholder="Teléfono" class="outline-none border-b border-black w-full">
-                    <input type="password" placeholder="Contraseña" class="outline-none border-b border-black w-full">
+                <form class="flex flex-col gap-8" action="crear_cuenta.php" method="post">
+                    <input type="text" name="nombreCompleto" placeholder="Nombre Completo" class="outline-none border-b border-black w-full">
+                    <input type="text" name="nombreUsuario" placeholder="Nombre de Usuario" class="outline-none border-b border-black w-full">
+                    <input type="email" name="email" placeholder="Email" class="outline-none border-b border-black w-full">
+                    <input type="number" name="telefono" placeholder="Teléfono" class="outline-none border-b border-black w-full">
+                    <input type="password" name="contrasena" placeholder="Contraseña" class="outline-none border-b border-black w-full">
                     <button class="rounded-tl-xl rounded-br-xl border-br-xl w-full bg-primary text-white py-2">Crear Cuenta</button>
                 </form>
                 <div class="flex justify-center items-center">
