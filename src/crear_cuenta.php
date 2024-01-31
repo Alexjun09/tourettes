@@ -1,26 +1,28 @@
 <?php
 require_once 'bbdd/connect.php';
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
 
 // Obtener los valores del formulario
 $nombreCompleto = $_POST['nombreCompleto'];
 $nombreUsuario = $_POST['nombreUsuario'];
 $email = $_POST['email'];
 $telefono = $_POST['telefono'];
-$contrasena = $_POST['contrasena']; // Considera usar hashing para la contraseña
+$contrasena = $_POST['contrasena'];
+$conn = getConexion();
+// Hash de la contraseña
+$contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-// Preparar la consulta SQL
-$sql = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena) VALUES ('$email', '$nombreUsuario', '$contrasena')";
+// Insertar en la tabla Pacientes
+$stmt = $conn->prepare("INSERT INTO Pacientes (NombreCompleto, TelefonoMovil) VALUES (?, ?)");
+$stmt->bind_param("ss", $nombreCompleto, $telefono);
+$stmt->execute();
+$idPaciente = $stmt->insert_id; // Obtener el ID del paciente insertado
+$stmt->close();
 
-// Ejecutar la consulta
-if ($conn->query($sql) === TRUE) {
-    echo "Cuenta creada exitosamente";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+// Insertar en la tabla Cuenta
+$stmt = $conn->prepare("INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("sssi", $email, $nombreUsuario, $contrasenaHash, $idPaciente);
+$stmt->execute();
+$stmt->close();
 
 // Cerrar la conexión
 $conn->close();
