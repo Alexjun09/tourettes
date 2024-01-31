@@ -12,16 +12,16 @@
     <div class="h-screen w-screen flex flex-col">
         <!-- header -->
         <div class="px-20 flex flex-row justify-between items-center py-4">
-            <a class="h-16" href="./index.html">
+            <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
             <nav class="flex flex-row gap-10 text-primary text-lg">
-                <a href="./educacion.html">Educación</a>
-                <a href="./pedir-cita.html">Pedir Cita</a>
-                <a href="./comunidad.html">Comunidad</a>
-                <a href="./about-us.html">About Us</a>
+                <a href="./educacion.php">Educación</a>
+                <a href="./pedir-cita.php">Pedir Cita</a>
+                <a href="./comunidad.php">Comunidad</a>
+                <a href="./about-us.php">About Us</a>
             </nav>
-            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.html">Mi Cuenta</a>
+            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
         <!-- body -->
         <div class="flex flex-col w-full h-full items-center justify-between">
