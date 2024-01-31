@@ -71,6 +71,15 @@ $sqlInformes = "CREATE TABLE IF NOT EXISTS Informes (
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
 )";
 
+$sqlContacto = "CREATE TABLE IF NOT EXISTS Contacto (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    NombreCompleto VARCHAR(255) NOT NULL,
+    Telefono VARCHAR(20) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Motivo TEXT NOT NULL,
+    AceptaTerminos TINYINT NOT NULL DEFAULT 0
+)";
+
 // Ejecutar las consultas para crear las tablas
 if ($conn->query($sqlPacientes) === TRUE) {
     //echo "Tabla 'Pacientes' creada exitosamente o ya existe.<br>";
@@ -113,6 +122,13 @@ if ($conn->query($sqlInformes) === TRUE) {
 } else {
     echo "Error al crear la tabla 'Informes': " . $conn->error . "<br>";
 }
+
+if ($conn->query($sqlContacto) === TRUE) {
+    //echo "Tabla 'Contacto' creada exitosamente o ya existe.<br>";
+} else {
+    echo "Error al crear la tabla 'Contacto': " . $conn->error . "<br>";
+}
+
 
 // Función para verificar e insertar datos
 function verificarEInsertar($conn, $tabla, $sqlInsert)
