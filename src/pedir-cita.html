@@ -41,14 +41,14 @@
                     </div>
                 </div>
                 <!-- form -->
-                <form action="" class="flex flex-col justify-center gap-8">
-                    <input type="datetime-local" required placeholder="Fecha"
+                <form action="procesar-cita.php" class="flex flex-col justify-center gap-8">
+                    <input type="datetime-local" name="fecha" required placeholder="Fecha"
                         class="outline-none border-b border-black w-full text-opacity-50">
-                    <input type="text" required placeholder="Motivo de la Consulta"
+                    <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta"
                         class="outline-none border-b border-black w-full">
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
-                        <input type="radio" name="visita" id="si">
-                        <input type="radio" name="visita" id="no">
+                        <input type="radio" name="visita" id="si" value="1">
+                        <input type="radio" name="visita" id="no" value="0">
                     </div>
                     <div class="flex flex-row items-center gap-2">
                         <input type="checkbox" required>
@@ -59,7 +59,6 @@
                             class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-4 px-20 w-fit">Pedir
                             Cita</button>
                     </div>
-
                 </form>
             </div>
         </div>
