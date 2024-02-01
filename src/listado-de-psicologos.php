@@ -1,3 +1,10 @@
+<?php
+require_once './bbdd/database.php';
+// Consulta para obtener los datos de los psicólogos
+$sql = "SELECT * FROM Psicologos";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,13 +44,13 @@
                         <img src="../media/starts.png" alt="" class="w-2/3">
                     </div>
                     <div class="flex flex-col gap-2">
-                        <p class="text-subtitle text-center">Dra. Laura Gómez</p>
+                        <p class="text-subtitle text-center"><?php echo $row['NombreCompleto']; ?></p>
                         <ul class="list-disc">
-                            <li>Especialidad: Psicología Infantil, enfocada en Síndrome de Tourette</li>
-                            <li>Ubicación: Madrid, España</li>
-                            <li>Idiomas: Español, Inglés</li>
-                            <li>Metodología: Terapia cognitivo-conductual, Técnicas de modificación de hábitos</li>
-                            <li>Educación: Máster en Psicología Clínica y de la Salud, Universidad Autónoma de Madrid, 2018</li>
+                            <li>Especialidad: <?php echo $row['Especialidad']; ?></li>
+                            <li>Ubicación: <?php echo $row['Ubicacion']; ?></li>
+                            <li>Idiomas: <?php echo $row['Idiomas']; ?></li>
+                            <li>Metodología: <?php echo $row['Metodologia']; ?></li>
+                            <li>Educación: <?php echo $row['Educacion']; ?></li>
                         </ul>
                         <div class="flex flex-row justify-end items-center">
                             <button class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-xl text-white py-4 px-16">Pedir Cita</button>
