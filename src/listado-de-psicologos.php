@@ -54,7 +54,7 @@ if ($result && $result->num_rows > 0) {
                     <div class="flex flex-col gap-4 w-full px-48">
                         <div class="shadow-2xl grid grid-cols-[1fr_3fr] p-10 w-full gap-10 rounded-lg">
                             <div class="flex flex-col items-center gap-10">
-                            <img src="../../media/psicologos/<?php echo $row['FotoPsicologo']; ?>" alt="Foto del Psicólogo" class="bg-red-400 h-[50%] aspect-square rounded-full border-2 border-white">
+                            <img src="../media/psicologos/<?php echo $row['FotoPsicologo']; ?>" alt="Foto del Psicólogo" class="h-[50%] aspect-square rounded-full border-2 border-white bg-white">
                             <img src="../media/starts.png" alt="Calificación" class="w-2/3">
                             </div>
                             <div class="flex flex-col gap-2">
