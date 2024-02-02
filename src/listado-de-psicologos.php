@@ -58,16 +58,16 @@ if ($result && $result->num_rows > 0) {
                             <img src="../media/starts.png" alt="Calificación" class="w-2/3">
                             </div>
                             <div class="flex flex-col gap-2">
-                                <p class="text-subtitle text-center"><?php echo htmlspecialchars($row['NombreCompleto']); ?></p>
+                                <p class="text-subtitle text-center"><?php echo $row['NombreCompleto']; ?></p>
                                 <ul class="list-disc">
-                                    <li>Especialidad: <?php echo htmlspecialchars($row['Especialidad']); ?></li>
-                                    <li>Ubicación: <?php echo htmlspecialchars($row['Ubicacion']); ?></li>
-                                    <li>Idiomas: <?php echo htmlspecialchars($row['Idiomas']); ?></li>
-                                    <li>Metodología: <?php echo htmlspecialchars($row['Metodologia']); ?></li>
-                                    <li>Educación: <?php echo htmlspecialchars($row['Educacion']); ?></li>
+                                    <li>Especialidad: <?php echo $row['Especialidad']; ?></li>
+                                    <li>Ubicación: <?php echo $row['Ubicacion']; ?></li>
+                                    <li>Idiomas: <?php echo $row['Idiomas']; ?></li>
+                                    <li>Metodología: <?php echo $row['Metodologia']; ?></li>
+                                    <li>Educación: <?php echo $row['Educacion']; ?></li>
                                 </ul>
                                 <div class="flex flex-row justify-end items-center">
-                                    <form action="procesar-cita.php" method="post">
+                                    <form action="pedir-cita.php" method="post">
                                         <input type="hidden" name="psicologo_id" value="<?php echo $row['ID']; ?>">
                                         <button type="submit" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-xl text-white py-4 px-16">Pedir Cita</button>
                                     </form>
