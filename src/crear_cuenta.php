@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'bbdd/connect.php';
 
 // Obtener los valores del formulario
@@ -17,6 +18,7 @@ $stmt = $conn->prepare("INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, Fo
 $stmt->bind_param("ss", $nombreCompleto, $telefono);
 $stmt->execute();
 $idPaciente = $stmt->insert_id; // Obtener el ID del paciente insertado
+$_SESSION['idPaciente'] = $idPaciente;
 $stmt->close();
 
 // Insertar en la tabla Cuenta
