@@ -31,7 +31,7 @@ require_once './bbdd/database.php';
         <div class="flex flex-col w-full h-full items-end justify-center relative overflow-hidden">
             <!-- <img src="../media/bg-index.png" alt="bgindex" class="w-full z-10"> -->
             <video src="../media/videoindex.mp4" muted autoplay loop class="w-full z-10"></video>
-            <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full w-full">
+            <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full w-min">
                 <div class="flex flex-col gap-2 text-title text-right text-white items-end">
                     <p class="">Centro de Excelencia en el</p>
                     <p class="flex flex-row">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
