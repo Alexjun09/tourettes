@@ -27,7 +27,7 @@ $stmt->bind_param("sssi", $email, $nombreUsuario, $contrasenaHash, $idPaciente);
 
 if ($stmt->execute()) {
     // Redirigir a editar-mi-cuenta.html después del registro exitoso
-    header("Location: editar-mi-cuenta.html");
+    header("Location: editar-mi-cuenta.php");
     exit();
 } else {
     echo "Error al crear la cuenta: " . $stmt->error;

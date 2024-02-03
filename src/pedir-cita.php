@@ -1,3 +1,14 @@
+<?php
+// Comprueba si el ID del psicólogo se ha pasado a través de POST
+if (!isset($_POST['psicologo_id'])) {
+    // Redirige al usuario de vuelta al listado de psicólogos o muestra un mensaje de error
+    header('Location: listado-de-psicologos.php');
+    exit; 
+}
+$psicologo_id = $_POST['psicologo_id']; 
+echo $_POST['psicologo_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +52,10 @@
                     </div>
                 </div>
                 <!-- form -->
-                <form action="procesar-cita.php" class="flex flex-col justify-center gap-8">
-                    <input type="datetime-local" name="fecha" required placeholder="Fecha"
-                        class="outline-none border-b border-black w-full text-opacity-50">
-                    <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta"
-                        class="outline-none border-b border-black w-full">
+                <form id="form-cita" action="procesar-cita.php" class="flex flex-col justify-center gap-8">
+                    <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
+                    <input type="datetime-local" name="fecha" required placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
+                    <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
                         <input type="radio" name="visita" id="si" value="1">
                         <input type="radio" name="visita" id="no" value="0">
@@ -55,11 +65,11 @@
                         <p>Terminos y condiciones</p>
                     </div>
                     <div class="flex justify-center w-full">
-                        <button type="submit"
-                            class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-4 px-20 w-fit">Pedir
+                        <button type="submit" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-4 px-20 w-fit">Pedir
                             Cita</button>
                     </div>
                 </form>
+                <div id="div-errores"></div>
             </div>
         </div>
     </div>
@@ -78,6 +88,7 @@
             </a>
         </div>
     </div>
+    <script src="procesar-cita.js"></script>
 </body>
 
 </html>
