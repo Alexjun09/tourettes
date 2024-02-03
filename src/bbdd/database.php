@@ -71,6 +71,15 @@ $sqlInformes = "CREATE TABLE IF NOT EXISTS Informes (
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
 )";
 
+$sqlContacto = "CREATE TABLE IF NOT EXISTS Contacto (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    NombreCompleto VARCHAR(255) NOT NULL,
+    Telefono VARCHAR(20) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Motivo TEXT NOT NULL,
+    AceptaTerminos TINYINT NOT NULL DEFAULT 0
+)";
+
 // Ejecutar las consultas para crear las tablas
 if ($conn->query($sqlPacientes) === TRUE) {
     //echo "Tabla 'Pacientes' creada exitosamente o ya existe.<br>";
@@ -114,6 +123,13 @@ if ($conn->query($sqlInformes) === TRUE) {
     echo "Error al crear la tabla 'Informes': " . $conn->error . "<br>";
 }
 
+if ($conn->query($sqlContacto) === TRUE) {
+    //echo "Tabla 'Contacto' creada exitosamente o ya existe.<br>";
+} else {
+    echo "Error al crear la tabla 'Contacto': " . $conn->error . "<br>";
+}
+
+
 // Función para verificar e insertar datos
 function verificarEInsertar($conn, $tabla, $sqlInsert)
 {
@@ -154,11 +170,12 @@ $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaci
 verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 
 $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion, FotoPsicologo) VALUES
-('Dr. Hassan Raza', 'Psicología Clínica con énfasis en terapias para el Síndrome de Tourette', 'Santiago de Chile, Chile', 'Español, Inglés', 'Terapias conductuales especializadas, Técnicas de relajación y control de tics', 'Doctorado en Psicología Clínica, Universidad de Santiago de Chile, 2020','../../media/banner/image.jpg'),
-('Dra. Rachel Anderson', 'Psicología Pediátrica y Trastornos de Tic', 'Bogotá, Colombia', 'Español, Portugués', 'Intervención cognitivo-conductual, Educación y apoyo a familias', 'Máster en Psicología Pediátrica, Universidad Nacional de Colombia, 2021','../../media/banner/image.jpg'),
-('Dr. Carlos Herrera', 'Psicoterapia para trastornos del espectro tic y Síndrome de Tourette', 'Ciudad de México, México', 'Español, Inglés', 'Intervención en psicología positiva, Estrategias de afrontamiento', 'Especialidad en Psicología Clínica, Universidad Nacional Autónoma de México, 2017','../../media/banner/image.jpg'),
-('Dra. Laura Gómez', 'Psicología Infantil, enfocada en Síndrome de Tourette', 'Madrid, España', 'Español, Inglés', 'Terapia cognitivo-conductual, Técnicas de modificación de hábitos', 'Máster en Psicología Clínica y de la Salud, Universidad Autónoma de Madrid, 2018','../../media/banner/image.jpg'),
-('Dr. David Abioye', 'Psicología Clínica con subespecialidad en Neuropsicología', 'Lagos, Nigeria', 'Inglés, Yoruba, Español', 'Evaluación neuropsicológica, Intervenciones psicoeducativas', 'Doctorado en Psicología Clínica, Universidad de Ibadan, 2019','../../media/banner/image.jpg');";
+('Dr. Hassan Raza', 'Psicología Clínica con énfasis en terapias para el Síndrome de Tourette', 'Santiago de Chile, Chile', 'Español, Inglés', 'Terapias conductuales especializadas, Técnicas de relajación y control de tics', 'Doctorado en Psicología Clínica, Universidad de Santiago de Chile, 2020','../../media/psicologos/psicologo6.jpg'),
+('Dra. Rachel Anderson', 'Psicología Pediátrica y Trastornos de Tic', 'Bogotá, Colombia', 'Español, Portugués', 'Intervención cognitivo-conductual, Educación y apoyo a familias', 'Máster en Psicología Pediátrica, Universidad Nacional de Colombia, 2021','../../media/psicologos/psicologa5.jpg'),
+('Dr. Carlos Herrera', 'Psicoterapia para trastornos del espectro tic y Síndrome de Tourette', 'Ciudad de México, México', 'Español, Inglés', 'Intervención en psicología positiva, Estrategias de afrontamiento', 'Especialidad en Psicología Clínica, Universidad Nacional Autónoma de México, 2017','../../media/psicologos/psicologo4.jpg'),
+('Dra. Laura Gómez', 'Psicología Infantil, enfocada en Síndrome de Tourette', 'Madrid, España', 'Español, Inglés', 'Terapia cognitivo-conductual, Técnicas de modificación de hábitos', 'Máster en Psicología Clínica y de la Salud, Universidad Autónoma de Madrid, 2018','../../media/psicologos/psicologa1.jpg'),
+('Dra. Sofia Tan', 'Psicología del Desarrollo y Trastornos del Movimiento', 'Buenos Aires, Argentina', 'Español, Chino Mandarín', 'Terapia de aceptación y compromiso, Entrenamiento en manejo de tics', 'Máster en Psicología del Desarrollo, Universidad de Buenos Aires, 2020', '../../media/psicologos/psicologo3.jpg'),
+('Dr. David Abioye', 'Psicología Clínica con subespecialidad en Neuropsicología', 'Lagos, Nigeria', 'Inglés, Yoruba, Español', 'Evaluación neuropsicológica, Intervenciones psicoeducativas', 'Doctorado en Psicología Clínica, Universidad de Ibadan, 2019','../../media/psicologos/psicologo2.jpg');";
 verificarEInsertar($conn, 'Psicologos', $sqlInsertPsicologos);
 
 $sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES

@@ -21,24 +21,22 @@ require_once './bbdd/database.php';
             </a>
             <nav class="flex flex-row gap-10 text-primary text-lg">
                 <a href="./educacion.html">Educación</a>
-                <a href="./pedir-cita.php">Pedir Cita</a>
+                <a href="./listado-de-psicologos.php">Pedir Cita</a>
                 <a href="./comunidad.html">Comunidad</a>
                 <a href="./about-us.html">About Us</a>
             </nav>
-            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10"
-                href="./mi-cuenta.html">Mi Cuenta</a>
+            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.html">Mi Cuenta</a>
         </div>
         <!-- body -->
         <div class="flex flex-col w-full h-full items-end justify-center relative overflow-hidden">
             <!-- <img src="../media/bg-index.png" alt="bgindex" class="w-full z-10"> -->
             <video src="../media/videoindex.mp4" muted autoplay loop class="w-full z-10"></video>
-            <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full">
+            <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full w-min">
                 <div class="flex flex-col gap-2 text-title text-right text-white items-end">
                     <p class="">Centro de Excelencia en el</p>
                     <p class="flex flex-row">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
                 </div>
-                <a class="rounded-full border-2 border-white text-white px-20 py-2 text-2xl"
-                    href="./pedir-cita.html">Pedir Cita</a>
+                <a class="rounded-full border-2 border-white text-white px-20 py-2 text-2xl w-fit" href="./listado-de-psicologos.php">Pedir Cita</a>
             </div>
         </div>
     </div>
