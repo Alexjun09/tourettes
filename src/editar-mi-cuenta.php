@@ -1,3 +1,62 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['idPaciente'])) {
+    
+    header('Location: sign-in.html');
+    exit();
+}
+
+$idPaciente = $_SESSION['idPaciente']; 
+
+require_once 'bbdd/connect.php'; 
+
+$conn = getConexion(); 
+
+ 
+$query = "SELECT NombreCompleto, TelefonoMovil FROM Pacientes WHERE ID = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $idPaciente);
+$stmt->execute();
+$stmt->bind_result($nombreCompleto, $telefonoMovil);
+$stmt->fetch();
+
+
+$query2 = "SELECT Email FROM cuenta WHERE IDPaciente = ?";
+$stmt2 = $conn->prepare($query2);
+$stmt2->bind_param("i", $idPaciente);
+$stmt2->execute();
+$stmt2->bind_result($email);
+$stmt2->fetch();
+$stmt2->close();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+    $edad = $_POST['edad'];
+
+    $conn = getConexion();
+
+    // Prepara la sentencia SQL para actualizar los datos del paciente
+    $stmt = $conn->prepare("UPDATE Pacientes SET NombreCompleto = ?, TelefonoMovil = ?, Edad = ? WHERE ID = ?");
+    $stmt->bind_param("ssiii", $nombre, $telefono, $edad, $idPaciente);
+
+    if ($stmt->execute()) {
+        echo "Datos actualizados correctamente.";
+        header('Location: mi-cuenta.php');
+    } else {
+        echo "Error al actualizar los datos.";
+    }
+
+}
+
+    $stmt->close();
+    $conn->close();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,13 +115,13 @@
                 </div>
                 <div class="w-full flex flex-col items-center">
                     <form action="" class="flex flex-col gap-8 w-1/2 justify-center z-40">
-                        <input type="text" required placeholder="Nombre"
+                        <input type="text" value="<?php echo $nombreCompleto; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="email" required placeholder="Email"
+                        <input type="email" value="<?php echo $email; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="number" required placeholder="Telefono"
+                        <input type="number" value="<?php echo $telefonoMovil; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="number" required placeholder="Edad"
+                        <input type="number"  placeholder="Edad"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <div class="flex flex-row items-center justify-between">
                             <a href="./mi-cuenta.html"
