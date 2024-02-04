@@ -37,7 +37,7 @@ require_once './bbdd/database.php';
                 
             </div> -->
             <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full w-full">
-                <div class="flex flex-col gap-2 text-right text-red-400 items-end">
+                <div class="flex flex-col gap-2 text-right text-white items-end">
                     <p class="text-[100px]" style="font-size: 82px;">Centro de Excelencia en el</p>
                     <p class="text-[100px]" style="font-size: 82px;">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
                 </div>

@@ -1,8 +1,8 @@
 <?php
 session_start(); // Iniciar la sesión al principio de tu script
-
+echo $_SESSION['idPaciente']; 
 // Verificar que hay una sesión de paciente y que el método de solicitud es POST
-if (!isset($_SESSION['idPaciente']) || $_SERVER["REQUEST_METHOD"] != "POST") {
+if (!isset($_SESSION['idPaciente'])) {
     // Si no se cumple alguna de las condiciones, mostrar un mensaje de error y salir del script
     echo "No está autorizado para ver esta página.";
     exit;
