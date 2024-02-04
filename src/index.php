@@ -37,9 +37,9 @@ require_once './bbdd/database.php';
                 
             </div> -->
             <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full w-full">
-                <div class="flex flex-col gap-2 text-right text-red-500 items-end">
-                    <p class="text-[100px]">Centro de Excelencia en el</p>
-                    <p class="text-[100px]">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
+                <div class="flex flex-col gap-2 text-right text-white items-end">
+                    <p class="text-[100px]" style="font-size: 82px;">Centro de Excelencia en el</p>
+                    <p class="text-[100px]" style="font-size: 82px;">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
                 </div>
                 <a class="rounded-full border-2 border-white text-white px-20 py-2 text-2xl w-fit" href="./listado-de-psicologos.php">Pedir Cita</a>
             </div>

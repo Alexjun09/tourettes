@@ -1,4 +1,12 @@
 <?php
+session_start(); // Iniciar la sesión al principio de tu script
+
+// Redirige si el usuario no está logueado
+if (!isset($_SESSION['idPaciente'])) {
+    header('Location: sign-in.html');
+    exit;
+}
+
 require_once './bbdd/database.php';
 
 // Comprueba si el ID del psicólogo se ha pasado a través de POST
@@ -7,8 +15,9 @@ if (!isset($_POST['psicologo_id'])) {
     header('Location: listado-de-psicologos.php');
     exit;
 }
-$psicologo_id = $_POST['psicologo_id'];
 
+$psicologo_id = $_POST['psicologo_id'];
+$paciente_id = $_SESSION['idPaciente'];
 // Obtener la conexión
 $conn = getConexion();
 
@@ -73,7 +82,7 @@ if ($result && $result->num_rows > 0) {
                     <?php endif; ?>
                 </div>
                 <!-- form -->
-                <form id="form-cita" action="procesar-cita.php" class="flex flex-col justify-center gap-8">
+                <form id="form-cita" action="procesar-cita.php" method="post" class="flex flex-col justify-center gap-8">
                     <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
                     <input type="datetime-local" name="fecha" required placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
                     <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
