@@ -36,7 +36,7 @@
                         <img src="../media/educacion1.png" alt="" class="float-left w-[500px] mb-10 mr-10">
                         <p class="text-subtitle">Entendiendo el Síndrome de Tourette</p>
                         <br>
-                        <p class="text-body">El Síndrome de Tourette es un trastorno neuropsiquiátrico con inicio en la infancia,
+                        <p class="text-body bg-yellow-900">El Síndrome de Tourette es un trastorno neuropsiquiátrico con inicio en la infancia,
                             caracterizado por múltiples tics motores y al menos un tic vocal. Estos tics suelen ser
                             repentinos, rápidos y recurrentes movimientos o sonidos. El trastorno lleva el nombre del médico
                             francés Georges Gilles de la Tourette, quien fue el primero en describir esta condición en 1885.

@@ -37,9 +37,9 @@ require_once './bbdd/database.php';
                 
             </div> -->
             <div class="flex flex-col text-right items-end justify-between py-52 px-20 z-30 absolute h-full w-full">
-                <div class="flex flex-col gap-2 text-right text-red-400 items-end">
-                    <p class="text-[100px]" style="font-size: 82px;">Centro de Excelencia en el</p>
-                    <p class="text-[100px]" style="font-size: 82px;">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
+                <div class="flex flex-col gap-2 text-right text-red-500 items-end">
+                    <p class="text-[100px]">Centro de Excelencia en el</p>
+                    <p class="text-[100px]">Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
                 </div>
                 <a class="rounded-full border-2 border-white text-white px-20 py-2 text-2xl w-fit" href="./listado-de-psicologos.php">Pedir Cita</a>
             </div>
@@ -56,7 +56,7 @@ require_once './bbdd/database.php';
                 <div class="w-96 shadow-lg shadow-primary bg-white h-[550px] relative flex flex-col items-center">
                     <img src="../media/elipse.png" alt="" class="absolute z-10">
                     <img src="../media/doc.png" alt="" class="absolute z-20 mt-8 w-32 h-32">
-                    <div class="px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
+                    <div class="px-10 flex flex-col gap-6 text-center h-full justify-center py-16 bg-red-100">
                         <p class="text-2xl">Dra Rachel Anderson</p>
                         <p class="text-base">Psiquiatra experta en síndrome de Tourette, dedicado a mejorar las
                             estrategias de manejo de tics.</p>
