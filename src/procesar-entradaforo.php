@@ -1,11 +1,16 @@
 <?php
-require_once 'connect.php'; 
+require_once './bbdd/connect.php'; 
 
 session_start();
 
+// Verificar que hay una sesión de paciente y que el método de solicitud es POST
 if (!isset($_SESSION['idPaciente'])) {
-    die("No estás autorizado para realizar esta acción.");
+    // Si no se cumple alguna de las condiciones, mostrar un mensaje de error y salir del script
+    echo "No está autorizado para ver esta página.";
+    exit;
 }
+
+require_once './bbdd/connect.php'; // Conectar a la base de datos
 
 $idPaciente = $_SESSION['idPaciente'];
 
@@ -20,8 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
     if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == 0) {
         $nombreArchivo = basename($_FILES['archivo']['name']);
         $rutaArchivo = '../media/entradaforo/' . $nombreArchivo;
-        
-        // Validaciones de seguridad para el archivo aquí (tipo, tamaño, etc.)
 
         if (move_uploaded_file($_FILES['archivo']['tmp_name'], $rutaArchivo)) {
             $archivo = $rutaArchivo;
@@ -45,4 +48,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
 }
 
 $conn->close();
-
