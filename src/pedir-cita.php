@@ -1,3 +1,32 @@
+<?php
+require_once './bbdd/database.php';
+
+// Comprueba si el ID del psicólogo se ha pasado a través de POST
+if (!isset($_POST['psicologo_id'])) {
+    // Redirige al usuario de vuelta al listado de psicólogos o muestra un mensaje de error
+    header('Location: listado-de-psicologos.php');
+    exit;
+}
+$psicologo_id = $_POST['psicologo_id'];
+
+// Obtener la conexión
+$conn = getConexion();
+
+// Consulta para obtener los datos del psicólogo seleccionado
+$sql = "SELECT NombreCompleto, Especialidad, FotoPsicologo FROM Psicologos WHERE ID = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $psicologo_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result && $result->num_rows > 0) {
+    $psicologo = $result->fetch_assoc(); // Datos del psicólogo
+} else {
+    echo "No se encontró el psicólogo";
+    $psicologo = null; // Asegurarse de que psicologo es null si no hay resultados
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,20 +61,22 @@
             <div class="grid grid-cols-2 w-full h-full px-44 py-12">
                 <!-- card -->
                 <div class="w-96 shadow-md shadow-primary h-full relative flex flex-col items-center">
-                    <img src="../media/elipse.png" alt="" class="absolute z-10">
-                    <img src="../media/face.png" alt="" class="absolute z-20 mt-8 w-32 h-32">
-                    <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16">
-                        <p class="text-2xl">Dra Rachel Anderson</p>
-                        <p class="text-base">Psiquiatra experta en síndrome de Tourette</p>
-                        <img src="../media/maps.png" alt="">
-                    </div>
+                    <?php if ($psicologo) : ?>
+                        <img src="../media/elipse.png" alt="" class="absolute z-10">
+                        <img src="../media/psicologos/<?php echo $psicologo['FotoPsicologo']; ?>" alt="" class="absolute z-20 mt-8 w-32 h-32">
+                        <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16">
+                            <p class="text-2xl"><?php echo $psicologo['NombreCompleto']; ?></p>
+                            <p class="text-base"><?php echo $psicologo['Especialidad']; ?></p>
+                            <img src="../media/maps.png" alt="">
+                        </div>
+                    <?php else : ?>
+                    <?php endif; ?>
                 </div>
                 <!-- form -->
-                <form action="procesar-cita.php" class="flex flex-col justify-center gap-8">
-                    <input type="datetime-local" name="fecha" required placeholder="Fecha"
-                        class="outline-none border-b border-black w-full text-opacity-50">
-                    <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta"
-                        class="outline-none border-b border-black w-full">
+                <form id="form-cita" action="procesar-cita.php" class="flex flex-col justify-center gap-8">
+                    <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
+                    <input type="datetime-local" name="fecha" required placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
+                    <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
                         <input type="radio" name="visita" id="si" value="1">
                         <input type="radio" name="visita" id="no" value="0">
@@ -55,11 +86,11 @@
                         <p>Terminos y condiciones</p>
                     </div>
                     <div class="flex justify-center w-full">
-                        <button type="submit"
-                            class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-4 px-20 w-fit">Pedir
+                        <button type="submit" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-4 px-20 w-fit">Pedir
                             Cita</button>
                     </div>
                 </form>
+                <div id="div-errores"></div>
             </div>
         </div>
     </div>
@@ -78,6 +109,7 @@
             </a>
         </div>
     </div>
+    <script src="procesar-cita.js"></script>
 </body>
 
 </html>

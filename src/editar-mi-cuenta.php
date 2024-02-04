@@ -1,3 +1,68 @@
+<?php
+session_start();
+
+// Redirige si el usuario no está logueado
+if (!isset($_SESSION['idPaciente'])) {
+    header('Location: sign-in.html');
+    exit();
+}
+
+$idPaciente = $_SESSION['idPaciente']; 
+
+// Incluye el archivo de conexión a la base de datos
+require_once 'bbdd/connect.php'; 
+$conn = getConexion(); 
+
+// Primera consulta para obtener nombre completo y teléfono móvil
+$query = "SELECT NombreCompleto, TelefonoMovil FROM Pacientes WHERE ID = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $idPaciente);
+$stmt->execute();
+$stmt->bind_result($nombreCompleto, $telefonoMovil);
+$stmt->fetch();
+$stmt->close(); // Asegura cerrar la sentencia después de su uso
+
+// Segunda consulta para obtener el email
+$query2 = "SELECT Email FROM cuenta WHERE IDPaciente = ?";
+$stmt2 = $conn->prepare($query2);
+$stmt2->bind_param("i", $idPaciente);
+$stmt2->execute();
+$stmt2->bind_result($email);
+$stmt2->fetch();
+$stmt2->close(); // Asegura cerrar la sentencia después de su uso
+
+// Verifica si el formulario se ha enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recolecta los datos del formulario
+    $nombre = $_POST['nombre'] ?? ''; // Utiliza el operador de fusión null para manejar valores no definidos
+    $email = $_POST['email'] ?? '';
+    $telefono = $_POST['telefono'] ?? '';
+    $edad = $_POST['edad'] ?? 0; // Asume 0 si no se proporciona edad
+
+    // Prepara la sentencia SQL para actualizar los datos del paciente
+    $query = "UPDATE Pacientes SET NombreCompleto = ?, TelefonoMovil = ?, Edad = ? WHERE ID = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssii", $nombre, $telefono, $edad, $idPaciente);
+
+    if ($stmt->execute()) {
+        echo "Datos actualizados correctamente.";
+        $stmt->close(); // Cierra la sentencia después de su uso
+        $conn->close(); // Cierra la conexión a la base de datos
+        header('Location: mi-cuenta.php');
+        exit();
+    } else {
+        echo "Error al actualizar los datos.";
+        $stmt->close(); // Asegura cerrar la sentencia incluso si hay un error
+    }
+}
+
+// Cierra la conexión a la base de datos si todavía está abierta
+if ($conn) {
+    $conn->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,13 +121,13 @@
                 </div>
                 <div class="w-full flex flex-col items-center">
                     <form action="" class="flex flex-col gap-8 w-1/2 justify-center z-40">
-                        <input type="text" required placeholder="Nombre"
+                        <input type="text" value="<?php echo $nombreCompleto; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="email" required placeholder="Email"
+                        <input type="email" value="<?php echo $email; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="number" required placeholder="Telefono"
+                        <input type="number" value="<?php echo $telefonoMovil; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="number" required placeholder="Edad"
+                        <input type="number"  placeholder="Edad"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <div class="flex flex-row items-center justify-between">
                             <a href="./mi-cuenta.html"

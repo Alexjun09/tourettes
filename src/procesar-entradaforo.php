@@ -1,44 +1,48 @@
 <?php
 require_once 'connect.php'; 
 
-// Iniciar sesión para usar `$_SESSION`
 session_start();
 
-// Obtener la conexión
+if (!isset($_SESSION['idPaciente'])) {
+    die("No estás autorizado para realizar esta acción.");
+}
+
+$idPaciente = $_SESSION['idPaciente'];
+
 $conn = getConexion();
 
-// Verificar si el formulario fue enviado
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Asegúrate de que el usuario aceptó los términos
-    if (!isset($_POST['terminos'])) {
-        die("Debes aceptar los términos y condiciones.");
-    }
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
+    $titulo = $_POST['title'];
+    $palabrasClave = $_POST['palabrasclave'];
+    $cuerpo = $_POST['cuerpo'];
 
-    // Obtener datos del formulario
-    $titulo = $conn->real_escape_string($_POST['title']);
-    $palabrasClave = $conn->real_escape_string($_POST['palabrasclave']);
-    $cuerpo = $conn->real_escape_string($_POST['cuerpo']);
-    $idPaciente = $_SESSION['idPaciente']; // Reemplaza esto con la lógica adecuada para obtener el ID del paciente
-
-    // Procesar archivo subido si existe
     $archivo = "";
     if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == 0) {
-        $archivo = '../media/entradaforo' . basename($_FILES['archivo']['name']);
-        if (!move_uploaded_file($_FILES['archivo']['tmp_name'], $archivo)) {
+        $nombreArchivo = basename($_FILES['archivo']['name']);
+        $rutaArchivo = '../media/entradaforo/' . $nombreArchivo;
+        
+        // Validaciones de seguridad para el archivo aquí (tipo, tamaño, etc.)
+
+        if (move_uploaded_file($_FILES['archivo']['tmp_name'], $rutaArchivo)) {
+            $archivo = $rutaArchivo;
+        } else {
             die("Error al subir archivo.");
         }
     }
 
-    // Crear consulta para insertar los datos en la base de datos
-    $sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES ('$titulo', '$palabrasClave', '$archivo', '$cuerpo', $idPaciente)";
+    $stmt = $conn->prepare("INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssi", $titulo, $palabrasClave, $archivo, $cuerpo, $idPaciente);
 
-    // Ejecutar la consulta
-    if ($conn->query($sqlInsertForo) === TRUE) {
+    if ($stmt->execute()) {
         echo "Nuevo registro en el foro creado exitosamente.";
     } else {
-        echo "Error: " . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+    
+    $stmt->close();
+} else {
+    echo "Debes aceptar los términos y condiciones o hacer una solicitud POST.";
 }
 
-// Cerrar la conexión
 $conn->close();
+

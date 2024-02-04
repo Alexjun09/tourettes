@@ -1,3 +1,38 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['idPaciente'])) {
+    
+    header('Location: sign-in.html');
+    exit();
+}
+
+$idPaciente = $_SESSION['idPaciente']; 
+
+require_once 'bbdd/connect.php'; 
+
+$conn = getConexion(); 
+
+// 
+$query = "SELECT NombreCompleto, TelefonoMovil FROM Pacientes WHERE ID = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $idPaciente);
+$stmt->execute();
+$stmt->bind_result($nombreCompleto, $telefonoMovil);
+$stmt->fetch();
+$stmt->close();
+
+$query2 = "SELECT Email FROM cuenta WHERE IDPaciente = ?";
+$stmt2 = $conn->prepare($query2);
+$stmt2->bind_param("i", $idPaciente);
+$stmt2->execute();
+$stmt2->bind_result($email);
+$stmt2->fetch();
+$stmt2->close();
+$conn->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,9 +68,9 @@
         <div class="w-full h-full bg-contraste flex flex-col items-center">
             <div class="flex flex-row w-full">
                 <div class="p-20 flex flex-col items-center bg-secondary rounded-r-2xl w-fit text-white">
-                    <p>Name</p>
-                    <p>Email</p>
-                    <p>Nº Tel</p>
+                <p><?php echo $nombreCompleto; ?></p>
+                <p><?php echo $email; ?></p>
+                <p><?php echo $telefonoMovil; ?></p>
                     <br><br>
                     <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-fit"
                         href="./editar-mi-cuenta.html">Editar</a>
