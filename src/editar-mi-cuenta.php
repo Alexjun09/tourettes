@@ -85,7 +85,7 @@ if ($conn) {
             <a href="./comunidad.html">Comunidad</a>
             <a href="./about-us.html">About Us</a>
         </nav>
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.html">Mi
+        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi
             Cuenta</a>
     </div>
     <!-- body -->
@@ -130,7 +130,7 @@ if ($conn) {
                         <input type="number"  placeholder="Edad"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <div class="flex flex-row items-center justify-between">
-                            <a href="./mi-cuenta.html"
+                            <a href="./mi-cuenta.php"
                                 class="rounded-tr-xl rounded-bl-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Cancelar</a>
                             <button type="submit"
                                 class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Editar</button>

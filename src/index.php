@@ -25,7 +25,7 @@ require_once './bbdd/database.php';
                 <a href="./comunidad.html">Comunidad</a>
                 <a href="./about-us.html">About Us</a>
             </nav>
-            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.html">Mi Cuenta</a>
+            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
         <!-- body -->
         <div class="flex flex-col w-full h-full items-end justify-center relative overflow-hidden">

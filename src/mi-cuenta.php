@@ -73,7 +73,7 @@ $conn->close();
                 <p><?php echo $telefonoMovil; ?></p>
                     <br><br>
                     <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-fit"
-                        href="./editar-mi-cuenta.html">Editar</a>
+                        href="./editar-mi-cuenta.php">Editar</a>
                 </div>
                 <div class="flex flex-col">
                     <!-- mis citas -->
