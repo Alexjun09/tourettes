@@ -31,7 +31,7 @@ if ($result && $result->num_rows > 0) {
     <div class="h-screen w-screen flex flex-col">
         <!-- header -->
         <div class="px-20 flex flex-row justify-between items-center py-4">
-            <a class="h-16" href="./index.html">
+            <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
             <nav class="flex flex-row gap-10 text-primary text-lg">
