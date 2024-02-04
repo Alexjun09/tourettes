@@ -1,38 +1,43 @@
 <?php
-require_once 'connect.php'; 
-
-// Iniciar sesión para usar `$_SESSION`
 session_start();
+require_once './bbdd/connect.php'; 
 
-// Obtener la conexión
+// Verificar si el usuario está logueado y si el ID del foro está establecido en la sesión
+if (!isset($_SESSION['idPaciente']) || !isset($_SESSION['idForo'])) {
+    echo "No está autorizado para ver esta página.";
+    exit;
+}
+
+// Obtener la conexión a la base de datos
 $conn = getConexion();
 
 // Verificar si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Obtener datos del formulario
+    // Escapar el contenido del cuerpo para evitar inyecciones SQL
     $cuerpo = $conn->real_escape_string($_POST['cuerpo']);
-    $idForo = $_SESSION['idForo']; // Este valor debería establecerse de alguna manera, tal vez mantenido en la sesión o pasado en el formulario como un campo oculto
-    $idPaciente = $_SESSION['idPaciente']; // Asume que has almacenado el ID del paciente en la sesión
+    
+    // Asignar ID del foro e ID del paciente desde la sesión
+    $idForo = $_SESSION['idForo'];
+    $idPaciente = $_SESSION['idPaciente'];
 
-    // Procesar archivo subido si existe
-    $archivo = "";
-    if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] == 0) {
-        $archivo = '../media/respuestaforo' . basename($_FILES['archivo']['name']);
-        if (!move_uploaded_file($_FILES['archivo']['tmp_name'], $archivo)) {
-            die("Error al subir archivo.");
-        }
-    }
-
-    // Crear consulta para insertar los datos en la base de datos
-    $sqlInsertRespuesta = "INSERT INTO Respuestas (Respuesta, IDForo, IDPaciente) VALUES ('$cuerpo', $idForo, $idPaciente)";
+    // Preparar la consulta SQL usando sentencias preparadas para evitar inyecciones SQL
+    // Nota: He quitado la columna 'Archivo' de la consulta ya que no estamos procesando un archivo
+    $stmt = $conn->prepare("INSERT INTO Respuestas (Respuesta, IDForo, IDPaciente) VALUES (?, ?, ?)");
+    $stmt->bind_param("sii", $cuerpo, $idForo, $idPaciente);
 
     // Ejecutar la consulta
-    if ($conn->query($sqlInsertRespuesta) === TRUE) {
+    if ($stmt->execute()) {
         echo "Nueva respuesta en el foro creada exitosamente.";
     } else {
-        echo "Error: " . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+
+    // Cerrar la sentencia preparada
+    $stmt->close();
+} else {
+    echo "Error en el envío de la respuesta";
 }
 
-// Cerrar la conexión
+// Cerrar la conexión a la base de datos
 $conn->close();
+?>
