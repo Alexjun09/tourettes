@@ -84,7 +84,6 @@ if ($result && $result->num_rows > 0) {
                 <!-- form -->
                 <form id="form-cita" action="procesar-cita.php" method="post" class="flex flex-col justify-center gap-8">
                     <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
-                    <?php echo $_SESSION['idPaciente']; ?>
                     <input type="datetime-local" name="fecha" required placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
                     <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
