@@ -44,6 +44,7 @@ if ($result && $result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./output.css">
     <title>Pedir Cita</title>
+    <script src="procesar-cita.js"></script>
 </head>
 
 <body class="grid grid-rows-[1fr_min-content] text-primary">
@@ -84,14 +85,14 @@ if ($result && $result->num_rows > 0) {
                 <!-- form -->
                 <form id="form-cita" action="procesar-cita.php" method="post" class="flex flex-col justify-center gap-8">
                     <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
-                    <input type="datetime-local" name="fecha" required placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
-                    <input type="text" name="motivo_consulta" required placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
+                    <input type="datetime-local" name="fecha"  placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
+                    <input type="text" name="motivo_consulta"  placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
                         <input type="radio" name="visita" id="si" value="1">
                         <input type="radio" name="visita" id="no" value="0">
                     </div>
                     <div class="flex flex-row items-center gap-2">
-                        <input type="checkbox" required>
+                        <input type="checkbox" >
                         <p>Terminos y condiciones</p>
                     </div>
                     <div class="flex justify-center w-full">
@@ -118,7 +119,7 @@ if ($result && $result->num_rows > 0) {
             </a>
         </div>
     </div>
-    <script src="procesar-cita.js"></script>
+    
 </body>
 
 </html>
