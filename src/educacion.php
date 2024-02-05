@@ -16,7 +16,7 @@
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
             <nav class="flex flex-row gap-10 text-primary text-lg">
-                <a href="./educacion.html">Educación</a>
+                <a href="./educacion.php">Educación</a>
                 <a href="./listado-de-psicologos.php">Pedir Cita</a>
                 <a href="./comunidad.html">Comunidad</a>
                 <a href="./about-us.html">About Us</a>
