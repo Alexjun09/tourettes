@@ -22,7 +22,7 @@
                 <a href="./about-us.html">About Us</a>
             </nav>
             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10"
-                href="./mi-cuenta.html">Mi Cuenta</a>
+                href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
         <!-- body -->
         <div class="flex flex-col w-full h-full items-center justify-between text-primary gap-4">
