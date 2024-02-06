@@ -120,20 +120,20 @@ if ($conn) {
                     </div>
                 </div>
                 <div class="w-full flex flex-col items-center">
-                    <form action="" class="flex flex-col gap-8 w-1/2 justify-center z-40">
-                        <input type="text" value="<?php echo $nombreCompleto; ?>"
+                    <form action="actualizar_datos_perfil.php"  method="post" class="flex flex-col gap-8 w-1/2 justify-center z-40">
+                        <input type="text" name="nombre" value="<?php echo $nombreCompleto; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="email" value="<?php echo $email; ?>"
+                        <input type="email" name="email" value="<?php echo $email; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="number" value="<?php echo $telefonoMovil; ?>"
+                        <input type="number" name="telefono" value="<?php echo $telefonoMovil; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
-                        <input type="number"  placeholder="Edad"
+                        <input type="number" name="edad" value="<?php echo $edad; ?>" placeholder="Edad"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <div class="flex flex-row items-center justify-between">
                             <a href="./mi-cuenta.php"
                                 class="rounded-tr-xl rounded-bl-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Cancelar</a>
                             <button type="submit"
-                                class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Editar</button>
+                                class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Guardar</button>
                         </div>
 
                     </form>

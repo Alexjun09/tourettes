@@ -1,3 +1,31 @@
+<?php
+session_start(); // Iniciar la sesión al principio de tu script
+
+// Redirige si el usuario no está logueado
+if (!isset($_SESSION['idPaciente'])) {
+    header('Location: sign-in.html');
+    exit;
+}
+
+require_once './bbdd/database.php';
+$conn = getConexion();
+
+$query = "SELECT Foro.id, Foro.Titulo, Pacientes.NombreCompleto AS Autor, Foro.Fecha
+          FROM Foro
+          JOIN Pacientes ON Foro.IDPaciente = Pacientes.ID
+          ORDER BY Foro.Fecha DESC";
+
+$stmt = $conn->prepare($query);
+
+// Ejecutar la consulta
+$stmt->execute();
+
+// Vincular los resultados a variables
+$stmt->bind_result($id,$titulo, $autor, $fecha);
+$stmt->store_result(); // Almacenar el resultado para poder contar las filas
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +53,33 @@
         </div>
         <!-- body -->
         <div class="flex flex-col w-full h-full items-center justify-between">
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($stmt->num_rows > 0) {
+                    // Imprimir las entradas como filas de la tabla
+                    while ($stmt->fetch()) {
+                        echo "<tr>";
+                        echo "<td><a href='entrada-foro.php?id=" .$id. "'>" . $titulo . "</td>";
+                        echo "<td>" . $autor. "</td>";
+                        echo "<td>" . $fecha. "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='3'>No hay entradas en el foro.</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+        <!-- Cierre de la conexión -->
+        <?php $conn->close(); ?>
         </div>
     </div>
     <!-- footer -->
