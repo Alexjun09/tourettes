@@ -9,7 +9,7 @@ $sqlPacientes = "CREATE TABLE IF NOT EXISTS Pacientes (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     NombreCompleto VARCHAR(255),
     TelefonoMovil VARCHAR(20),
-    Edad INT NOT NULL,
+    Edad INT,
     FotoPerfil VARCHAR(255),
     Banner VARCHAR(255)
 )";
