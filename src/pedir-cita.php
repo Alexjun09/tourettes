@@ -73,8 +73,8 @@ if ($result && $result->num_rows > 0) {
                 <div class="w-96 shadow-md shadow-primary h-full relative flex flex-col items-center">
                     <?php if ($psicologo) : ?>
                         <img src="../media/elipse.png" alt="" class="absolute z-10">
-                        <img src="../media/psicologos/<?php echo $psicologo['FotoPsicologo']; ?>" alt="" class="absolute z-20 mt-8 w-32 h-32">
-                        <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16">
+                        <img src="../media/psicologos/<?php echo $psicologo['FotoPsicologo']; ?>" alt="" class="absolute z-20 mt-8 w-32 h-32 rounded-full border-4 border-white">
+                        <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16 pt-24">
                             <p class="text-2xl"><?php echo $psicologo['NombreCompleto']; ?></p>
                             <p class="text-base"><?php echo $psicologo['Especialidad']; ?></p>
                             <img src="../media/maps.png" alt="">
