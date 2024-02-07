@@ -1,7 +1,8 @@
 <?php
 session_start(); // Inicia la sesión al principio del script
 
-require_once '../bbdd/connect.php';
+// require_once '../bbdd/connect.php';
+require_once '../bbdd/database.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Content-Type: application/json');
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['idPaciente'] = $idPaciente; // Guarda el ID del paciente en la sesión
-            echo json_encode(['success' => true, 'redirectUrl' => '../mi-cuenta.php']);
+            echo json_encode(['success' => true, 'redirectUrl' => 'mi-cuenta.php']);
             exit();
         } else {
             echo json_encode(['success' => false, 'error' => 'Credenciales incorrectas']);
@@ -34,4 +35,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 $conn->close();
-?>
+

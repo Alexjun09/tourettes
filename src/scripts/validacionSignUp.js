@@ -77,7 +77,7 @@ async function checkUsernameAvailability(nombreUsuario) {
     }
     
     // Realiza una petición asíncrona al servidor para verificar la disponibilidad del nombre de usuario.
-    const response = await fetch('../server/check_username.php', {
+    const response = await fetch('../src/server/check_username.php', {
         method: 'POST', // Especifica el método HTTP de la petición como POST.
         headers: {
             // Indica el tipo de contenido que se está enviando en la petición.
@@ -101,6 +101,36 @@ async function checkUsernameAvailability(nombreUsuario) {
     // Retorna verdadero si el nombre de usuario está disponible.
     return true;
 }
+
+async function checkEmailAvailability(email) {
+    // Comprueba si el email tiene un formato válido.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        // Muestra un mensaje de error si el email no es válido.
+        showError('email', 'El email no tiene un formato válido');
+        return false;
+    }
+    
+    // Realiza una petición asíncrona al servidor para verificar la disponibilidad del email.
+    const response = await fetch('src/server/check_email.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+        },
+        body: `email=${encodeURIComponent(email)}`
+    });
+
+    const data = await response.json();
+    // Comprueba si el email ya existe según la respuesta del servidor.
+    if (data.exists) {
+        // Muestra un mensaje de error si el email ya está en uso.
+        showError('email', 'Este email ya está en uso');
+        return false;
+    }
+    // Retorna verdadero si el email está disponible.
+    return true;
+}
+
 //-----------------------------------------------------------------------------------------------------------//
 
 
