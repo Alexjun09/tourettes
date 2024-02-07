@@ -37,4 +37,4 @@ $stmt->close();
 
 // Cerrar la conexión
 $conn->close();
-?>
+
