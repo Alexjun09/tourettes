@@ -21,9 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Verifica la disponibilidad del nombre de usuario de manera asíncrona.
         const nombreUsuarioValid = await checkUsernameAvailability(form.nombreUsuario.value);
+        const emailUsuarioValid = await checkEmailAvailability(form.email.value);
 
         // Si todas las validaciones son exitosas, envía el formulario.
-        if (nombreCompletoValid && nombreUsuarioValid && emailValid && telefonoValid && contrasenaValid) {
+        if (nombreCompletoValid && nombreUsuarioValid && emailValid && telefonoValid && contrasenaValid && emailUsuarioValid) {
             form.submit();
         }
     });
@@ -33,16 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function validateNombreCompleto(nombreCompleto) {
     if (nombreCompleto.trim() === '') {
         showError('nombreCompleto', 'El nombre no puede estar vacío');
-        return false;
-    }
-    return true;
-}
-
-// Valida el formato del email usando una expresión regular.
-function validateEmail(email) {
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!regex.test(email)) {
-        showError('email', 'El email no tiene un formato válido');
         return false;
     }
     return true;
@@ -111,7 +102,7 @@ async function checkEmailAvailability(email) {
     }
     
     // Realiza una petición asíncrona al servidor para verificar la disponibilidad del email.
-    const response = await fetch('src/server/check_email.php', {
+    const response = await fetch('../src/server/check_email.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
