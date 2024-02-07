@@ -29,12 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
 // Valida el formato del email usando una expresión regular.
 function validateEmail(email) {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!regex.test(email)) {
+
+    if (email.trim() === '') {
+        showError('email', 'El campo de email no puede estar vacío');
+        return false;
+    }else if (!regex.test(email)) {
         showError('email', 'El email no tiene un formato válido');
         return false;
     }
     return true;
 }
+
 
 // Valida la longitud de la contraseña.
 function validatePassword(password) {
