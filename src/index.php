@@ -28,7 +28,7 @@ require_once './bbdd/database.php';
             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
         <!-- body -->
-        <div class="flex flex-col w-full h-full items-end justify-center relative overflow-hidden">
+        <div class="flex font-extralight flex-col w-full h-full items-end justify-center relative overflow-hidden">
             <!-- <img src="../media/bg-index.png" alt="bgindex" class="w-full z-10"> -->
             <video src="../media/videoindex.mp4" muted autoplay loop class="w-full z-10"></video>
             <!-- <div class="flex flex-col absolute z-50 gap-10 text-4xl">

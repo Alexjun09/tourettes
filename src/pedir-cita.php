@@ -63,7 +63,7 @@ if ($result && $result->num_rows > 0) {
             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
         <!-- body -->
-        <div class="flex flex-col w-full h-full items-center justify-between">
+        <div class="flex font-extralight flex-col w-full h-full items-center justify-between">
             <div class="flex flex-col gap-4 text-center">
                 <p class="text-title">Pedir Cita</p>
                 <p class="text-subtitle"> Formulario para pedir una cita</p>

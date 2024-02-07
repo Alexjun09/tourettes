@@ -24,7 +24,7 @@
             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
         <!-- body -->
-        <div class="flex flex-col w-full h-full items-center justify-between text-primary gap-4">
+        <div class="flex font-extralight flex-col w-full h-full items-center justify-between text-primary gap-4">
             <p class="text-title">Educación</p>
             <div class="w-full bg-primary py-1">
                 <p class="text-white text-3xl text-center">Información Básica</p>
