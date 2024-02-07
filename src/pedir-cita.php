@@ -42,9 +42,9 @@ if ($result && $result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="css/output.css">
     <title>Pedir Cita</title>
-    <script src="procesar-cita.js"></script>
+    <script src="scripts/procesar-cita.js"></script>
 </head>
 
 <body class="grid grid-rows-[1fr_min-content] text-primary">
@@ -83,7 +83,7 @@ if ($result && $result->num_rows > 0) {
                     <?php endif; ?>
                 </div>
                 <!-- form -->
-                <form id="form-cita" action="procesar-cita.php" method="post" class="flex flex-col justify-center gap-8">
+                <form id="form-cita" action="server/procesar-cita.php" method="post" class="flex flex-col justify-center gap-8">
                     <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
                     <input type="datetime-local" name="fecha"  placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
                     <input type="text" name="motivo_consulta"  placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">

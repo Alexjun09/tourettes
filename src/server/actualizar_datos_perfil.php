@@ -3,12 +3,12 @@ session_start();
 
 // Asegúrate de que el usuario esté logueado
 if (!isset($_SESSION['idPaciente'])) {
-    header('Location: sign-in.html');
+    header('Location: ../sign-in.html');
     exit();
 }
 
 // Conexión a la base de datos
-require_once 'bbdd/connect.php';
+require_once '../bbdd/connect.php';
 $conn = getConexion();
 
 // Recolecta los datos del formulario
@@ -27,7 +27,7 @@ if ($nombre && $email && $telefono && $edad !== null) {
         $stmt->bind_param("ssii", $nombre, $telefono, $edad, $idPaciente);
         if ($stmt->execute()) {
             // Redirige al usuario a la página de cuenta con un mensaje de éxito
-            header('Location: mi-cuenta.php?mensaje=Datos actualizados correctamente');
+            header('Location: ../mi-cuenta.php?mensaje=Datos actualizados correctamente');
         } else {
             // Error al ejecutar la consulta
             echo "Error al actualizar los datos: " . $stmt->error;

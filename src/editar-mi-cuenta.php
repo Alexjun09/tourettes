@@ -69,7 +69,7 @@ if ($conn) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="css/output.css">
     <title>Editar Mi Cuenta</title>
 </head>
 
@@ -120,7 +120,7 @@ if ($conn) {
                     </div>
                 </div>
                 <div class="w-full flex flex-col items-center">
-                    <form action="actualizar_datos_perfil.php"  method="post" class="flex flex-col gap-8 w-1/2 justify-center z-40">
+                    <form action="server/actualizar_datos_perfil.php"  method="post" class="flex flex-col gap-8 w-1/2 justify-center z-40">
                         <input type="text" name="nombre" value="<?php echo $nombreCompleto; ?>"
                             class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <input type="email" name="email" value="<?php echo $email; ?>"

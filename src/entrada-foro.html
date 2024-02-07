@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="css/output.css">
     <title>Entrada al Foro</title>
-    <script src="procesar-entradaforo.js"></script>
+    <script src="scripts/procesar-entradaforo.js"></script>
 </head>
 
 <body class="grid grid-rows-[1fr_min-content] text-primary">
@@ -34,7 +34,7 @@
         </div>
         <div class="flex flex-col w-full h-[600px] justify-center items-center relative">
             <img src="../media/fondo-contacto.png" alt="fondo" class="w-full h-full">
-            <form id="form-foro" action="procesar-entradaforo.php" method="post" enctype="multipart/form-data" class="flex flex-col justify-center gap-8 absolute z-30 text-white w-[550px]">
+            <form id="form-foro" action="server/procesar-entradaforo.php" method="post" enctype="multipart/form-data" class="flex flex-col justify-center gap-8 absolute z-30 text-white w-[550px]">
                 <input type="text" name="title" id="titulo" placeholder="Titulo"
                     class="outline-none border-b border-white w-full py-1 bg-transparent">
                 <input type="text" name="palabrasclave" id="clave"

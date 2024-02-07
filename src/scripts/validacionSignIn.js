@@ -54,7 +54,7 @@ function validatePassword(password) {
 // Intenta iniciar sesión enviando los datos a un servidor.
 function signIn(email, password) {
     //La función fetch es una forma de hacer solicitudes HTTP asincrónicas
-    fetch('iniciar_sesion.php', { // Realiza una petición POST a iniciar_sesion.php.
+    fetch('../server/iniciar_sesion.php', { // Realiza una petición POST a iniciar_sesion.php.
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

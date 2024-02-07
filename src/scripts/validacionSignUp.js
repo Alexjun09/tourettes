@@ -77,7 +77,7 @@ async function checkUsernameAvailability(nombreUsuario) {
     }
     
     // Realiza una petición asíncrona al servidor para verificar la disponibilidad del nombre de usuario.
-    const response = await fetch('check_username.php', {
+    const response = await fetch('../server/check_username.php', {
         method: 'POST', // Especifica el método HTTP de la petición como POST.
         headers: {
             // Indica el tipo de contenido que se está enviando en la petición.

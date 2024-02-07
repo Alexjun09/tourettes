@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once './bbdd/connect.php';
+require_once '../bbdd/connect.php';
 
 if (!isset($_SESSION['idPaciente'])) {
     echo "No está autorizado para ver esta página.";

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once './bbdd/connect.php'; 
+require_once '../bbdd/connect.php'; 
 
 // Verificar si el usuario está logueado y si el ID del foro está establecido en la sesión
 if (!isset($_SESSION['idPaciente']) || !isset($_SESSION['idForo'])) {

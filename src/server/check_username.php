@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-require_once 'bbdd/connect.php';
+require_once '../bbdd/connect.php';
 
 if (isset($_POST['nombreUsuario'])) {
     $nombreUsuario = $_POST['nombreUsuario'];

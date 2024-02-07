@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="css/output.css">
     <title>Crear Cuenta</title>
 </head>
 
@@ -19,7 +19,7 @@
                 <p class="border-2 border-primary px-6 py-4 rounded-full">Crear Cuenta con Google</p>
                 <p class="border-2 border-primary px-6 py-4 rounded-full">Crear Cuenta con Facebook</p>
             </div> -->
-                <form class="flex flex-col gap-8" action="crear_cuenta.php" method="post">
+                <form class="flex flex-col gap-8" action="server/crear_cuenta.php" method="post">
                     <input type="text" name="nombreCompleto" placeholder="Nombre Completo" class="outline-none border-b border-black w-full">
                     <input type="text" name="nombreUsuario" placeholder="Nombre de Usuario" class="outline-none border-b border-black w-full">
                     <input type="email" name="email" placeholder="Email" class="outline-none border-b border-black w-full">
@@ -35,7 +35,7 @@
 
         </div>
     </div>
-    <script src="./validacionSignUp.js"></script>
+    <script src="scripts/validacionSignUp.js"></script>
 </body>
 
 </html>

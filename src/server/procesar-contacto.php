@@ -1,5 +1,5 @@
 <?php
-require_once 'bbdd/connect.php';
+require_once '../bbdd/connect.php';
 
 // Obtener la conexión
 $conn = getConexion();
