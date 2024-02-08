@@ -43,7 +43,7 @@ $conn->close();
     <title>Mi Cuenta</title>
 </head>
 
-<body class="grid grid-rows-[1fr_min-content] text-primary">
+<body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <!-- header -->
     <div class="px-20 flex flex-row justify-between items-center py-4">
         <a class="h-16" href="./index.php">

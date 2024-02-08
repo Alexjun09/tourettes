@@ -52,10 +52,10 @@ $stmt->bind_param("iissi", $idPaciente, $idPsicologo, $fechaCita, $motivoConsult
 // Ejecutar la consulta
 if ($stmt->execute()) {
     // Redirigir a la página de confirmación con mensaje de éxito
-    header('Location: ../perfil-paciente.php?cita=exito');
+    header('Location: ../confirmacion-cita.php?cita=exito');
 } else {
     // Si hay un error en la consulta, redirigir con mensaje de error
-    header('Location: ../pedir-cita.php?error=registro');
+    header('Location: ../confirmacion-cita.php?cita=error');
 }
 
 // Cerrar la declaración y la conexión

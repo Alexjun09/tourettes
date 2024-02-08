@@ -47,7 +47,7 @@ if ($result && $result->num_rows > 0) {
     <script src="scripts/procesar-cita.js"></script>
 </head>
 
-<body class="grid grid-rows-[1fr_min-content] text-primary">
+<body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="h-screen w-screen flex flex-col">
         <!-- header -->
         <div class="px-20 flex flex-row justify-between items-center py-4">
