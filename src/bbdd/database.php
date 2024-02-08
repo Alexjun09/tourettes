@@ -153,11 +153,11 @@ function verificarEInsertar($conn, $tabla, $sqlInsert)
 }
 
 $sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, Edad, FotoPerfil, Banner) VALUES
-('Juan Pérez', '612345678', 30, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
-('Ana García', '623456789', 25, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
-('Carlos Sánchez', '634567890', 40, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
-('Laura Gómez', '645678901', 35, '../../media/profile/image.jpg', '../../media/banner/image.jpg'),
-('Pedro López', '656789012', 28, '../../media/profile/image.jpg', '../../media/banner/image.jpg')";
+('Juan Pérez', '612345678', 30, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
+('Ana García', '623456789', 25, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
+('Carlos Sánchez', '634567890', 40, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
+('Laura Gómez', '645678901', 35, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
+('Pedro López', '656789012', 28, '../media/imgmicuenta.png', '../media/bgcuenta.png')";
 verificarEInsertar($conn, 'Pacientes', $sqlInsertPacientes);
 
 

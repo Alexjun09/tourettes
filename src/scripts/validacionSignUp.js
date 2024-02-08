@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Realiza validaciones síncronas para nombre completo, email, teléfono y contraseña.
         const nombreCompletoValid = validateNombreCompleto(form.nombreCompleto.value);
-        const emailValid = validateEmail(form.email.value);
         const telefonoValid = validateTelefono(form.telefono.value);
         const contrasenaValid = validateContrasena(form.contrasena.value);
 
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const emailUsuarioValid = await checkEmailAvailability(form.email.value);
 
         // Si todas las validaciones son exitosas, envía el formulario.
-        if (nombreCompletoValid && nombreUsuarioValid && emailValid && telefonoValid && contrasenaValid && emailUsuarioValid) {
+        if (nombreCompletoValid && nombreUsuarioValid && telefonoValid && contrasenaValid && emailUsuarioValid) {
             form.submit();
         }
     });
@@ -56,6 +55,7 @@ function validateContrasena(contrasena) {
     }
     return true;
 }
+
 //-------------------------------------------------------------------------------------------------------------------//
 // Define una función asíncrona para verificar la disponibilidad del nombre de usuario.
 async function checkUsernameAvailability(nombreUsuario) {

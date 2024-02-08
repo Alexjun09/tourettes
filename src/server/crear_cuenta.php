@@ -14,7 +14,7 @@ $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
 
 // Insertar en la tabla Pacientes
 $stmt = $conn->prepare("INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, FotoPerfil, Banner) VALUES (?, ?, 
-'../../media/perfilNuevo.jpg', '../../media/bannerNuevo.jpg')");
+'../media/perfilNuevo.png', '../media/bannerNuevo.jpg')");
 $stmt->bind_param("ss", $nombreCompleto, $telefono);
 $stmt->execute();
 $idPaciente = $stmt->insert_id; // Obtener el ID del paciente insertado

@@ -14,11 +14,11 @@ require_once 'bbdd/connect.php';
 $conn = getConexion();
 
 // 
-$query = "SELECT NombreCompleto, TelefonoMovil FROM Pacientes WHERE ID = ?";
+$query = "SELECT NombreCompleto, TelefonoMovil, FotoPerfil, Banner FROM Pacientes WHERE ID = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $idPaciente);
 $stmt->execute();
-$stmt->bind_result($nombreCompleto, $telefonoMovil);
+$stmt->bind_result($nombreCompleto, $telefonoMovil, $FotoPerfil, $Banner);
 $stmt->fetch();
 $stmt->close();
 
@@ -26,7 +26,7 @@ $query2 = "SELECT Email FROM cuenta WHERE IDPaciente = ?";
 $stmt2 = $conn->prepare($query2);
 $stmt2->bind_param("i", $idPaciente);
 $stmt2->execute();
-$stmt2->bind_result($email);
+$stmt2->bind_result($email,);
 $stmt2->fetch();
 $stmt2->close();
 $conn->close();
@@ -41,6 +41,40 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <title>Mi Cuenta</title>
+
+    <!-- Calendario -->
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    events: './server/citasCalendario.php', // URL del endpoint que devuelve los eventos en JSON
+    eventColor: '#92AAB3', 
+    eventClick: function(info) {
+      // Crear y mostrar un desplegable con la información del evento
+      var details = `
+        <div class="event-details">
+          <p>ID: ${info.event.id}</p>
+          <p>Especialista: ${info.event.title}</p>
+          <p>Fecha: ${info.event.start.toLocaleString()}</p>
+        </div>
+      `;
+      // Asegúrate de que solo se muestre un desplegable a la vez
+      var existingDetails = document.querySelector('.event-details');
+      if (existingDetails) {
+        existingDetails.parentNode.removeChild(existingDetails);
+      }
+      // Insertar el nuevo desplegable
+      document.body.insertAdjacentHTML('beforeend', details);
+    }
+  });
+  calendar.render();
+});
+
+</script>
 </head>
 
 <body class="grid grid-rows-[1fr_min-content] text-primary">
@@ -63,9 +97,9 @@ $conn->close();
         <div class="px-6 bg-contraste rounded-t-md">
             <p class="text-subtitle">Mi Cuenta</p>
         </div>
-        <img src="../media/bgcuenta.png" alt="" class="max-h-36 object-cover w-full">
+        <img src="<?php echo $Banner; ?>" alt="" class="max-h-36 object-cover w-full">
         <div class="h-0 px-5 w-full flex items-center justify-start">
-            <img src="../media/imgmicuenta.png" alt="" class="h-36 rounded-full border-4 border-secondary absolute z-50">
+            <img src="<?php echo $FotoPerfil; ?>" alt="" class="h-36 rounded-full border-0 border-secondary absolute z-50">
         </div>
         <div class="w-full h-full bg-contraste flex flex-col items-center gap-10">
             <div class="flex flex-row w-full">
@@ -84,8 +118,7 @@ $conn->close();
                     <div class="flex flex-col gap-[10px] items-center ">
                         <p class="text-body">Mis Citas</p>
                         <!-- div de dani para el calendario -->
-                        <div class="rounded-3xl bg-white w-[60%] h-72">
-
+                        <div class="rounded-3xl bg-white w-[60%] h-fit" id='calendar' >
                         </div>
 
                     </div>
