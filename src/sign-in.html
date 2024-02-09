@@ -15,9 +15,13 @@
             class="w-full h-full rounded-l-[60px] -translate-x-10 bg-white flex flex-col justify-center items-center  gap-20 text-primary">
             <div class="flex flex-col gap-20 w-[370px]">
                 <p class="text-subtitle text-center">Iniciar Sesión</p>
-                <form class="flex flex-col gap-8" method="post" action="./server/iniciar_sesion.php">
-                    <input type="email" name="email" placeholder="Email" class="outline-none border-b border-black w-full">
-                    <input type="password" name="password" placeholder="Password" class="outline-none border-b border-black w-full">
+                <form class="flex flex-col" method="post" action="./server/iniciar_sesion.php">
+                    <input type="email" name="email" placeholder="Email"
+                        class="outline-none border-b border-black w-full">
+                    <br>
+                    <input type="password" name="password" placeholder="Password"
+                        class="outline-none border-b border-black w-full">
+                    <br>
                     <button
                         class="rounded-tl-xl rounded-br-xl border-br-xl w-full bg-primary text-white py-2">Acceder</button>
                 </form>

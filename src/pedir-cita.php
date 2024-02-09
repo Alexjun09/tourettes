@@ -83,18 +83,23 @@ if ($result && $result->num_rows > 0) {
                     <?php endif; ?>
                 </div>
                 <!-- form -->
-                <form id="form-cita" action="server/procesar-cita.php" method="post" class="flex flex-col justify-center gap-8">
+                <form id="form-cita" action="server/procesar-cita.php" method="post" class="flex flex-col justify-center">
                     <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
-                    <input type="datetime-local" name="fecha"  placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
-                    <input type="text" name="motivo_consulta"  placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
+                    <br>
+                    <input type="datetime-local" name="fecha" placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
+                    <br>
+                    <input type="text" name="motivo_consulta" placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
+                    <br>
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
                         <input type="radio" name="visita" id="si" value="1">
                         <input type="radio" name="visita" id="no" value="0">
                     </div>
+                    <br>
                     <div class="flex flex-row items-center gap-2">
-                        <input type="checkbox" >
+                        <input type="checkbox">
                         <p>Terminos y condiciones</p>
                     </div>
+                    <br>
                     <div class="flex justify-center w-full">
                         <button type="submit" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-4 px-20 w-fit">Pedir
                             Cita</button>
@@ -119,7 +124,7 @@ if ($result && $result->num_rows > 0) {
             </a>
         </div>
     </div>
-    
+
 </body>
 
 </html>

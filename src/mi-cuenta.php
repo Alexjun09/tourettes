@@ -41,40 +41,40 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <title>Mi Cuenta</title>
+    <style>
+        .fc {
+            border-radius: 20px;
+        }
 
-    <!-- Calendario -->
+        .fc .fc-toolbar.fc-header-toolbar {
+            margin-bottom: 0;
+            padding: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
 
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
-    <script>
+        .fc-theme-standard td {
+            border-radius: 20px;
+        }
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    events: './server/citasCalendario.php', // URL del endpoint que devuelve los eventos en JSON
-    eventColor: '#92AAB3', 
-    eventClick: function(info) {
-      // Crear y mostrar un desplegable con la información del evento
-      var details = `
-        <div class="event-details">
-          <p>ID: ${info.event.id}</p>
-          <p>Especialista: ${info.event.title}</p>
-          <p>Fecha: ${info.event.start.toLocaleString()}</p>
-        </div>
-      `;
-      // Asegúrate de que solo se muestre un desplegable a la vez
-      var existingDetails = document.querySelector('.event-details');
-      if (existingDetails) {
-        existingDetails.parentNode.removeChild(existingDetails);
-      }
-      // Insertar el nuevo desplegable
-      document.body.insertAdjacentHTML('beforeend', details);
-    }
-  });
-  calendar.render();
-});
+        .fc .fc-scrollgrid {
+            border-left-width: 0px;
+            border-right-width: 0px;
+        }
 
-</script>
+        .fc-daygrid-dot-event {
+            flex-direction: column;
+            gap: 2px;
+            white-space: normal;
+            text-align: center;
+        }
+
+        .fc-daygrid-event-dot {
+            opacity: 0;
+            max-height: 0px;
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
@@ -93,44 +93,50 @@ document.addEventListener('DOMContentLoaded', function() {
             Cuenta</a>
     </div>
     <!-- body -->
-    <div class="flex flex-col w-full h-screen items-center justify-center relative">
-        <div class="px-6 bg-contraste rounded-t-md">
-            <p class="text-subtitle">Mi Cuenta</p>
-        </div>
-        <img src="<?php echo $Banner; ?>" alt="" class="max-h-36 object-cover w-full">
-        <div class="h-0 px-5 w-full flex items-center justify-start">
-            <img src="<?php echo $FotoPerfil; ?>" alt="" class="h-36 rounded-full border-0 border-secondary absolute z-50">
-        </div>
-        <div class="w-full h-full bg-contraste flex flex-col items-center gap-10">
-            <div class="flex flex-row w-full">
-                <div class="p-20 flex flex-col bg-secondary rounded-r-[30px] w-min h-min text-white text-[24px] text-left relative gap-2 min-w-[400px]">
-                    <p><?php echo $nombreCompleto; ?></p>
-                    <p><?php echo $email; ?></p>
-                    <p><?php echo $telefonoMovil; ?></p>
-                    <br><br>
-                    <div class="w-full flex flex-row items-center justify-center">
-                        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-fit" href="./editar-mi-cuenta.php">Editar</a>
+    <div class="flex flex-col w-full items-center justify-center relative">
 
+        <div class="relative flex flex-col justify-end items-center w-full">
+            <img src="<?php echo $Banner; ?>" alt="" class="max-h-36 object-cover w-full">
+            <div class="px-6 bg-contraste rounded-t-md absolute">
+                <p class="text-subtitle">Mi Cuenta</p>
+            </div>
+        </div>
+        <div class="h-0 px-5 w-full flex items-center justify-start">
+            <img src="<?php echo $FotoPerfil; ?>" alt="" class="h-36 rounded-full border-4 border-secondary absolute z-50 bg-white">
+        </div>
+        <div class="w-full h-screen bg-contraste flex flex-col items-center gap-10 relative">
+            <div class="flex flex-row w-full ">
+                <div class="flex flex-col justify-between">
+                    <div class="pt-20 px-20 pb-10 flex flex-col bg-secondary rounded-r-[30px] w-min h-min text-white text-[24px] text-left relative gap-8 min-w-[400px]">
+                        <div class="flex flex-col">
+                            <p><?php echo $nombreCompleto; ?></p>
+                            <p><?php echo $email; ?></p>
+                            <p>+34 <?php echo $telefonoMovil; ?></p>
+                        </div>
+                        <div class="w-full flex flex-row items-center justify-center">
+                            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-fit" href="./editar-mi-cuenta.php">Editar</a>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-row justify-start items-end min-h-[150px] relative">
+                        <!-- div de dani para el cita -->
+                        <div class="absolute" id="citaClickada">
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-row items-center justify-center h-fit">
+                        <a class="bg-transparent border-2 border-primary px-20 p-1 rounded-full w-fit text-body" href="./mis-informes.html">Mis Informes</a>
                     </div>
                 </div>
-                <div class="flex flex-col w-full h-full gap-10">
+
+                <div class="flex flex-col w-full h-full gap-10 pt-6">
                     <!-- mis citas -->
-                    <div class="flex flex-col gap-[10px] items-center ">
-                        <p class="text-body">Mis Citas</p>
+                    <div class="flex flex-col gap-[20px] items-center ">
+                        <p class="text-[40px]">Mis Citas</p>
                         <!-- div de dani para el calendario -->
-                        <div class="rounded-3xl bg-white w-[60%] h-fit" id='calendar' >
-                        </div>
-
-                    </div>
-                    <div class="w-full flex flex-row justify-end items-end">
-                                                <!-- div de dani para el cita -->
-                        <div class="flex flex-row gap-2 w-[1000px] h-[150px] bg-secondary rounded-l-3xl">
-
+                        <div class="bg-white w-[60%] h-fit" id='calendar'>
                         </div>
                     </div>
                 </div>
             </div>
-            <a class="bg-transparent border-2 border-primary px-20 p-1 rounded-full w-fit text-body" href="./mis-informes.html">Mis Informes</a>
         </div>
     </div>
     <!-- footer -->
@@ -152,3 +158,63 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 </html>
+
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+<script>
+    function dayOfTheWeekWords(day) {
+        switch (day) {
+            case 0:
+                return "Domingo";
+            case 1:
+                return "Lunes";
+            case 2:
+                return "Martes";
+            case 3:
+                return "Miércoles";
+            case 4:
+                return "Jueves";
+            case 5:
+                return "Viernes";
+            case 6:
+                return "Sábado";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var divCitaClickada = document.getElementById('citaClickada');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: './server/citasCalendario.php', // URL del endpoint que devuelve los eventos en JSON
+            eventColor: '#92AAB3',
+            eventClick: function(info) {
+                // Crear y mostrar un desplegable con la información del evento
+                const day = new Date(info.event.start).getDate();
+                const dayOfTheWeek = dayOfTheWeekWords(new Date(info.event.start).getDay());
+                const doctor = info.event.title;
+                const address = info.event.extendedProps.direccion;
+                const time = info.event.start.toLocaleTimeString()
+                var details = `
+                <div id="event-details" class="flex flex-row gap-10 p-4 w-[600px] h-[150px] bg-secondary rounded-r-3xl">
+                    <div class="flex flex-col justify-between items-center p-4 bg-contraste rounded-3xl text-white">
+                        <p class="text-5xl">${day}</p>
+                        <p class="text-2xl">${dayOfTheWeek}</p>
+                    </div>
+                    <div class="flex flex-col justify-between text-white">
+                        <p class="text-3xl text-primary">${doctor}</p>
+                        <p class="text-3xl">${time.substr(0, 5)}</p>
+                        <p class="text-lg">${address}</p>
+                    </div>
+                </div>`;
+                // Asegúrate de que solo se muestre un desplegable a la vez
+                var existingDetails = document.querySelector('#event-details');
+                if (existingDetails) {
+                    existingDetails.parentNode.removeChild(existingDetails);
+                }
+                // Insertar el nuevo desplegable
+                divCitaClickada.insertAdjacentHTML('beforeend', details);
+            }
+        });
+        calendar.render();
+    });
+</script>

@@ -15,7 +15,7 @@ $conn = getConexion();
 header('Content-Type: application/json');
 
 // Preparar la consulta SQL para obtener los eventos de citas para un paciente específico
-$query = "SELECT Citas.IDCita, Citas.FechaCita, Citas.Sintomas, Psicologos.NombreCompleto AS NombrePsicologo 
+$query = "SELECT Citas.IDCita, Citas.FechaCita, Citas.Sintomas, Psicologos.NombreCompleto AS NombrePsicologo, Psicologos.Ubicacion AS UbicacionPsicologo
           FROM Citas 
           INNER JOIN Psicologos ON Citas.IDPsicologo = Psicologos.ID
           WHERE Citas.IDPaciente = ?";
@@ -34,11 +34,12 @@ $events = [];
 // Verificar si la consulta devolvió filas
 if ($result->num_rows > 0) {
     // Recorrer los resultados y agregarlos al array de eventos
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $events[] = [
             'id' => $row['IDCita'],
             'title' => $row['NombrePsicologo'], // Combinamos los síntomas y el nombre del psicólogo
-            'start' => $row['FechaCita'], // Fecha y hora de inicio del evento
+            'start' => $row['FechaCita'],
+            'direccion' => $row['UbicacionPsicologo'] // Fecha y hora de inicio del evento
             // Puedes agregar más campos aquí según necesites
         ];
     }
@@ -50,4 +51,3 @@ $conn->close();
 
 // Devolver los eventos en formato JSON
 echo json_encode($events);
-?>
