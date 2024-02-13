@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <title>Iniciar Sesion</title>
+    <script src="scripts/validacionSignIn.js"></script>
+    <script src="scripts/toggle-password.js"></script>
 </head>
 
 <body class="font-extralight w-screen h-screen font-base">
@@ -19,8 +21,14 @@
                     <input type="email" name="email" placeholder="Email"
                         class="outline-none border-b border-black w-full">
                     <br>
-                    <input type="password" name="password" placeholder="Password"
-                        class="outline-none border-b border-black w-full">
+                    <div class="relative flex flex-col">
+                        <input type="password" name="password" placeholder="Password"
+                            class="outline-none border-b border-black w-full z-20" id="passwordInput">
+                        <div class="absolute w-full max-h-full flex justify-end items-center h-[10px]">
+                            <img src="../media/ojo.png" alt="ojo" class="z-50 cursor-pointer h-4"
+                                onclick="togglePassword()">
+                        </div>
+                    </div>
                     <br>
                     <button
                         class="rounded-tl-xl rounded-br-xl border-br-xl w-full bg-primary text-white py-2">Acceder</button>
@@ -36,7 +44,6 @@
             </div> -->
         </div>
     </div>
-    <script src="scripts/validacionSignIn.js"></script>
 </body>
 
 </html>
