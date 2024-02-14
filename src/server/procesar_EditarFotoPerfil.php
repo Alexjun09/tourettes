@@ -22,14 +22,14 @@ error_log('Conexión de base de datos realizada.');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     error_log('Inicio de procesamiento de POST.');
 
-    if (isset($_FILES['banner'])) {
-        error_log('Archivo banner recibido.');
+    if (isset($_FILES['profile'])) {
+        error_log('Archivo profile recibido.');
 
-        if ($_FILES['banner']['error'] == UPLOAD_ERR_OK) {
-            $fileTmpPath = $_FILES['banner']['tmp_name'];
-            $fileName = $_FILES['banner']['name'];
-            $fileSize = $_FILES['banner']['size'];
-            $fileType = $_FILES['banner']['type'];
+        if ($_FILES['profile']['error'] == UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['profile']['tmp_name'];
+            $fileName = $_FILES['profile']['name'];
+            $fileSize = $_FILES['profile']['size'];
+            $fileType = $_FILES['profile']['type'];
             $fileNameCmps = explode(".", $fileName);
             $fileExtension = strtolower(end($fileNameCmps));
 
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 error_log('Archivo movido con éxito.');
 
                 // Actualizar la base de datos
-                $query = "UPDATE Pacientes SET Banner = ? WHERE ID = ?";
+                $query = "UPDATE Pacientes SET FotoPerfil = ? WHERE ID = ?";
                 if ($stmt = $conn->prepare($query)) {
                     error_log('Consulta preparada con éxito.');
 
