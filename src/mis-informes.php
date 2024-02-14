@@ -24,9 +24,19 @@
             Cuenta</a>
     </div>
     <!-- body -->
-    <div class="flex flex-col w-full h-screen items-center justify-center">
-        
-    </div>
+    <div class="flex flex-col w-full items-center justify-center">
+        <p class="text-title text-center">Mis Informes</p>
+        <div class="flex flex-col gap-5 px-44">
+            <div class="flex flex-row gap-4">
+                    <img src="" alt="">
+                    <div class="w-full flex flex-row justify-between">
+                        <p>Date</p>
+                        <button>
+                            <img src="" alt="">
+                        </button>
+                    </div>
+            </div>
+        </div>
     </div>
     <!-- footer -->
     <div class="h-28 flex flex-row bg-contraste px-12 items-center justify-between">
