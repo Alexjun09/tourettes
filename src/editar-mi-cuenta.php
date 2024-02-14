@@ -71,6 +71,7 @@ if ($conn) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <title>Editar Mi Cuenta</title>
+    <script src="./scripts/validacionFormularioEditarPerfil.js"> </script>
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
@@ -94,7 +95,7 @@ if ($conn) {
             <img src="<?php echo $Banner; ?>" alt="" class="max-h-36 object-cover w-full">
             <div class="px-6 bg-contraste rounded-t-md absolute">
                 <p class="text-subtitle">EditarMi Cuenta</p>
-            </div>
+            </div> 
         </div>
         <div class="w-full h-full bg-contraste flex flex-col justify-center relative">
             <form id="uploadBannerForm" class="w-full h-full px-4 bg-transparent absolute flex flex-col items-start justify-start">
@@ -110,18 +111,19 @@ if ($conn) {
                 <div class="flex flex-col items-center relative">
                     <img src="<?php echo $FotoPerfil; ?>" alt="" class="z-30 w-64 border-4 rounded-full border-secondary">
                     <div class="absolute z-0 flex flex-col justify-end items-center w-full h-full">
-                        <form class="bg-white w-[90%] hover:bg-gray-300 transition-all ease-in h-1/2 text-center text-primary flex flex-col justify-end items-center pb-4">
+                        <form id="uploadProfileForm" class="bg-white w-[90%] hover:bg-gray-300 transition-all ease-in h-1/2 text-center text-primary flex flex-col justify-end items-center pb-4">
                             <div class="relative flex flex-col">
-                                <input type="file" class="italic text-primary border z-20 w-32 opacity-0">
+                                <input type="file"  id="ProfileInput" name="profile" accept=".jpg, .jpeg, .png" class="italic text-primary border z-20 w-32 opacity-0">
                                 <div class="absolute justify-center items-center w-full h-full z-10">
                                     <p class="text-center text-xl">Editar</p>
                                 </div>
+                                <p id="uploadErrorProfile" class="text-red-500"></p>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="w-full flex flex-col items-center">
-                    <form action="server/actualizar_datos_perfil.php" method="post" class="flex flex-col gap-8 w-1/2 justify-center z-40">
+                    <form id="formularioPerfil" action="server/actualizar_datos_perfil.php" method="post" class="flex flex-col gap-8 w-1/2 justify-center z-40">
                         <input type="text" name="nombre" value="<?php echo $nombreCompleto; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <input type="email" name="email" value="<?php echo $email; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <input type="number" name="telefono" value="<?php echo $telefonoMovil; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
@@ -154,6 +156,8 @@ if ($conn) {
     </div>
 </body>
 
+<script src="./scripts/validacionEditarPerfil.js"> </script>
+<script src="./scripts/validacionEditarFotoPerfil.js"> </script>
 </html>
 <style>
     input::-webkit-outer-spin-button,

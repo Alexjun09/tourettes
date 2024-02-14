@@ -1,6 +1,6 @@
-document.getElementById('bannerInput').addEventListener('change', function(event) {
+document.getElementById('ProfileInput').addEventListener('change', function(event) {
     var file = event.target.files[0];
-    var errorElement = document.getElementById('uploadError');
+    var errorElement = document.getElementById('uploadErrorProfile');
 
     // Limpiar errores previos 
     errorElement.textContent = '';
@@ -13,10 +13,10 @@ document.getElementById('bannerInput').addEventListener('change', function(event
 
     // Preparar FormData
     var formData = new FormData();
-    formData.append('banner', file);
+    formData.append('profile', file);
 
     // Realizar la petición fetch para subir el archivo
-    fetch('./server/procesar_EditarPerfil.php', {
+    fetch('./server/procesar_EditarFotoPerfil.php', {
         method: 'POST',
         body: formData,
     })
@@ -24,7 +24,7 @@ document.getElementById('bannerInput').addEventListener('change', function(event
     .then(data => {
         if(data.bannerPath) {
             // Actualiza la imagen del banner con la nueva ruta
-            document.getElementById('bannerInput').src = data.bannerPath;
+            document.getElementById('ProfileInput').src = data.bannerPath;
             window.location.reload();
         } else if(data.error) {
             errorElement.textContent = data.error;
