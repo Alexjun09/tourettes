@@ -11,11 +11,11 @@ if (!isset($_SESSION['idPaciente'])) {
 }
 
 header('Content-Type: application/json');
-$idPaciente = $_SESSION['idPaciente']; 
+$idPaciente = $_SESSION['idPaciente'];
 
 // Conexión a la base de datos
-require_once '../bbdd/connect.php'; 
-$conn = getConexion(); 
+require_once '../bbdd/connect.php';
+$conn = getConexion();
 
 error_log('Conexión de base de datos realizada.');
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $dest_path = $uploadFileDir . $newFileName;
 
             // Mueve el archivo
-            if(move_uploaded_file($fileTmpPath, $dest_path)) {
+            if (move_uploaded_file($fileTmpPath, $dest_path)) {
                 error_log('Archivo movido con éxito.');
 
                 // Actualizar la base de datos
@@ -61,9 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 } else {
                     error_log('Error al preparar la consulta: ' . $conn->error);
                 }
-                
+
                 echo json_encode(['bannerPath' => $newFilePath]);
-            
             } else {
                 error_log('Error al mover el archivo al directorio de carga.');
                 echo json_encode(['error' => 'Hubo un error al mover el archivo al directorio de carga.']);
@@ -80,5 +79,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     error_log('No se ha realizado una petición POST.');
     echo json_encode(['error' => 'Error en la carga del archivo.']);
 }
-
-?>

@@ -94,8 +94,8 @@ if ($conn) {
         <div class="relative flex flex-col justify-end items-center w-full">
             <img src="<?php echo $Banner; ?>" alt="" class="max-h-36 object-cover w-full">
             <div class="px-6 bg-contraste rounded-t-md absolute">
-                <p class="text-subtitle">EditarMi Cuenta</p>
-            </div> 
+                <p class="text-subtitle">Editar Mi Cuenta</p>
+            </div>
         </div>
         <div class="w-full h-full bg-contraste flex flex-col justify-center relative">
             <form id="uploadBannerForm" class="w-full h-full px-4 bg-transparent absolute flex flex-col items-start justify-start">
@@ -109,11 +109,13 @@ if ($conn) {
             </form>
             <div class="w-[80%] bg-secondary flex flex-row rounded-r-3xl py-20 px-10 justify-between">
                 <div class="flex flex-col items-center relative">
-                    <img src="<?php echo $FotoPerfil; ?>" alt="" class="z-30 w-64 border-4 rounded-full border-secondary">
+                    <div class="w-64 h-64 aspect-square z-30 ">
+                        <img src="<?php echo $FotoPerfil; ?>" alt="foto perfil" class="w-full h-full object-cover border-4 rounded-full border-secondary bg-white">
+                    </div>
                     <div class="absolute z-0 flex flex-col justify-end items-center w-full h-full">
                         <form id="uploadProfileForm" class="bg-white w-[90%] hover:bg-gray-300 transition-all ease-in h-1/2 text-center text-primary flex flex-col justify-end items-center pb-4">
                             <div class="relative flex flex-col">
-                                <input type="file"  id="ProfileInput" name="profile" accept=".jpg, .jpeg, .png" class="italic text-primary border z-20 w-32 opacity-0">
+                                <input type="file" id="ProfileInput" name="profile" accept=".jpg, .jpeg, .png" class="italic text-primary border z-20 w-32 opacity-0">
                                 <div class="absolute justify-center items-center w-full h-full z-10">
                                     <p class="text-center text-xl">Editar</p>
                                 </div>
@@ -158,6 +160,7 @@ if ($conn) {
 
 <script src="./scripts/validacionEditarPerfil.js"> </script>
 <script src="./scripts/validacionEditarFotoPerfil.js"> </script>
+
 </html>
 <style>
     input::-webkit-outer-spin-button,

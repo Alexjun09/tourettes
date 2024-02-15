@@ -102,7 +102,7 @@ $conn->close();
             </div>
         </div>
         <div class="h-0 px-5 w-full flex items-center justify-start">
-            <img src="<?php echo $FotoPerfil; ?>" alt="" class="h-36 rounded-full border-4 border-secondary absolute z-50 bg-white">
+            <img src="<?php echo $FotoPerfil; ?>" alt="" class="h-36 w-36 aspect-square object-cover rounded-full border-4 border-secondary absolute z-50 bg-white">
         </div>
         <div class="w-full h-screen bg-contraste flex flex-col items-center gap-10 relative">
             <div class="flex flex-row w-full ">
