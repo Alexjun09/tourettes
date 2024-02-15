@@ -25,7 +25,7 @@
             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
         <!-- body -->
-        <div class="flex flex-col w-full h-full items-center px-20">
+        <div class="flex flex-col w-full h-full items-center px-20 gap-5">
             <div class="flex flex-col gap-4 text-center">
                 <p class="text-title">Comunidad</p>
             </div>
@@ -102,6 +102,9 @@
                     <div class="w-32">
                     </div>
                 </div>
+            </div>
+            <div class="w-full flex flex-row">
+                <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./comunidad.php">Volver <-</a>
             </div>
         </div>
     </div>

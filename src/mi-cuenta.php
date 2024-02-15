@@ -123,7 +123,7 @@ $conn->close();
                         </div>
                     </div>
                     <div class="w-full flex flex-row items-center justify-center h-fit">
-                        <a class="bg-transparent border-2 border-primary px-20 p-1 rounded-full w-fit text-body" href="./mis-informes.html">Mis Informes</a>
+                        <a class="bg-transparent border-2 border-primary px-20 p-1 rounded-full w-fit text-body" href="./mis-informes.php">Mis Informes</a>
                     </div>
                 </div>
 

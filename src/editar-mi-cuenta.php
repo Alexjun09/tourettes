@@ -112,7 +112,7 @@ if ($conn) {
                     <div class="w-64 h-64 aspect-square z-30 ">
                         <img src="<?php echo $FotoPerfil; ?>" alt="foto perfil" class="w-full h-full object-cover border-4 rounded-full border-secondary bg-white">
                     </div>
-                    <div class="absolute z-0 flex flex-col justify-end items-center w-full h-full">
+                    <div class="absolute z-0 flex flex-col justify-end items-center w-full h-full mt-16">
                         <form id="uploadProfileForm" class="bg-white w-[90%] hover:bg-gray-300 transition-all ease-in h-1/2 text-center text-primary flex flex-col justify-end items-center pb-4">
                             <div class="relative flex flex-col">
                                 <input type="file" id="ProfileInput" name="profile" accept=".jpg, .jpeg, .png" class="italic text-primary border z-20 w-32 opacity-0">
@@ -125,11 +125,15 @@ if ($conn) {
                     </div>
                 </div>
                 <div class="w-full flex flex-col items-center">
-                    <form id="formularioPerfil" action="server/actualizar_datos_perfil.php" method="post" class="flex flex-col gap-8 w-1/2 justify-center z-40">
+                    <form id="formularioPerfil" action="server/actualizar_datos_perfil.php" method="post" class="flex flex-col w-1/2 justify-center z-40">
                         <input type="text" name="nombre" value="<?php echo $nombreCompleto; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <br>
                         <input type="email" name="email" value="<?php echo $email; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <br>
                         <input type="number" name="telefono" value="<?php echo $telefonoMovil; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <br>
                         <input type="number" name="edad" value="<?php echo $Edad; ?>" placeholder="edad" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <br>
                         <div class="flex flex-row items-center justify-between">
                             <a href="./mi-cuenta.php" class="rounded-tr-xl rounded-bl-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Cancelar</a>
                             <button type="submit" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Guardar</button>
