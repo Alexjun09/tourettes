@@ -161,14 +161,28 @@ $sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, Eda
 verificarEInsertar($conn, 'Pacientes', $sqlInsertPacientes);
 
 
-$sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES
-('juanperez@mail.com','juanperez1','contrasena1', 1),
-('anagarcia@mail.com', 'anitagarcia2','contrasena2', 2),
-('carlossanchez@mail.com','carlosanchez3','contrasena3', 3),
-('lauragomez@mail.com', 'laurita4','contrasena4', 4),
-('pedrolopez@mail.com', 'pedrolopez5','contrasena5', 5);";
-verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 
+$contrasenas = [
+    'contrasena1',
+    'contrasena2',
+    'contrasena3',
+    'contrasena4',
+    'contrasena5'
+];
+
+// Cifrar cada contraseña y preparar las consultas de inserción
+foreach ($contrasenas as $indice => $contrasenaPlana) {
+    // Cifrar la contraseña
+    $contrasenaCifrada = password_hash($contrasenaPlana, PASSWORD_DEFAULT);
+
+    $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES
+    ('a@gmail.com', 'juanperez1', '$contrasenaCifrada', 1),
+    ('anagarcia@mail.com', 'anitagarcia2', '$contrasenaCifrada', 2),
+    ('carlossanchez@mail.com', 'carlosanchez3', '$contrasenaCifrada', 3),
+    ('lauragomez@mail.com', 'laurita4', '$contrasenaCifrada', 4),
+    ('pedrolopez@mail.com', 'pedrolopez5', '$contrasenaCifrada', 5);";
+verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
+}
 $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion, FotoPsicologo) VALUES
 ('Dr. Hassan Raza', 'Psicología Clínica con énfasis en terapias para el Síndrome de Tourette', 'Santiago de Chile, Chile', 'Español, Inglés', 'Terapias conductuales especializadas, Técnicas de relajación y control de tics', 'Doctorado en Psicología Clínica, Universidad de Santiago de Chile, 2020','../../media/psicologos/psicologo6.jpg'),
 ('Dra. Rachel Anderson', 'Psicología Pediátrica y Trastornos de Tic', 'Bogotá, Colombia', 'Español, Portugués', 'Intervención cognitivo-conductual, Educación y apoyo a familias', 'Máster en Psicología Pediátrica, Universidad Nacional de Colombia, 2021','../../media/psicologos/psicologa5.jpg'),
@@ -213,9 +227,10 @@ $sqlInsertCitas = "INSERT INTO Citas (IDPaciente, IDPsicologo, FechaCita, Sintom
 verificarEInsertar($conn, 'Citas', $sqlInsertCitas);
 
 $sqlInsertInformes = "INSERT INTO Informes (IDPaciente, FechaInforme, RutaPDF) VALUES
-(1, '2024-01-30', '../../informes/informe_001.pdf'),
-(2, '2024-02-28', '../../informes/informe_002.pdf'),
-(3, '2024-03-01', '../../informes/informe_003.pdf');";
+(1, '2024-01-30', '../informes/informe1.pdf'),
+(1, '2024-02-10', '../informes/informe2.pdf'),
+(2, '2024-02-28', '../informes/informe1.pdf'),
+(3, '2024-03-01', '../informes/informe1.pdf');";
 verificarEInsertar($conn, 'Informes', $sqlInsertInformes);
 
 // Cerrar la conexión
