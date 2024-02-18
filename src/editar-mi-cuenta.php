@@ -70,6 +70,7 @@ if ($conn) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
+    <link rel="icon" href="../media/logo.png" type="image/x-icon">
     <title>Editar Mi Cuenta</title>
     <script src="./scripts/validacionFormularioEditarPerfil.js"> </script>
 </head>

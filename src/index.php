@@ -10,6 +10,7 @@ require_once './bbdd/database.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <title>Respuesta Foro</title>
+    <link rel="icon" href="../media/logo.png" type="image/x-icon">
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
