@@ -54,56 +54,58 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center gap-10 px-64">
             <p class="text-title">Comunidad</p>
-            <div class=" max-h-[1500px] flex flex-col shadow-lg shadow-primary rounded-md">
-                <div class="col-span-3 grid grid-cols-[6fr_3fr_1fr] bg-primary text-white gap-5 rounded-t-md px-5">
-                    <p class="text-body px-4 p-1 ">Tema</p>
-                    <p class="text-body px-4 p-1 text-center">Autor</p>
-                    <p class="text-body px-4 p-1 text-center">Fecha</p>
-                </div>
-                <div class="grid grid-cols-[6fr_3fr_1fr] gap-5 p-5 overflow-y-auto">
-                    <?php
-                    if ($stmt->num_rows > 0) {
-                        // Imprimir las entradas como filas de la tabla
-                        while ($stmt->fetch()) {
-                            echo "<a href='entrada-foro.php?id='$id'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> $titulo </p></a>";
-                            echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$autor</p>";
-                            echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> test</p>";
+            <div class="flex flex-col gap-5 max-w-[1500px]">
+                <div class="max-h-[1500px] flex flex-col shadow-lg shadow-primary rounded-md">
+                    <div class="col-span-3 grid grid-cols-[6fr_3fr_1fr] bg-primary text-white gap-5 rounded-t-md px-5">
+                        <p class="text-body px-4 p-1 ">Tema</p>
+                        <p class="text-body px-4 p-1 text-center">Autor</p>
+                        <p class="text-body px-4 p-1 text-center">Fecha</p>
+                    </div>
+                    <div class="grid grid-cols-[6fr_3fr_1fr] gap-5 p-5 overflow-y-auto">
+                        <?php
+                        if ($stmt->num_rows > 0) {
+                            // Imprimir las entradas como filas de la tabla
+                            while ($stmt->fetch()) {
+                                echo "<a href='entrada-foro.php?id='$id'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> $titulo </p></a>";
+                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$autor</p>";
+                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> test</p>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='3'>No hay entradas en el foro.</td></tr>";
                         }
-                    } else {
-                        echo "<tr><td colspan='3'>No hay entradas en el foro.</td></tr>";
-                    }
-                    $conn->close();
-                    ?>
-                </div>
-            </div>
-            <div class="w-full flex justify-end items-end h-fit">
-                <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.html">Añadir Entrada</a>
-            </div>
-            <!-- graficas chart.js -->
-            <div class="grid grid-cols-2 gap-20 w-full mt-10">
-                <div class="flex flex-col shadow-sm shadow-black">
-                    <div class="px-10 p-4 flex flex-col border-b-2">
-                        <div class="flex flex-row justify-between items-center">
-                            <p>Participación</p>
-                            <img src="../media/info.png" alt="" class="h-5 w-5">
-                        </div>
-                        <p class="text-3xl font-bold">102</p>
-                    </div>
-                    <div class="p-6">
-                        <canvas id="myChart1"></canvas>
+                        $conn->close();
+                        ?>
                     </div>
                 </div>
-                <div class="flex flex-col shadow-sm shadow-black">
-                    <div class="px-10 p-4 flex flex-col border-b-2">
-                        <div class="flex flex-row justify-between items-center">
-                            <p>Participación</p>
-                            <img src="../media/info.png" alt="" class="h-5 w-5">
+                <div class="w-full flex justify-end items-end h-fit">
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.html">Añadir Entrada</a>
+                </div>
+                <!-- graficas chart.js -->
+                <div class="grid grid-cols-2 gap-20 w-full mt-10">
+                    <div class="flex flex-col shadow-sm shadow-black">
+                        <div class="px-10 p-4 flex flex-col border-b-2">
+                            <div class="flex flex-row justify-between items-center">
+                                <p>Participación</p>
+                                <img src="../media/info.png" alt="" class="h-5 w-5">
+                            </div>
+                            <p class="text-3xl font-bold">102</p>
                         </div>
-                        <p class="text-3xl font-bold">102</p>
-                        <p>Tratamientos y esperiencias</p>
+                        <div class="p-6">
+                            <canvas id="myChart1"></canvas>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <canvas id="myChart2"></canvas>
+                    <div class="flex flex-col shadow-sm shadow-black">
+                        <div class="px-10 p-4 flex flex-col border-b-2">
+                            <div class="flex flex-row justify-between items-center">
+                                <p>Participación</p>
+                                <img src="../media/info.png" alt="" class="h-5 w-5">
+                            </div>
+                            <p class="text-3xl font-bold">102</p>
+                            <p>Tratamientos y esperiencias</p>
+                        </div>
+                        <div class="p-6">
+                            <canvas id="myChart2"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
