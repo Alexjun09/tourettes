@@ -25,6 +25,14 @@ if (!$fechaCita || new DateTime($fechaCita) < new DateTime()) {
     $fechaCita = str_replace('T', ' ', $fechaCita) . ":00"; // Formatear la fecha para la base de datos
 }
 
+// Convertir la fecha y hora del formato local al formato de la base de datos
+$fechaCitaObj = new DateTime($fechaCita);
+$horaCita = $fechaCitaObj->format('H');
+
+if ($horaCita < 8 || $horaCita > 17) {
+    $errores[] = "La hora de la cita debe estar entre las 8 am y las 6 pm.";
+}
+
 // Definir y validar el motivo de la consulta
 $motivoConsulta = isset($_POST['motivo_consulta']) ? trim($_POST['motivo_consulta']) : '';
 if (empty($motivoConsulta)) {

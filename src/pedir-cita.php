@@ -84,16 +84,16 @@ if ($result && $result->num_rows > 0) {
                     <?php endif; ?>
                 </div>
                 <!-- form -->
-                <form id="form-cita" action="server/procesar-cita.php" method="post" class="flex flex-col justify-center">
+                <form id="form-cita" action="server/procesar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center">
                     <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
                     <br>
-                    <input type="datetime-local" name="fecha" placeholder="Fecha" class="outline-none border-b border-black w-full text-opacity-50">
+                    <input type="datetime-local" id="fecha" name="fecha" placeholder="Fecha" required min="<?php echo date('Y-m-d'); ?>" class="outline-none border-b border-black w-full text-opacity-50">
                     <br>
                     <input type="text" name="motivo_consulta" placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
                     <br>
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
-                        <input type="radio" name="visita" id="si" value="1">
-                        <input type="radio" name="visita" id="no" value="0">
+                        <input type="radio" name="visita" id="si" value="1">Sí
+                        <input type="radio" name="visita" id="no" value="0">No
                     </div>
                     <br>
                     <div class="flex flex-row items-center gap-2">

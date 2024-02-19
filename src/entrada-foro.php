@@ -1,3 +1,46 @@
+<?php
+// Suponiendo que tienes una variable $idForo que obtienes de alguna manera (por ejemplo, a través de $_GET['id'])
+$idForo = $_GET['id']; // Asegúrate de validar y limpiar este valor para prevenir inyecciones SQL.
+
+session_start(); // Iniciar la sesión al principio de tu script
+
+// Redirige si el usuario no está logueado
+if (!isset($_SESSION['idPaciente'])) {
+    header('Location: sign-in.html');
+    exit;
+}
+
+require_once './bbdd/database.php';
+
+// Comprueba si el ID del psicólogo se ha pasado a través de POST
+if (!isset($_POST['idForo'])) {
+    // Redirige al usuario de vuelta al listado de psicólogos o muestra un mensaje de error
+    header('Location: comunidad.php');
+    exit;
+}
+// Consulta para obtener la entrada del foro
+$sqlForo = "SELECT * FROM Foro WHERE ID = ?";
+$stmtForo = $conn->prepare($sqlForo);
+$stmtForo->bind_param("i", $idForo);
+$stmtForo->execute();
+$resultForo = $stmtForo->get_result();
+$entradaForo = $resultForo->fetch_assoc();
+
+// Consulta para obtener las respuestas al foro
+$sqlRespuestas = "SELECT Respuestas.*, Pacientes.NombreCompleto, Pacientes.FotoPerfil FROM Respuestas JOIN Pacientes ON Respuestas.IDPaciente = Pacientes.ID WHERE IDForo = ?";
+$stmtRespuestas = $conn->prepare($sqlRespuestas);
+$stmtRespuestas->bind_param("i", $idForo);
+$stmtRespuestas->execute();
+$resultRespuestas = $stmtRespuestas->get_result();
+$respuestas = [];
+while ($row = $resultRespuestas->fetch_assoc()) {
+    $respuestas[] = $row;
+}
+
+$stmtForo->close();
+$stmtRespuestas->close();
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,8 +88,7 @@
                             <p class="text-lg">Nombre Autor</p>
                         </div>
                         <div class="w-full bg-secondary p-2">
-                            <p class="text-5xl font-bold text-center">Titulo entrada foro</p>
-                        </div>
+                        <p class="text-5xl font-bold text-center"><?php echo htmlspecialchars($entradaForo['Titulo']); ?></p>                        </div>
                         <div class="">
                             <div class="">
                                 <img src="../media/index2.png" alt="" class="float-left max-w-[300px] mr-4">
