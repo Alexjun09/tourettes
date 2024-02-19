@@ -66,8 +66,8 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                         if ($stmt->num_rows > 0) {
                             // Imprimir las entradas como filas de la tabla
                             while ($stmt->fetch()) {
-                                echo "<a href='entrada-foro.php?id='$id'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> $titulo </p></a>";
-                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$autor</p>";
+                                echo "<a href='entrada-foro.php?id={$id}'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>{$titulo}</p></a>";   
+                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>{$autor}</p>";                                
                                 echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> test</p>";
                             }
                         } else {
