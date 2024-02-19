@@ -196,15 +196,19 @@ $conn->close();
                 const address = info.event.extendedProps.direccion;
                 const time = info.event.start.toLocaleTimeString()
                 var details = `
-                <div id="event-details" class="flex flex-row gap-10 p-4 w-[600px] h-[150px] bg-secondary rounded-r-3xl">
+                <div id="event-details" class="grid grid-cols-4 gap-4 px-8 p-4 w-[600px] h-[150px] bg-secondary rounded-r-3xl">
                     <div class="flex flex-col justify-between items-center p-4 bg-contraste rounded-3xl text-white">
                         <p class="text-5xl">${day}</p>
                         <p class="text-2xl">${dayOfTheWeek}</p>
                     </div>
-                    <div class="flex flex-col justify-between text-white">
+                    <div class="flex flex-col justify-between text-white col-span-2">
                         <p class="text-3xl text-primary">${doctor}</p>
                         <p class="text-3xl">${time.substr(0, 5)}</p>
                         <p class="text-lg">${address}</p>
+                    </div>
+                    <div class="flex flex-col gap-4 h-full justify-center items-center">
+                        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center" href="./">Modificar</a>
+                        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center" href="./">Anular</a>
                     </div>
                 </div>`;
                 // Asegúrate de que solo se muestre un desplegable a la vez
