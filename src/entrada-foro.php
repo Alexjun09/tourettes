@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $idForo = $_GET['id'];
 
     // Consulta para obtener los detalles de la entrada del foro y su autor
-    $queryForo = "SELECT Foro.Titulo, Foro.Cuerpo, Pacientes.NombreCompleto AS Autor, Pacientes.FotoPerfil AS FotoPerfilAutor, Foro.IDPaciente
+    $queryForo = "SELECT Foro.Titulo, Foro.Cuerpo, Foro.Archivo, Pacientes.NombreCompleto AS Autor, Pacientes.FotoPerfil AS FotoPerfilAutor, Foro.IDPaciente
                   FROM Foro
                   JOIN Pacientes ON Foro.IDPaciente = Pacientes.ID
                   WHERE Foro.ID = ?";
@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
 
     // Verificar si se encontraron resultados para la entrada del foro
     if ($stmtForo->num_rows > 0) {
-        $stmtForo->bind_result($tituloForo, $cuerpoForo, $autorForo, $fotoPerfilAutor, $idPaciente);
+        $stmtForo->bind_result($tituloForo, $cuerpoForo, $archivoForo, $autorForo, $fotoPerfilAutor, $idPaciente);
         $stmtForo->fetch();
 ?>
         <!DOCTYPE html>
@@ -83,7 +83,14 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <div class="">
                                     <div class="">
-                                        <img src="../media/index2.png" alt="" class="float-left max-w-[300px] mr-4">
+                                        <?php
+                                        // Verificar si hay un archivo adjunto en la entrada del foro
+                                        if (!empty($archivoForo)) {
+                                            echo '<img src="' . htmlspecialchars($archivoForo) . '" alt="Archivo adjunto" class="float-left max-w-[300px] mr-4">';
+                                        } else {
+                                            echo '<img src="../media/index2.png" alt="" class="float-left max-w-[300px] mr-4">';
+                                        }
+                                        ?>
                                     </div>
                                     <p class="text-body"><?php echo htmlspecialchars($cuerpoForo); ?></p>
                                 </div>

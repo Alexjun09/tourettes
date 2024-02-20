@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
     $archivo = NULL;
     if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
         $nombreArchivo = basename($_FILES['archivo']['name']);
-        $rutaArchivo = '../media/entradaforo/' . $nombreArchivo;
+        $rutaArchivo = '../../media/entradaforo' . $nombreArchivo;
         if (move_uploaded_file($_FILES['archivo']['tmp_name'], $rutaArchivo)) {
             $archivo = $rutaArchivo;
         } else {
@@ -50,7 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
 
     // Ejecutar la consulta
     if ($stmt->execute()) {
-        echo "Nuevo registro en el foro creado exitosamente.";
+        // Redirigir al usuario a comunidad.php
+        header('Location: ../comunidad.php');
+        exit; // Asegúrate de salir del script después de la redirección
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -63,4 +65,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
 
 // Cerrar la conexión a la base de datos
 $conn->close();
-?>
