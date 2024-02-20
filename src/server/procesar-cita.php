@@ -46,7 +46,7 @@ $visitadoAntes = isset($_POST['visita']) ? (int)$_POST['visita'] : 0;
 if (!empty($errores)) {
     // Si hay errores, redirigir al formulario y pasar los mensajes de error
     $_SESSION['errores'] = $errores;
-    header('Location: ../pedir-cita.php');
+    header('Location: ../confirmacion-cita.php?cita=error');
     exit;
 }
 
