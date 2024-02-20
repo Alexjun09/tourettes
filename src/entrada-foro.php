@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $idForo = $_GET['id'];
 
     // Consulta para obtener los detalles de la entrada del foro y su autor
-    $queryForo = "SELECT Foro.Titulo, Foro.Cuerpo, Pacientes.NombreCompleto AS Autor, Pacientes.FotoPerfil AS FotoPerfilAutor
+    $queryForo = "SELECT Foro.Titulo, Foro.Cuerpo, Pacientes.NombreCompleto AS Autor, Pacientes.FotoPerfil AS FotoPerfilAutor, Foro.IDPaciente
                   FROM Foro
                   JOIN Pacientes ON Foro.IDPaciente = Pacientes.ID
                   WHERE Foro.ID = ?";
@@ -29,9 +29,8 @@ if (isset($_GET['id'])) {
 
     // Verificar si se encontraron resultados para la entrada del foro
     if ($stmtForo->num_rows > 0) {
-        $stmtForo->bind_result($tituloForo, $cuerpoForo, $autorForo, $fotoPerfilAutor);
+        $stmtForo->bind_result($tituloForo, $cuerpoForo, $autorForo, $fotoPerfilAutor, $idPaciente);
         $stmtForo->fetch();
-
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -123,7 +122,7 @@ if (isset($_GET['id'])) {
 
                                 </div>
                                 <div class="w-full flex flex-row justify-end h-fit">
-                                    <a href="./respuesta-foro.php?id=<?php echo $idForo; ?>" class="border-2 border-white py-2 px-8 bg-transparent rounded-full w-fit">Responder</a>
+                                    <a href="./respuesta-foro.php?idForo=<?php echo $idForo; ?>&idPaciente=<?php echo $idPaciente; ?>" class="border-2 border-white py-2 px-8 bg-transparent rounded-full w-fit">Responder</a>
                                 </div>
                             </div>
                             <div class="w-32">

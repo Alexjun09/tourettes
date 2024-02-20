@@ -2,11 +2,16 @@
 session_start();
 require_once '../bbdd/connect.php'; 
 
+
+$idForo = $_POST['idForo'];
+$idPaciente = $_SESSION['idPaciente'];
+
 // Verificar si el usuario está logueado y si el ID del foro está establecido en la sesión
-if (!isset($_SESSION['idPaciente']) || !isset($_SESSION['idForo'])) {
+if (!isset($_SESSION['idPaciente']) || !isset($_POST['idForo'])) {
     echo "No está autorizado para ver esta página.";
     exit;
 }
+
 
 // Obtener la conexión a la base de datos
 $conn = getConexion();
@@ -17,11 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cuerpo = $conn->real_escape_string($_POST['cuerpo']);
     
     // Asignar ID del foro e ID del paciente desde la sesión
-    $idForo = $_SESSION['idForo'];
-    $idPaciente = $_SESSION['idPaciente'];
+
 
     // Preparar la consulta SQL usando sentencias preparadas para evitar inyecciones SQL
-    // Nota: He quitado la columna 'Archivo' de la consulta ya que no estamos procesando un archivo
     $stmt = $conn->prepare("INSERT INTO Respuestas (Respuesta, IDForo, IDPaciente) VALUES (?, ?, ?)");
     $stmt->bind_param("sii", $cuerpo, $idForo, $idPaciente);
 
@@ -40,4 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Cerrar la conexión a la base de datos
 $conn->close();
-?>
+
