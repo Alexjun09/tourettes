@@ -153,11 +153,11 @@ function verificarEInsertar($conn, $tabla, $sqlInsert)
 }
 
 $sqlInsertPacientes = "INSERT INTO Pacientes (NombreCompleto, TelefonoMovil, Edad, FotoPerfil, Banner) VALUES
-('Juan Pérez', '612345678', 30, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
-('Ana García', '623456789', 25, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
-('Carlos Sánchez', '634567890', 40, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
-('Laura Gómez', '645678901', 35, '../media/imgmicuenta.png', '../media/bgcuenta.png'),
-('Pedro López', '656789012', 28, '../media/imgmicuenta.png', '../media/bgcuenta.png')";
+('Juan Pérez', '612345678', 30, '../media/profile/profile3.jpg', '../media/bgcuenta.png'),
+('Ana García', '623456789', 25, '../media/profile/profile2.jpg', '../media/bgcuenta.png'),
+('Carlos Sánchez', '634567890', 40, '../media/profile/profile4.jpg', '../media/bgcuenta.png'),
+('Laura Gómez', '645678901', 35, '../media/profile/profile5.jpg', '../media/bgcuenta.png'),
+('María López', '656789012', 28, '../media/profile/profile1.jpg', '../media/bgcuenta.png')";
 verificarEInsertar($conn, 'Pacientes', $sqlInsertPacientes);
 
 
@@ -181,7 +181,7 @@ foreach ($contrasenas as $indice => $contrasenaPlana) {
     ('carlossanchez@mail.com', 'carlosanchez3', '$contrasenaCifrada', 3),
     ('lauragomez@mail.com', 'laurita4', '$contrasenaCifrada', 4),
     ('pedrolopez@mail.com', 'pedrolopez5', '$contrasenaCifrada', 5);";
-verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
+    verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 }
 $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion, FotoPsicologo) VALUES
 ('Dr. Hassan Raza', 'Psicología Clínica con énfasis en terapias para el Síndrome de Tourette', 'Santiago de Chile, Chile', 'Español, Inglés', 'Terapias conductuales especializadas, Técnicas de relajación y control de tics', 'Doctorado en Psicología Clínica, Universidad de Santiago de Chile, 2020','../../media/psicologos/psicologo6.jpg'),
@@ -193,29 +193,34 @@ $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ub
 verificarEInsertar($conn, 'Psicologos', $sqlInsertPsicologos);
 
 $sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES
-('Ansiedad y estrés', 'ansiedad, estrés, salud mental', 'archivo1.pdf', 'Contenido del tema sobre ansiedad...', 1),
-('Depresión en adolescentes', 'depresión, adolescentes', 'archivo2.pdf', 'Contenido del tema sobre depresión...', 2),
-('Autoestima y autoconcepto', 'autoestima, autoconcepto', 'archivo3.pdf', 'Contenido sobre autoestima...', 3),
-('Gestión de emociones', 'emociones, gestión, inteligencia emocional', 'archivo4.pdf', 'Contenido sobre gestión de emociones...', 4),
-('Mindfulness y meditación', 'mindfulness, meditación, relajación', 'archivo5.pdf', 'Contenido sobre mindfulness...', 5)";
+    ('Ansiedad y estrés', 'ansiedad, estrés, salud mental', 'archivo1.pdf', 'La ansiedad y el estrés son problemas comunes en la sociedad moderna. La ansiedad se manifiesta de diferentes formas y puede afectar significativamente la vida diaria de una persona. Puede ser causada por una variedad de factores, como el trabajo, las relaciones personales, la salud y otros aspectos de la vida. El estrés, por otro lado, es una respuesta natural del cuerpo a situaciones desafiantes o amenazantes. Aunque el estrés puede ser útil en pequeñas dosis, el estrés crónico puede tener efectos negativos en la salud física y mental. En este tema, exploraremos los síntomas, las causas y las estrategias de afrontamiento para la ansiedad y el estrés.', 1),
+    ('Depresión en adolescentes', 'depresión, adolescentes', 'archivo2.pdf', 'La depresión en adolescentes es un tema importante en la salud mental. Los adolescentes enfrentan una variedad de desafíos durante esta etapa de la vida, incluidos cambios hormonales, presiones académicas, problemas familiares y cambios en las relaciones sociales. Estos factores pueden contribuir al desarrollo de la depresión. La depresión puede manifestarse de diferentes maneras en los adolescentes, como cambios en el estado de ánimo, pérdida de interés en actividades que solían disfrutar, problemas de sueño y pensamientos suicidas. Es importante abordar la depresión en los adolescentes de manera temprana y brindarles el apoyo necesario para superar esta dificultad.', 2),
+    ('Autoestima y autoconcepto', 'autoestima, autoconcepto', 'archivo3.pdf', 'La autoestima y el autoconcepto son aspectos fundamentales de la salud mental y el bienestar. La autoestima se refiere a la valoración que una persona tiene de sí misma, mientras que el autoconcepto se refiere a la percepción que una persona tiene de sus habilidades, características y roles en la vida. Ambos juegan un papel importante en la forma en que una persona se ve a sí misma y cómo interactúa con el mundo que la rodea. Una autoestima y un autoconcepto saludables pueden contribuir a una mayor confianza, resiliencia y satisfacción con la vida. En este tema, exploraremos estrategias para mejorar la autoestima y el autoconcepto, así como la importancia de cultivar una imagen positiva de uno mismo.', 3),
+    ('Gestión de emociones', 'emociones, gestión, inteligencia emocional', 'archivo4.pdf', 'La gestión de emociones es un componente crucial de la inteligencia emocional y el bienestar emocional. Consiste en reconocer, comprender y regular las propias emociones de manera efectiva. La capacidad de gestionar adecuadamente las emociones puede ayudar a reducir el estrés, mejorar las relaciones interpersonales y promover un mayor bienestar psicológico. En este tema, exploraremos diversas estrategias para la gestión de emociones, como la práctica de la atención plena, la expresión emocional saludable y el desarrollo de habilidades de afrontamiento efectivas.', 4),
+    ('Mindfulness y meditación', 'mindfulness, meditación, relajación', 'archivo5.pdf', 'El mindfulness y la meditación son prácticas ancestrales que han ganado popularidad en el mundo moderno debido a sus beneficios para la salud mental y el bienestar. El mindfulness se refiere a la conciencia plena del momento presente, sin juzgar los pensamientos o sentimientos que surgen. La meditación, por otro lado, implica dedicar tiempo a prácticas específicas que fomentan la relajación, la atención y la claridad mental. Ambas prácticas han demostrado ser eficaces para reducir el estrés, mejorar la concentración y promover una mayor sensación de calma y equilibrio interior. En este tema, exploraremos los fundamentos del mindfulness y la meditación, así como las diversas técnicas que se pueden utilizar para incorporar estas prácticas en la vida cotidiana.', 5)";
+
+// Verificar e insertar
 verificarEInsertar($conn, 'Foro', $sqlInsertForo);
 
+
 $sqlInsertRespuestas = "INSERT INTO Respuestas (Respuesta, IDForo, IDPaciente) VALUES
-('Estoy de acuerdo con el tema de ansiedad...', 1, 1),
-('En mi experiencia, la depresión adolescente...', 2, 2),
-('El autoconcepto es fundamental...', 3, 3),
-('La gestión de emociones es clave...', 4, 4),
-('He practicado mindfulness y realmente ayuda...', 5, 5),
-('El apoyo grupal en el foro es muy beneficioso...', 1, 2),
-('La terapia cognitiva ha sido un cambio de juego para mí...', 2, 3),
-('Es importante entender la diferencia entre autoestima y autoeficacia...', 3, 4),
-('Aprendiendo a meditar, he encontrado mucha paz...', 4, 5),
-('El manejo del estrés es vital para el bienestar diario...', 5, 1),
-('El ejercicio regular ha mejorado mi salud mental...', 1, 3),
-('La calidad del sueño puede afectar enormemente tu estado de ánimo...', 2, 4),
-('Los ejercicios de respiración pueden ayudar con la ansiedad...', 3, 5),
-('La nutrición juega un papel importante en la salud mental...', 4, 1),
-('Hablar abiertamente sobre problemas es el primer paso para resolverlos...', 5, 2)";
+    ('Estoy de acuerdo con el tema de ansiedad. La ansiedad es una respuesta natural del cuerpo frente a situaciones estresantes, pero cuando se vuelve excesiva puede afectar seriamente la calidad de vida. Personalmente, he experimentado momentos de ansiedad intensa y he encontrado útil aprender técnicas de respiración y mindfulness para gestionarla. Además, creo que es importante buscar apoyo en personas cercanas y profesionales de la salud mental.', 1, 1),
+    ('La depresión en adolescentes es un tema que me toca de cerca. Durante mi adolescencia, experimenté períodos de profunda tristeza y desesperanza. Afortunadamente, pude encontrar ayuda en terapia y medicación, lo que me permitió superar esos momentos difíciles. Sin embargo, reconozco lo crucial que es el apoyo de amigos y familiares durante este proceso. Es importante destigmatizar la depresión y fomentar un ambiente de apertura y comprensión para que los adolescentes se sientan cómodos buscando ayuda.', 2, 2),
+    ('El autoconcepto es un aspecto fundamental de la salud mental y el bienestar emocional. Durante años luché con una baja autoestima y una imagen negativa de mí mismo. Sin embargo, a través de la terapia y el autodescubrimiento, he aprendido a valorarme y aceptarme tal como soy. Creo que es importante que las personas trabajen en desarrollar una autoimagen positiva y cultivar la confianza en sí mismas para vivir una vida plena y satisfactoria.', 3, 3),
+    ('La gestión de emociones es una habilidad vital para navegar por los desafíos de la vida cotidiana. A lo largo de los años, he aprendido a identificar mis emociones y a expresarlas de manera saludable. Esto ha sido fundamental para mantener relaciones saludables y manejar el estrés. La terapia cognitivo-conductual ha sido especialmente útil para mí en este proceso, ya que me ha proporcionado herramientas prácticas para regular mis emociones y mejorar mi bienestar general.', 4, 4),
+    ('El mindfulness y la meditación son prácticas que han transformado mi vida. A través de la meditación regular, he aprendido a cultivar la atención plena y a vivir en el momento presente. Esto me ha ayudado a reducir el estrés, mejorar mi concentración y encontrar una mayor paz interior. Recomiendo encarecidamente a cualquier persona que esté lidiando con la ansiedad o el estrés que pruebe la meditación como una herramienta para promover el bienestar mental.', 5, 5),
+    ('He encontrado un gran apoyo en este foro mientras navego por mi viaje de recuperación de la ansiedad. Leer las experiencias y consejos de otras personas que están pasando por situaciones similares me ha ayudado a sentirme menos sola y más esperanzada en mi capacidad para superar los desafíos. Agradezco profundamente la comunidad que se ha formado aquí y espero poder devolver el favor compartiendo mi propia experiencia y conocimiento.', 1, 2),
+    ('La terapia cognitiva ha sido un verdadero cambio de juego para mí en mi lucha contra la depresión. A través de la terapia, he aprendido a desafiar y cambiar mis pensamientos negativos, lo que ha tenido un impacto significativo en mi estado de ánimo y mi calidad de vida. Si estás luchando con la depresión, te animo a que consideres buscar ayuda profesional. La terapia puede marcar la diferencia.', 2, 3),
+    ('Entender la diferencia entre autoestima y autoeficacia ha sido fundamental en mi viaje de autoaceptación y crecimiento personal. Mientras que la autoestima se refiere a la valoración global de uno mismo, la autoeficacia se trata de la confianza en la capacidad de uno para enfrentar desafíos y alcanzar metas. Trabajar en desarrollar ambas áreas puede ser transformador y empoderador.', 3, 4),
+    ('La práctica regular de mindfulness y meditación ha sido una verdadera bendición en mi vida. A través de la meditación, he aprendido a cultivar la calma interior y a encontrar un sentido de paz y equilibrio en medio del caos. Recomiendo encarecidamente la meditación a cualquier persona que busque reducir el estrés y mejorar su bienestar emocional.', 4, 5),
+    ('El manejo del estrés es una habilidad vital en el mundo actual, donde las demandas y presiones pueden ser abrumadoras. Para mí, el ejercicio regular ha sido una forma efectiva de reducir el estrés y mejorar mi salud mental. Ya sea caminar, correr o practicar yoga, encontrar una actividad que te ayude a liberar tensiones puede marcar una gran diferencia en tu bienestar general.', 5, 1),
+    ('El ejercicio regular ha sido una parte integral de mi estrategia de cuidado personal para mantener una buena salud mental. Además de los beneficios físicos, como la liberación de endorfinas, el ejercicio también puede mejorar el estado de ánimo y reducir los síntomas de ansiedad y depresión. Te animo a que encuentres una actividad física que disfrutes y la integres en tu rutina diaria.', 1, 3),
+    ('La calidad del sueño juega un papel crucial en el bienestar emocional y mental. Durante períodos de depresión, el sueño puede verse afectado, lo que puede empeorar los síntomas. He descubierto que establecer una rutina de sueño consistente y crear un ambiente propicio para dormir puede mejorar significativamente la calidad de mi sueño y mi estado de ánimo en general.', 2, 4),
+    ('Los ejercicios de respiración son una herramienta simple pero efectiva para reducir la ansiedad y promover la relajación. Durante momentos de estrés o angustia, dedicar unos minutos a practicar la respiración profunda puede ayudar a calmar la mente y el cuerpo. Te animo a que pruebes diferentes técnicas de respiración y encuentres la que mejor funcione para ti.', 3, 5),
+    ('La nutrición adecuada es esencial para mantener una buena salud mental. Una dieta equilibrada que incluya una variedad de alimentos ricos en nutrientes puede tener un impacto positivo en el estado de ánimo y la función cognitiva. Personalmente, he notado una mejora en mi bienestar emocional al priorizar alimentos frescos y nutritivos en mi dieta diaria.', 4, 1),
+    ('Hablar abiertamente sobre los problemas es el primer paso para superarlos. A lo largo de mi viaje de salud mental, he aprendido la importancia de expresar mis emociones y compartir mis preocupaciones con personas de confianza. La terapia de grupo ha sido especialmente beneficiosa para mí, ya que me ha brindado un espacio seguro para conectarme con otras personas que entienden mis luchas.', 5, 2)";
+
+// Verificar e insertar
 verificarEInsertar($conn, 'Respuestas', $sqlInsertRespuestas);
 
 $sqlInsertCitas = "INSERT INTO Citas (IDPaciente, IDPsicologo, FechaCita, Sintomas, VisitadoAntes) VALUES

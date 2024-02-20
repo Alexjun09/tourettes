@@ -1,3 +1,15 @@
+<?php
+// Verificar si se ha proporcionado un ID de entrada de foro en la URL
+if (isset($_GET['id'])) {
+    // Obtener el ID del foro desde la URL
+    $idForo = $_GET['id'];
+
+    // Aquí puedes utilizar $idForo para cualquier lógica adicional que necesites
+} else {
+    // Mostrar un mensaje si no se proporcionó un ID de entrada de foro
+    echo "<p>No se proporcionó un ID de entrada de foro.</p>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

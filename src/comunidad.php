@@ -66,12 +66,12 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                         if ($stmt->num_rows > 0) {
                             // Imprimir las entradas como filas de la tabla
                             while ($stmt->fetch()) {
-                                echo "<a href='entrada-foro.php?id={$id}'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>{$titulo}</p></a>";   
-                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>{$autor}</p>";                                
+                                echo "<a href='entrada-foro.php?id=$id'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$titulo</p></a>";
+                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$autor</p>";
                                 echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> test</p>";
                             }
                         } else {
-                            echo "<tr><td colspan='3'>No hay entradas en el foro.</td></tr>";
+                            echo "<p>No hay entradas en el foro.</p>";
                         }
                         $conn->close();
                         ?>
@@ -126,67 +126,65 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
             </a>
         </div>
     </div>
+    <!-- Script de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart1');
+
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                interaction: {
+                    mode: "index",
+                    intersect: false,
+                },
+                legend: {
+                    position: "bottom",
+                },
+            },
+        });
+
+        const ctx2 = document.getElementById('myChart2');
+
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                interaction: {
+                    mode: "index",
+                    intersect: false,
+                },
+                legend: {
+                    position: "bottom",
+                },
+            },
+        });
+    </script>
 </body>
 
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-    const ctx = document.getElementById('myChart1');
-
-    new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            datasets: [{
-                label: '# of Votes',
-                data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            elements: {
-                line: {
-                    borderWidth: 3
-                }
-            },
-            interaction: {
-                mode: "index",
-                intersect: false,
-            },
-            legend: {
-                position: "bottom",
-            },
-        },
-    });
-</script>
-<script>
-    const ctx2 = document.getElementById('myChart2');
-
-    new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            datasets: [{
-                label: '# of Votes',
-                data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            elements: {
-                line: {
-                    borderWidth: 3
-                }
-            },
-            interaction: {
-                mode: "index",
-                intersect: false,
-            },
-            legend: {
-                position: "bottom",
-            },
-        },
-    });
-</script>

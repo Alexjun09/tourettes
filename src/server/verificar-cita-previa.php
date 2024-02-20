@@ -7,7 +7,6 @@ if (!isset($_SESSION['idPaciente'])) {
     exit;
 }
 
-// Asumiendo que recibes los datos por método POST desde la solicitud AJAX
 $psicologo_id = $_POST['psicologo_id'] ?? '';
 $paciente_id = $_POST['paciente_id'] ?? '';
 $fecha = $_POST['fecha'] ?? '';
@@ -32,4 +31,3 @@ if ($count > 0) {
 
 $stmt->close();
 $conn->close();
-?>

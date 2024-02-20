@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Prevenir el envío automático del formulario.
         event.preventDefault();
 
+        // Limpiar errores previos antes de realizar la validación.
+        clearErrors();
+
         // Recoger valores de los campos del formulario.
         const motivoConsulta = form.querySelector('input[name="motivo_consulta"]').value;
         const visita = form.querySelector('input[name="visita"]:checked');
@@ -107,16 +110,27 @@ function verificarCitaPrevia(inputFecha, psicologo_id, paciente_id) {
     xhr.open('POST', '../server/verificar-cita-previa.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            const respuesta = JSON.parse(xhr.responseText);
-            if (respuesta.yaTieneCita) {
-                showError('fecha', 'Ya tiene una cita programada con este psicólogo.');
-                inputFecha.value = ''; // Resetea el input
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                const respuesta = JSON.parse(xhr.responseText);
+                if (respuesta.yaTieneCita) {
+                    showError('fecha', 'Ya tiene una cita programada con este psicólogo.');
+                    inputFecha.value = ''; // Resetea el input
+                    tieneCitaPrevia = true; // Establecer la variable de control
+                } else {
+                    tieneCitaPrevia = false; // Establecer la variable de control
+                }
+            } else {
+                console.error('Error en la solicitud: ' + xhr.status);
+                // Aquí puedes manejar el error de manera adecuada, por ejemplo, mostrando un mensaje de error general.
+                showError('general', 'Ocurrió un error al verificar la cita previa. Inténtalo de nuevo más tarde.');
             }
         }
     };
+    console.log('psicologo_id=' + encodeURIComponent(psicologo_id) + '&paciente_id=' + encodeURIComponent(paciente_id) + '&fecha=' + encodeURIComponent(fechaHora));
     xhr.send('psicologo_id=' + encodeURIComponent(psicologo_id) + '&paciente_id=' + encodeURIComponent(paciente_id) + '&fecha=' + encodeURIComponent(fechaHora));
 }
+
 
 // Función para mostrar errores específicos de los campos.
 function showError(inputName, message) {
@@ -151,7 +165,7 @@ function showError(inputName, message) {
 
 // Función para limpiar todos los errores mostrados anteriormente.
 function clearErrors() {
-        // Eliminar todos los mensajes de error.
+    // Eliminar todos los mensajes de error.
     const errors = document.querySelectorAll('.error-text');
     errors.forEach(error => error.remove());
     // Quitar la clase de error de todos los campos de entrada.

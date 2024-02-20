@@ -87,7 +87,7 @@ $conn->close();
         <nav class="flex flex-row gap-10 text-primary text-lg">
             <a href="./educacion.php">Educación</a>
             <a href="./listado-de-psicologos.php">Pedir Cita</a>
-            <a href="./comunidad.html">Comunidad</a>
+            <a href="./comunidad.php">Comunidad</a>
             <a href="./contacto.html">Contacto</a>
         </nav>
         <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi

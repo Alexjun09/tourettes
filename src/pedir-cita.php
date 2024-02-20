@@ -83,6 +83,7 @@ if ($result && $result->num_rows > 0) {
                     <?php else : ?>
                     <?php endif; ?>
                 </div>
+
                 <!-- form -->
                 <form id="form-cita" action="server/procesar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center">
                     <input type="hidden" name="psicologo_id" value="<?php echo $_POST['psicologo_id']; ?>">
