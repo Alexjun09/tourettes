@@ -58,12 +58,12 @@
                                 <p class="text-4xl text-center">Respuestas</p>
                             </div>
                             <div class="flex flex-col gap-4">
-                                <div class="rounded-md bg-primary grid grid-cols-[1fr_6fr] w-[650px] p-1">
-                                    <div class="p-3">
-                                        <img src="../media/personita.png" alt="">
+                                <div class='rounded-md bg-primary grid grid-cols-[1fr_6fr] w-[650px] p-1'>
+                                    <div class='p-3'>
+                                        <img src='../media/personita.png' alt=''>
                                     </div>
-                                    <div class="flex flex-col">
-                                        <p class="text-white bg-secondary w-fit px-2">Nombre Autor Respuesta</p>
+                                    <div class='flex flex-col'>
+                                        <p class='text-white bg-secondary w-fit px-2'>Nombre Autor Respuesta</p>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ad repellat obcaecati quod consequatur debitis eaque sit magni enim illum hic, sunt rem dignissimos molestiae numquam exercitationem? A, facere ipsam?</p>
                                     </div>
                                 </div>
