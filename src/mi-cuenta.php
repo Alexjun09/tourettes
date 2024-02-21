@@ -190,6 +190,8 @@ $conn->close();
             eventColor: '#92AAB3',
             eventClick: function(info) {
                 // Crear y mostrar un desplegable con la información del evento
+                const idCita = info.event.id; // `id` directamente contiene el ID de la cita
+                const idPsicologo = info.event.extendedProps.idPsicologo;
                 const day = new Date(info.event.start).getDate();
                 const dayOfTheWeek = dayOfTheWeekWords(new Date(info.event.start).getDay());
                 const doctor = info.event.title;
@@ -207,8 +209,8 @@ $conn->close();
                         <p class="text-lg">${address}</p>
                     </div>
                     <div class="flex flex-col gap-4 h-full justify-center items-center">
-                        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center" href="./">Modificar</a>
-                        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center" href="./">Anular</a>
+                    <a href="modificar-cita.php?psicologo_id=${idPsicologo}&cita_id=${idCita}" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center">Modificar</a>                        
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center" href="./">Anular</a>
                     </div>
                 </div>`;
                 // Asegúrate de que solo se muestre un desplegable a la vez

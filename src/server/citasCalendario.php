@@ -15,7 +15,7 @@ $conn = getConexion();
 header('Content-Type: application/json');
 
 // Preparar la consulta SQL para obtener los eventos de citas para un paciente específico
-$query = "SELECT Citas.IDCita, Citas.FechaCita, Citas.Sintomas, Psicologos.NombreCompleto AS NombrePsicologo, Psicologos.Ubicacion AS UbicacionPsicologo
+$query = "SELECT Citas.IDCita, Citas.FechaCita, Citas.Sintomas, Psicologos.NombreCompleto AS NombrePsicologo, Psicologos.Ubicacion AS UbicacionPsicologo, Citas.IDPsicologo
           FROM Citas 
           INNER JOIN Psicologos ON Citas.IDPsicologo = Psicologos.ID
           WHERE Citas.IDPaciente = ?";
@@ -39,7 +39,8 @@ if ($result->num_rows > 0) {
             'id' => $row['IDCita'],
             'title' => $row['NombrePsicologo'], // Combinamos los síntomas y el nombre del psicólogo
             'start' => $row['FechaCita'],
-            'direccion' => $row['UbicacionPsicologo'] // Fecha y hora de inicio del evento
+            'direccion' => $row['UbicacionPsicologo'], // Fecha y hora de inicio del evento
+            'idPsicologo' => $row['IDPsicologo']
             // Puedes agregar más campos aquí según necesites
         ];
     }

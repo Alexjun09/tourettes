@@ -19,11 +19,29 @@ if (isset($_POST['psicologo_id'])) {
     header('Location: listado-de-psicologos.php');
     exit;
 }
+$conn = getConexion();
+$idCita = isset($_GET['cita_id']) ? $_GET['cita_id'] : null;
+echo $idCita;
+$cita = null; // Variable para almacenar los datos de la cita
+
+    $sqlCita = "SELECT FechaCita, Sintomas, VisitadoAntes FROM Citas WHERE IDCita = ?";
+    $stmtCita = $conn->prepare($sqlCita);
+    $stmtCita->bind_param("i", $idCita);
+    $stmtCita->execute();
+    $resultCita = $stmtCita->get_result();
+
+    if ($resultCita && $resultCita->num_rows > 0) {
+        $cita = $resultCita->fetch_assoc(); // Datos de la cita
+    } else {
+        echo "No se encontró la cita";
+    }
+
+    $stmtCita->close();
+
 
 
 $paciente_id = $_SESSION['idPaciente'];
 // Obtener la conexión
-$conn = getConexion();
 
 // Consulta para obtener los datos del psicólogo seleccionado
 $sql = "SELECT NombreCompleto, Especialidad, FotoPsicologo FROM Psicologos WHERE ID = ?";
@@ -31,6 +49,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $psicologo_id);
 $stmt->execute();
 $result = $stmt->get_result();
+
 
 if ($result && $result->num_rows > 0) {
     $psicologo = $result->fetch_assoc(); // Datos del psicólogo
@@ -89,18 +108,19 @@ if ($result && $result->num_rows > 0) {
                 </div>
 
                 <!-- form -->
-                <form id="form-cita" action="server/procesar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center">
+                <form id="form-cita" action="server/procesar-modificar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center">
                     <input type="hidden" name="psicologo_id" value="<?php echo $psicologo_id; ?>">
                     <br>
-                    <input type="datetime-local" id="fecha" name="fecha" placeholder="Fecha" required min="<?php echo date('Y-m-d'); ?>" class="outline-none border-b border-black w-full text-opacity-50">
+                    <input type="datetime-local" id="fecha" name="fecha" placeholder="Fecha" required min="<?php echo date('Y-m-d'); ?>" value="<?php echo isset($cita) ? date('Y-m-d\TH:i', strtotime($cita['FechaCita'])) : ''; ?>" class="outline-none border-b border-black w-full text-opacity-50">
                     <br>
-                    <input type="text" name="motivo_consulta" placeholder="Motivo de la Consulta" class="outline-none border-b border-black w-full">
+                    <input type="text" name="motivo_consulta" placeholder="Motivo de la Consulta" value="<?php echo isset($cita) ? $cita['Sintomas'] : ''; ?>" class="outline-none border-b border-black w-full">
                     <br>
                     <div class="flex flex-row gap-3 "><label for="visita">¿Nos Has visitado Antes?</label>
-                        <input type="radio" name="visita" id="si" value="1">Sí
-                        <input type="radio" name="visita" id="no" value="0">No
+                        <input type="radio" name="visita" id="si" value="1" <?php echo (isset($cita) && $cita['VisitadoAntes'] == 1) ? 'checked' : ''; ?>>Sí
+                        <input type="radio" name="visita" id="no" value="0" <?php echo (isset($cita) && $cita['VisitadoAntes'] == 0) ? 'checked' : ''; ?>>No
                     </div>
                     <br>
+                    <input type="hidden" name="idCita" value="<?php echo $idCita; ?>">
                     <div class="flex flex-row items-center gap-2">
                         <input type="checkbox">
                         <p>Terminos y condiciones</p>

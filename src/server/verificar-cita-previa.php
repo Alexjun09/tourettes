@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../bbdd/connect.php'; // Asegúrate de que este es el path correcto al archivo de conexión.
-
+header('Content-Type: application/json'); // Indica que la respuesta es JSON
 if (!isset($_SESSION['idPaciente'])) {
     echo json_encode(['error' => 'No está autorizado para realizar esta acción.']);
     exit;
