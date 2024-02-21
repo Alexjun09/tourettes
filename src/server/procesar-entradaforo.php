@@ -32,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
     $archivo = NULL;
     if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
         $nombreArchivo = basename($_FILES['archivo']['name']);
-        $rutaArchivo = '../../media/entradaforo' . $nombreArchivo;
+        $rutaArchivo = '../../media/entradaforo/' . $nombreArchivo;
         if (move_uploaded_file($_FILES['archivo']['tmp_name'], $rutaArchivo)) {
-            $archivo = $rutaArchivo;
+            $archivo = '../media/entradaforo/' . $nombreArchivo;
         } else {
             echo "Error al subir archivo.";
             exit;

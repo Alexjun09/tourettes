@@ -85,7 +85,7 @@ $conn->close();
                                         <img src="../media/download.png" alt="" class="w-8">
                                     </a>
                                 </div>
-                                <div class="w-full h-96 bg-contraste hidden" id="contenido-<?php echo $index; ?>">
+                                <div class="w-full h-full bg-contraste hidden" id="contenido-<?php echo $index; ?>">
                                     <iframe src="<?php echo $informe['rutaPDF']; ?>" width="100%" height="100%"></iframe>
                                 </div>
                             </div>
