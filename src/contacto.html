@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
+    <script src="./scripts/procesar-contacto.js"></script>
     <title>Pedir Cita</title>
-    <script src="scripts/procesar-contacto.js"></script>
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
+    
     <div class="h-screen w-screen flex flex-col">
         <!-- header -->
         <div class="px-20 flex flex-row justify-between items-center py-4">
@@ -127,8 +128,8 @@
                     <!-- formulario de contacto -->
                     <div class="hidden w-full h-full flex justify-center items-center" id="formularioDeContacto">
                         <form action="server/procesar-contacto.php" method="post"
-                            class="text-white flex flex-col z-50 w-[40%]">
-                            <input type="text" name="nombre_completo" placeholder="Nombre Completo"
+                            class="text-white flex flex-col z-50 w-[40%]" name="formulario" id="formulario">
+                            <input type="text" name="nombre" placeholder="Nombre Completo"
                                 class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
                             <br>
                             <input type="text" name="telefono" placeholder="Telefono"
@@ -227,6 +228,7 @@
             </a>
         </div>
     </div>
+
 </body>
 
 </html>
