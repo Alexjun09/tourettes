@@ -53,23 +53,41 @@ if ($result && $result->num_rows > 0) {
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
-    <div class="h-screen w-screen flex flex-col">
+    <div class="h-screen w-full flex flex-col relative">
         <!-- header -->
-        <div class="px-20 flex flex-row justify-between items-center py-4">
+        <header class="px-20 flex flex-row justify-between items-center py-4">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
             <nav class="flex flex-row gap-10 text-primary text-lg">
                 <a href="./educacion.php">Educación</a>
-                <a href="./pedir-cita.php">Pedir Cita</a>
+                <a href="./listado-de-psicologos.php">Pedir Cita</a>
                 <a href="./comunidad.php">Comunidad</a>
-                <a href="./contacto.php">About Us</a>
+                <a href="./contacto.php">Contacto</a>
             </nav>
-            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
-        </div>
+            <!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
+            <div class="flex flex-row justify-between items-center gap-4">
+                <!-- Otros elementos del header aquí -->
+
+                <!-- Verificar si existe el id de paciente en la sesión -->
+                <?php if (isset($_SESSION['idPaciente'])) : ?>
+                    <!-- Botón Mi Cuenta para usuarios logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
+                    <a href="#" onclick="confirmarCerrarSesion();">
+                        <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl h-10">
+                    </a>
+                <?php else : ?>
+                    <!-- Botones Sign in y Sign up para usuarios no logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
+                <?php endif; ?>
+
+                <!-- Otros elementos del header aquí -->
+            </div>
+        </header>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center justify-between">
-            <div class="flex flex-col gap-4 text-center">
+            <div class="flex flex-col text-center">
                 <p class="text-title">Pedir Cita</p>
                 <p class="text-subtitle"> Formulario para pedir una cita</p>
             </div>
@@ -79,7 +97,7 @@ if ($result && $result->num_rows > 0) {
                     <?php if ($psicologo) : ?>
                         <img src="../media/elipse.png" alt="" class="absolute z-10">
                         <img src="../media/psicologos/<?php echo $psicologo['FotoPsicologo']; ?>" alt="" class="absolute z-20 mt-8 w-32 h-32 rounded-full border-4 border-white">
-                        <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16 pt-24">
+                        <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16 pt-40">
                             <p class="text-2xl"><?php echo $psicologo['NombreCompleto']; ?></p>
                             <p class="text-base"><?php echo $psicologo['Especialidad']; ?></p>
                             <img src="../media/maps.png" alt="">
@@ -114,46 +132,14 @@ if ($result && $result->num_rows > 0) {
                 <div id="div-errores"></div>
             </div>
         </div>
+        <div id="popupCitaExistente" class="absolute w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-40" style="display: none;">
+            <div class="flex flex-col gap-4 justify-center items-center bg-white p-5 rounded-2xl shadow-lg shadow-black z-50">
+                <p class="font-bold text-red-600">¡Advertencia!</p>
+                <p id="popupMensaje">Ya tiene una cita programada para esta fecha.</p>
+                <button onclick="cerrarPopup()" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10 w-fit">Aceptar</button>
+            </div>
+        </div>
     </div>
-
-    <div id="popupCitaExistente" class="popup-contenedor" style="display: none;">
-    <div class="popup">
-        <h2>¡Advertencia!</h2>
-        <p id="popupMensaje">Ya tiene una cita programada para esta fecha.</p>
-        <button onclick="cerrarPopup()">Aceptar</button>
-    </div>
-</div>
-
-<style>
-    .popup-contenedor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
-    text-align: center;
-}
-
-.popup h2 {
-    margin: 0 0 10px;
-}
-
-.popup p {
-    margin: 0 0 20px;
-}
-
-</style>
     <!-- footer -->
     <div class="h-28 flex flex-row bg-contraste px-12 items-center justify-between">
         <p>gLabs© 2023. Todos Los Derechos Reservados</p>
@@ -169,7 +155,27 @@ if ($result && $result->num_rows > 0) {
             </a>
         </div>
     </div>
-
 </body>
 
 </html>
+<style>
+    /* .popup-contenedor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+
+    /* .popup {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        text-align: center;
+    } */
+</style>

@@ -53,7 +53,7 @@ $conn->close();
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="flex flex-col h-screen">
         <!-- header -->
-        <div class="px-20 flex flex-row justify-between items-center py-4">
+        <header class="px-20 flex flex-row justify-between items-center py-4">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
@@ -63,11 +63,28 @@ $conn->close();
                 <a href="./comunidad.php">Comunidad</a>
                 <a href="./contacto.php">Contacto</a>
             </nav>
-            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi
-                Cuenta</a>
-        </div>
+            <!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
+            <div class="flex flex-row justify-between items-center gap-4">
+                <!-- Otros elementos del header aquí -->
+
+                <!-- Verificar si existe el id de paciente en la sesión -->
+                <?php if (isset($_SESSION['idPaciente'])) : ?>
+                    <!-- Botón Mi Cuenta para usuarios logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
+                    <a href="#" onclick="confirmarCerrarSesion();">
+                        <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl h-10">
+                    </a>
+                <?php else : ?>
+                    <!-- Botones Sign in y Sign up para usuarios no logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
+                <?php endif; ?>
+
+                <!-- Otros elementos del header aquí -->
+            </div>
+        </header>
         <!-- body -->
-        <div class="flex flex-col w-full items-center justify-center">
+        <div class="flex flex-col w-full h-full items-center justify-center">
             <p class="text-title text-center">Mis Informes</p>
             <?php
             if (count($informes) > 0) {
@@ -111,22 +128,23 @@ $conn->close();
             }
             ?>
         </div>
+    </div>
 
-        <!-- footer -->
-        <div class="h-28 flex flex-row bg-contraste px-12 items-center justify-between">
-            <p>gLabs© 2023. Todos Los Derechos Reservados</p>
-            <div class="flex flex-row gap-4">
-                <a href="">
-                    <img class="w-10 h-10" src="../media/x.png" alt="x">
-                </a>
-                <a href="">
-                    <img class="w-10 h-10" src="../media/insta.png" alt="insta">
-                </a>
-                <a href="">
-                    <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
-                </a>
-            </div>
+    <!-- footer -->
+    <div class="h-28 flex flex-row bg-contraste px-12 items-center justify-between">
+        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+        <div class="flex flex-row gap-4">
+            <a href="">
+                <img class="w-10 h-10" src="../media/x.png" alt="x">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+            </a>
         </div>
+    </div>
 </body>
 
 </html>

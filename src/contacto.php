@@ -16,10 +16,10 @@ session_start();
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
-    
+
     <div class="h-screen w-screen flex flex-col">
         <!-- header -->
-        <div class="px-20 flex flex-row justify-between items-center py-4">
+        <header class="px-20 flex flex-row justify-between items-center py-4">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
@@ -27,26 +27,28 @@ session_start();
                 <a href="./educacion.php">Educación</a>
                 <a href="./listado-de-psicologos.php">Pedir Cita</a>
                 <a href="./comunidad.php">Comunidad</a>
-                <a href="./contacto.html">Contacto</a>
+                <a href="./contacto.php">Contacto</a>
             </nav>
-            <div class="px-20 flex flex-row justify-between items-center py-4">
-    <!-- Otros elementos del header aquí -->
+            <!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
+            <div class="flex flex-row justify-between items-center gap-4">
+                <!-- Otros elementos del header aquí -->
 
-    <!-- Verificar si existe el id de paciente en la sesión -->
-    <?php if(isset($_SESSION['idPaciente'])): ?>
-        <!-- Botón Mi Cuenta para usuarios logueados -->
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
-        <a href="#" onclick="confirmarCerrarSesion();">
-            <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl py-2 px-6">
-        </a>
-    <?php else: ?>
-        <!-- Botones Sign in y Sign up para usuarios no logueados -->
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
-    <?php endif; ?>
-    
-    <!-- Otros elementos del header aquí -->
-</div>        </div>
+                <!-- Verificar si existe el id de paciente en la sesión -->
+                <?php if (isset($_SESSION['idPaciente'])) : ?>
+                    <!-- Botón Mi Cuenta para usuarios logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
+                    <a href="#" onclick="confirmarCerrarSesion();">
+                        <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl h-10">
+                    </a>
+                <?php else : ?>
+                    <!-- Botones Sign in y Sign up para usuarios no logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
+                <?php endif; ?>
+
+                <!-- Otros elementos del header aquí -->
+            </div>
+        </header>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full">
             <p class="text-title text-center">Contacto</p>
@@ -62,18 +64,15 @@ session_start();
                 <div class="flex flex-row absolute w-full h-[500px] justify-center items-center">
                     <div class="absolute w-full h-full z-40">
                         <div class="flex flex-col gap-2 w-min h-full px-20 py-10">
-                            <div onclick="" id="botonInformacionDeContacto"
-                                class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                            <div onclick="" id="botonInformacionDeContacto" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
                                 <img src="../media/personita.png" alt="" class="w-7 m-1">
                                 <p class="block text-xs pb-2 whitespace-nowrap">Nosotros</p>
                             </div>
-                            <div onclick="" id="botonFormularioDeContacto"
-                                class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                            <div onclick="" id="botonFormularioDeContacto" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
                                 <img src="../media/telefonito.png" alt="" class="w-7 m-1">
                                 <p class="block text-xs pb-2">Formulario</p>
                             </div>
-                            <div onclick="" id="botonFAQs"
-                                class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                            <div onclick="" id="botonFAQs" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
                                 <img src="../media/lupita.png" alt="" class="w-7 m-1">
                                 <p class="block text-xs pb-2">FAQs</p>
                             </div>
@@ -147,43 +146,31 @@ session_start();
                     </div>
                     <!-- formulario de contacto -->
                     <div class="hidden w-full h-full flex justify-center items-center" id="formularioDeContacto">
-                        <form action="server/procesar-contacto.php" method="post"
-                            class="text-white flex flex-col z-50 w-[40%]" name="formulario" id="formulario">
-                            <input type="text" name="nombre" placeholder="Nombre Completo"
-                                class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
+                        <form action="server/procesar-contacto.php" method="post" class="text-white flex flex-col z-50 w-[40%]" name="formulario" id="formulario">
+                            <input type="text" name="nombre" placeholder="Nombre Completo" class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
                             <br>
-                            <input type="text" name="telefono" placeholder="Telefono"
-                                class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
+                            <input type="text" name="telefono" placeholder="Telefono" class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
                             <br>
-                            <input type="email" name="email" placeholder="Email"
-                                class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
+                            <input type="email" name="email" placeholder="Email" class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
                             <br>
-                            <textarea name="motivo" id="motivo" placeholder="Motivo"
-                                class="border border-white text-white bg-transparent p-2 outline-none"></textarea>
+                            <textarea name="motivo" id="motivo" placeholder="Motivo" class="border border-white text-white bg-transparent p-2 outline-none"></textarea>
                             <br>
                             <div class="flex flex-row items-center gap-2">
                                 <input type="checkbox" name="terminos">
                                 <p>Terminos y condiciones</p>
                             </div>
                             <br>
-                            <button
-                                class="border-2 border-white py-2 px-8 bg-transparent rounded-full w-fit">Enviar</button>
+                            <button class="border-2 border-white py-2 px-8 bg-transparent rounded-full w-fit">Enviar</button>
                         </form>
                     </div>
                     <!-- FAQs -->
                     <div id="FAQs" class="hidden z-50">
                         <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl">
                             <h2 id="accordion-collapse-heading-1">
-                                <button type="button"
-                                    class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl"
-                                    data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
-                                    aria-controls="accordion-collapse-body-1">
+                                <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
                                     <span class="text-base">What is Flowbite?</span>
-                                    <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                     </svg>
                                 </button>
                             </h2>
@@ -192,35 +179,26 @@ session_start();
                                     <p class="mb-2 text-gray-500 ">Flowbite is an open-source library of interactive
                                         components built on top of Tailwind CSS including buttons, dropdowns,
                                         modals, navbars, and more.</p>
-                                    <p class="text-gray-500 ">Check out this guide to learn how to <a href="#"
-                                            target="_blank" class="text-blue-600  hover:underline">get started</a>
+                                    <p class="text-gray-500 ">Check out this guide to learn how to <a href="#" target="_blank" class="text-blue-600  hover:underline">get started</a>
                                         and start developing
                                         websites even faster with components on top of Tailwind CSS.</p>
                                 </div>
                             </div>
                             <h2 id="accordion-collapse-heading-2">
-                                <button type="button"
-                                    class="flex items-center    justify-between p-2 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   "
-                                    data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
-                                    aria-controls="accordion-collapse-body-2">
+                                <button type="button" class="flex items-center    justify-between p-2 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
                                     <span class="text-base">Is there a Figma file available?</span>
-                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                     </svg>
                                 </button>
                             </h2>
-                            <div id="accordion-collapse-body-2" class="hidden"
-                                aria-labelledby="accordion-collapse-heading-2">
+                            <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
                                 <div class="p-5 border border-gray-200  border-b-0 bg-white">
                                     <p class="mb-2 text-gray-500 ">Flowbite is first conceptualized and designed
                                         using the
                                         Figma software so everything you see in the library has a design equivalent
                                         in our Figma file.</p>
-                                    <p class="text-gray-500 ">Check out the <a href="https://flowbite.com/figma/"
-                                            target="_blank" class="text-blue-600  hover:underline">Figma design
+                                    <p class="text-gray-500 ">Check out the <a href="https://flowbite.com/figma/" target="_blank" class="text-blue-600  hover:underline">Figma design
                                             system</a>
                                         based on the utility classes from Tailwind CSS and components from Flowbite.
                                     </p>
@@ -276,6 +254,6 @@ session_start();
         informacionDeContacto.classList.add('hidden');
         formularioDeContacto.classList.add('hidden');
         FAQs.classList.remove('hidden');
-    });    
+    });
 </script>
 <script src="https://unpkg.com/flowbite@1.3.3/dist/flowbite.js"></script>

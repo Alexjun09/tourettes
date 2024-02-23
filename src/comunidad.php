@@ -39,7 +39,7 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="h-fit w-screen flex flex-col pb-20">
         <!-- header -->
-        <div class="px-20 flex flex-row justify-between items-center py-4">
+        <header class="px-20 flex flex-row justify-between items-center py-4">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
@@ -49,8 +49,26 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                 <a href="./comunidad.php">Comunidad</a>
                 <a href="./contacto.php">Contacto</a>
             </nav>
-            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
-        </div>
+            <!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
+            <div class="flex flex-row justify-between items-center gap-4">
+                <!-- Otros elementos del header aquí -->
+
+                <!-- Verificar si existe el id de paciente en la sesión -->
+                <?php if (isset($_SESSION['idPaciente'])) : ?>
+                    <!-- Botón Mi Cuenta para usuarios logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
+                    <a href="#" onclick="confirmarCerrarSesion();">
+                        <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl h-10">
+                    </a>
+                <?php else : ?>
+                    <!-- Botones Sign in y Sign up para usuarios no logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
+                <?php endif; ?>
+
+                <!-- Otros elementos del header aquí -->
+            </div>
+        </header>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center gap-10 px-64">
             <p class="text-title">Comunidad</p>

@@ -17,7 +17,7 @@ session_start();
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="min-h-screen w-screen flex flex-col">
         <!-- header -->
-        <div class="px-20 flex flex-row justify-between items-center py-4">
+        <header class="px-20 flex flex-row justify-between items-center py-4">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full">
             </a>
@@ -27,22 +27,26 @@ session_start();
                 <a href="./comunidad.php">Comunidad</a>
                 <a href="./contacto.php">Contacto</a>
             </nav>
-<!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
-<div class="px-20 flex flex-row justify-between items-center py-4">
-    <!-- Otros elementos del header aquí -->
+            <!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
+            <div class="flex flex-row justify-between items-center gap-4">
+                <!-- Otros elementos del header aquí -->
 
-    <!-- Verificar si existe el id de paciente en la sesión -->
-    <?php if(isset($_SESSION['idPaciente'])): ?>
-        <!-- Botón Mi Cuenta para usuarios logueados -->
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
-    <?php else: ?>
-        <!-- Botones Sign in y Sign up para usuarios no logueados -->
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
-    <?php endif; ?>
-    
-    <!-- Otros elementos del header aquí -->
-</div>        </div>
+                <!-- Verificar si existe el id de paciente en la sesión -->
+                <?php if (isset($_SESSION['idPaciente'])) : ?>
+                    <!-- Botón Mi Cuenta para usuarios logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
+                    <a href="#" onclick="confirmarCerrarSesion();">
+                        <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl h-10">
+                    </a>
+                <?php else : ?>
+                    <!-- Botones Sign in y Sign up para usuarios no logueados -->
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
+                <?php endif; ?>
+
+                <!-- Otros elementos del header aquí -->
+            </div>
+        </header>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center justify-between text-primary gap-4">
             <p class="text-title">Educación</p>
