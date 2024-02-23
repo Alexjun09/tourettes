@@ -25,7 +25,7 @@ if ($cita === 'exito') {
                     <a href='./educacion.php'>Educación</a>
                     <a href='./pedir-cita.php'>Pedir Cita</a>
                     <a href='./comunidad.php'>Comunidad</a>
-                    <a href='./about-us.php'>About Us</a>
+                    <a href='./contacto.php'>About Us</a>
                 </nav>
                 <a class='rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10'
                     href='./mi-cuenta.php'>Mi Cuenta</a>
@@ -88,7 +88,7 @@ if ($cita === 'exito') {
                     <a href='./educacion.php'>Educación</a>
                     <a href='./pedir-cita.php'>Pedir Cita</a>
                     <a href='./comunidad.php'>Comunidad</a>
-                    <a href='./about-us.php'>About Us</a>
+                    <a href='./contacto.php'>About Us</a>
                 </nav>
                 <a class='rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10'
                     href='./mi-cuenta.php'>Mi Cuenta</a>
@@ -102,7 +102,7 @@ if ($cita === 'exito') {
             <div class='flex flex-col gap-2 mt-4'>
                 <a href='./pedir-cita.php' class='rounded-md bg-primary text-white py-2 px-6'>Programar Nueva Cita</a>
                 <a href='./mi-cuenta.php' class='rounded-md bg-primary text-white py-2 px-6'>Ver Mis Citas</a>
-                <a href='./contacto.html' class='rounded-md bg-primary text-white py-2 px-6'>Contactar Soporte</a>
+                <a href='./contacto.php' class='rounded-md bg-primary text-white py-2 px-6'>Contactar Soporte</a>
             </div>
         </div>
         
@@ -154,7 +154,7 @@ if ($cita === 'exito') {
                     <a href='./educacion.php'>Educación</a>
                     <a href='./pedir-cita.php'>Pedir Cita</a>
                     <a href='./comunidad.php'>Comunidad</a>
-                    <a href='./about-us.php'>About Us</a>
+                    <a href='./contacto.php'>About Us</a>
                 </nav>
                 <a class='rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10'
                     href='./mi-cuenta.php'>Mi Cuenta</a>

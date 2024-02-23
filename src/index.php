@@ -12,6 +12,7 @@ session_start();
     <link rel="stylesheet" href="css/output.css">
     <title>Respuesta Foro</title>
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
@@ -25,7 +26,7 @@ session_start();
                 <a href="./educacion.php">Educación</a>
                 <a href="./listado-de-psicologos.php">Pedir Cita</a>
                 <a href="./comunidad.php">Comunidad</a>
-                <a href="./contacto.html">Contacto</a>
+                <a href="./contacto.php">Contacto</a>
             </nav>
 <!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
 <div class="px-20 flex flex-row justify-between items-center py-4">
@@ -35,7 +36,9 @@ session_start();
     <?php if(isset($_SESSION['idPaciente'])): ?>
         <!-- Botón Mi Cuenta para usuarios logueados -->
         <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
-        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-secondary text-white py-2 px-6" href="./logout.php">Cerrar Sesión</a>
+        <a href="#" onclick="confirmarCerrarSesion();">
+            <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl py-2 px-6">
+        </a>
     <?php else: ?>
         <!-- Botones Sign in y Sign up para usuarios no logueados -->
         <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
@@ -214,6 +217,29 @@ session_start();
             </a>
         </div>
     </div>
+ 
+
 </body>
 
 </html>
+
+<script>
+function confirmarCerrarSesion() {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¿Quieres cerrar la sesión?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#1D3A46',
+        cancelButtonColor: '#92AAB3',
+        confirmButtonText: 'Cerrar Sesión',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
+            window.location.href = './server/logout.php';
+        }
+    });
+    return false; // Evita la navegación
+}
+    </script>   

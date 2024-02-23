@@ -47,7 +47,7 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                 <a href="./educacion.php">Educación</a>
                 <a href="./listado-de-psicologos.php">Pedir Cita</a>
                 <a href="./comunidad.php">Comunidad</a>
-                <a href="./contacto.html">Contacto</a>
+                <a href="./contacto.php">Contacto</a>
             </nav>
             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
         </div>
@@ -78,7 +78,7 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                     </div>
                 </div>
                 <div class="w-full flex justify-end items-end h-fit">
-                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.html">Añadir Entrada</a>
+                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.php">Añadir Entrada</a>
                 </div>
                 <!-- graficas chart.js -->
                 <div class="grid grid-cols-2 gap-20 w-full mt-10">

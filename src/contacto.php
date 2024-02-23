@@ -24,6 +24,7 @@
                 <a href="./comunidad.php">Comunidad</a>
                 <a href="./contacto.html">Contacto</a>
             </nav>
+            <?php ?>
             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10"
                 href="./mi-cuenta.php">Mi Cuenta</a>
         </div>

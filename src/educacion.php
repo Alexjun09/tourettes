@@ -25,7 +25,7 @@ session_start();
                 <a href="./educacion.php">Educación</a>
                 <a href="./listado-de-psicologos.php">Pedir Cita</a>
                 <a href="./comunidad.php">Comunidad</a>
-                <a href="./contacto.html">Contacto</a>
+                <a href="./contacto.php">Contacto</a>
             </nav>
 <!-- Suponiendo que ya iniciaste la sesión con session_start(); al principio de tu script PHP -->
 <div class="px-20 flex flex-row justify-between items-center py-4">
