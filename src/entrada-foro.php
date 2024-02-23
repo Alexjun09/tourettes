@@ -72,7 +72,7 @@ if (isset($_GET['id'])) {
                         <br>
                         <div class="grid grid-cols-[min-content_1fr_min-content]">
                             <div class=" p-4">
-                                <img src="<?php echo $fotoPerfilAutor; ?>" alt="Foto de perfil del autor" class="min-w-28 rounded-full">
+                                <img src="<?php echo $fotoPerfilAutor; ?>" alt="Foto de perfil del autor" class="min-w-28 rounded-full aspect-square">
                             </div>
                             <div class="flex flex-col gap-4 pb-10">
                                 <div class="w-full bg-secondary  p-2">
@@ -114,7 +114,7 @@ if (isset($_GET['id'])) {
                                             // Ahora puedes mostrar la foto del perfil del autor correspondiente
                                             echo '<div class="rounded-md bg-primary grid grid-cols-[1fr_6fr] w-[650px] p-1">';
                                             echo '<div class="p-3">';
-                                            echo '<img src="' . htmlspecialchars($fotoPerfilAutor) . '" alt="" class="rounded-full">';
+                                            echo '<img src="' . htmlspecialchars($fotoPerfilAutor) . '" alt="" class="rounded-full  aspect-square">';
                                             echo '</div>';
                                             echo '<div class="flex flex-col">';
                                             echo '<p class="text-white bg-secondary w-fit px-2">' . htmlspecialchars($autorRespuesta) . '</p>';
