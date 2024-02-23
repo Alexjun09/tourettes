@@ -1,4 +1,11 @@
-<?php 
+<?php
+require_once './bbdd/database.php';
+session_start();
+if (!isset($_SESSION['idPaciente'])) {
+    header('Location: sign-in.html');
+    exit;
+}
+
 $cita = $_GET['cita'] ?? ''; // Obtener el parámetro "cita" de la URL
 
 // Verificar el estado de la cita y mostrar el mensaje correspondiente

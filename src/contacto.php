@@ -1,3 +1,8 @@
+<?php
+require_once './bbdd/database.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,10 +29,24 @@
                 <a href="./comunidad.php">Comunidad</a>
                 <a href="./contacto.html">Contacto</a>
             </nav>
-            <?php ?>
-            <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10"
-                href="./mi-cuenta.php">Mi Cuenta</a>
-        </div>
+            <div class="px-20 flex flex-row justify-between items-center py-4">
+    <!-- Otros elementos del header aquí -->
+
+    <!-- Verificar si existe el id de paciente en la sesión -->
+    <?php if(isset($_SESSION['idPaciente'])): ?>
+        <!-- Botón Mi Cuenta para usuarios logueados -->
+        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./mi-cuenta.php">Mi Cuenta</a>
+        <a href="#" onclick="confirmarCerrarSesion();">
+            <img src="../media/cerrar-sesion.png" alt="Cerrar Sesión" class="rounded-tl-xl rounded-br-xl py-2 px-6">
+        </a>
+    <?php else: ?>
+        <!-- Botones Sign in y Sign up para usuarios no logueados -->
+        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-in.html">Sign in</a>
+        <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-6" href="./sign-up.html">Sign up</a>
+    <?php endif; ?>
+    
+    <!-- Otros elementos del header aquí -->
+</div>        </div>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full">
             <p class="text-title text-center">Contacto</p>

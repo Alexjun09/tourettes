@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once 'bbdd/database.php';
 $conn = getConexion();
+
 
 // Verificar si se ha proporcionado un ID de entrada de foro
 if (isset($_GET['id'])) {
