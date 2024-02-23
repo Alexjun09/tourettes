@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ 
 if (!isset($_SESSION['idPaciente'])) {
 
     header('Location: sign-in.html');
@@ -42,6 +42,7 @@ $conn->close();
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
     <title>Mi Cuenta</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .fc {
             border-radius: 20px;
@@ -210,7 +211,7 @@ $conn->close();
                     </div>
                     <div class="flex flex-col gap-4 h-full justify-center items-center">
                     <a href="modificar-cita.php?psicologo_id=${idPsicologo}&cita_id=${idCita}" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center">Modificar</a>                        
-                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center" href="./">Anular</a>
+                    <a href="#" onclick="confirmarAnulacion('${idCita}');" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-[120px] text-center">Anular</a>
                     </div>
                 </div>`;
                 // Asegúrate de que solo se muestre un desplegable a la vez
@@ -224,4 +225,22 @@ $conn->close();
         });
         calendar.render();
     });
+
+    function confirmarAnulacion(idCita) {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¿Quieres anular esta cita?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#1D3A46',
+        cancelButtonColor: '#92AAB3',
+        confirmButtonText: 'Anular',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = `./server/eliminar-cita.php?idCita=${idCita}`;
+        }
+    });
+    return false; // Evita la navegación
+}
 </script>
