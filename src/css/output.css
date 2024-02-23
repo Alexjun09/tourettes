@@ -1471,6 +1471,10 @@ video {
   padding-top: 10rem;
 }
 
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
 .text-left {
   text-align: left;
 }
