@@ -1,5 +1,10 @@
 # Web Síndrome de Tourette
 
+<p align="center">
+  <img src="media/portapapeles.gif" alt="GIF animado Síndrome de Tourette" style="width: 200px; height: auto;"> 
+</p>
+
+
 ## Descripción
 
 Este proyecto es una página web dedicada a ofrecer información, recursos y apoyo a personas afectadas por el Síndrome de Tourette y sus familias. Desarrollado con PHP, JavaScript, HTML, CSS, y aprovechando el framework de Tailwind CSS para un diseño responsivo y accesible.
