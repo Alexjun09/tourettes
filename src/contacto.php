@@ -12,6 +12,7 @@ session_start();
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
     <script src="./scripts/procesar-contacto.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Pedir Cita</title>
 </head>
 
@@ -165,47 +166,91 @@ session_start();
                     </div>
                     <!-- FAQs -->
                     <div id="FAQs" class="hidden z-50">
-                        <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl flex flex-col min-w-[1400px]">
-                            <h2 id="accordion-collapse-heading-1">
-                                <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                                    <span class="text-base">What is Flowbite?</span>
-                                    <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-collapse-body-1" aria-labelledby="accordion-collapse-heading-1">
-                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
-                                    <p class="mb-2 text-gray-500 ">Flowbite is an open-source library of interactive
-                                        components built on top of Tailwind CSS including buttons, dropdowns,
-                                        modals, navbars, and more.</p>
-                                    <p class="text-gray-500 ">Check out this guide to learn how to <a href="#" target="_blank" class="text-blue-600  hover:underline">get started</a>
-                                        and start developing
-                                        websites even faster with components on top of Tailwind CSS.</p>
-                                </div>
-                            </div>
-                            <h2 id="accordion-collapse-heading-2">
-                                <button type="button" class="flex items-center    justify-between p-2 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-                                    <span class="text-base">Is there a Figma file available?</span>
-                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
-                                    <p class="mb-2 text-gray-500 ">Flowbite is first conceptualized and designed
-                                        using the
-                                        Figma software so everything you see in the library has a design equivalent
-                                        in our Figma file.</p>
-                                    <p class="text-gray-500 ">Check out the <a href="https://flowbite.com/figma/" target="_blank" class="text-blue-600  hover:underline">Figma design
-                                            system</a>
-                                        based on the utility classes from Tailwind CSS and components from Flowbite.
-                                    </p>
-                                </div>
-                            </div>
+                    <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl flex flex-col min-w-[1400px]">
+    <h2 id="accordion-collapse-heading-1">
+        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+            <span class="text-base">¿Cómo puedo ponerme en contacto con un especialista en síndrome de Tourette?</span>
+            <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-collapse-body-1" aria-labelledby="accordion-collapse-heading-1">
+        <div class="p-5 border border-gray-200  border-b-0 bg-white">
+            <p class="mb-2 text-gray-500 ">Para contactar a un especialista en síndrome de Tourette, te recomendaría seguir algunos pasos específicos. En primer lugar, consulta con tu médico de cabecera o de atención primaria. Ellos podrán proporcionarte recomendaciones y referencias de especialistas en tu área. Además, puedes buscar en línea en directorios médicos especializados o utilizar herramientas de búsqueda proporcionadas por instituciones médicas y hospitales. Asegúrate de verificar las credenciales y la experiencia del especialista antes de programar una consulta.</p>
+        </div>
+    </div>
+    <h2 id="accordion-collapse-heading-2">
+        <button type="button" class="flex items-center    justify-between p-2 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+            <span class="text-base">¿Esta página ofrece recursos educativos sobre el síndrome de Tourette?</span>
+            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+        <div class="p-5 border border-gray-200  border-b-0 bg-white">
+            <p class="mb-2 text-gray-500 ">Sí, nuestro sitio web está comprometido a proporcionar una amplia gama de recursos educativos sobre el síndrome de Tourette. Estos recursos incluyen artículos detallados escritos por expertos en el campo, videos informativos que explican los síntomas y tratamientos del síndrome, enlaces a organizaciones de apoyo y grupos de investigación, así como también materiales descargables como folletos y guías para pacientes y cuidadores. Nuestro objetivo es proporcionar información precisa y comprensible que pueda ayudar a las personas a entender mejor el síndrome de Tourette y cómo manejarlo.</p>
+        </div>
+    </div>
+    <!-- Pregunta 3 -->
+    <h2 id="accordion-collapse-heading-3">
+        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+            <span class="text-base">¿Dónde puedo encontrar historias o testimonios de personas con síndrome de Tourette?</span>
+            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+        <div class="p-5 border border-gray-200  border-b-0 bg-white">
+            <p class="mb-2 text-gray-500 ">En nuestra página, hemos creado un espacio dedicado a compartir historias y testimonios reales de personas que viven con el síndrome de Tourette. Estas historias son relatos auténticos de individuos que han experimentado los desafíos y triunfos asociados con el síndrome. Además, ofrecemos entrevistas en profundidad, videos personales y blogs escritos por personas con síndrome de Tourette y sus seres queridos. Creemos que compartir estas experiencias puede ayudar a construir comunidad, aumentar la conciencia y fomentar la comprensión sobre el síndrome de Tourette.</p>
+        </div>
+    </div>
+    <!-- Pregunta 4 -->
+    <h2 id="accordion-collapse-heading-4">
+        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+            <span class="text-base">¿Ofrece la página asesoramiento o apoyo emocional en línea para personas afectadas por el síndrome de Tourette?</span>
+            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">
+        <div class="p-5 border border-gray-200  border-b-0 bg-white">
+            <p class="mb-2 text-gray-500 ">Sí, entendemos que vivir con el síndrome de Tourette puede ser desafiante y emocionalmente exigente, tanto para quienes lo padecen como para sus familiares y cuidadores. Es por eso que ofrecemos servicios de asesoramiento y apoyo emocional en línea a través de nuestra plataforma. Trabajamos con profesionales de la salud mental capacitados y compasivos que pueden brindar orientación, apoyo y recursos a las personas afectadas por el síndrome de Tourette. Nuestro objetivo es proporcionar un espacio seguro y comprensivo donde las personas puedan compartir sus preocupaciones, recibir apoyo y encontrar esperanza en su viaje hacia el bienestar emocional.</p>
+        </div>
+    </div>
+    <!-- Pregunta 5 -->
+    <h2 id="accordion-collapse-heading-5">
+        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
+            <span class="text-base">¿Cómo puedo unirme a la comunidad o foro en línea relacionado con el síndrome de Tourette en esta página?</span>
+            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-5">
+        <div class="p-5 border border-gray-200  border-b-0 bg-white">
+            <p class="mb-2 text-gray-500 ">Para unirte a nuestra comunidad en línea sobre el síndrome de Tourette, simplemente regístrate en nuestro sitio web y accede a la sección de la comunidad. Una vez que hayas creado una cuenta, podrás participar en debates, hacer preguntas, compartir recursos y conectarte con otras personas que comparten experiencias similares. Nuestra comunidad en línea es un lugar de apoyo mutuo, comprensión y solidaridad, donde las personas pueden encontrar consuelo, compartir conocimientos y construir relaciones significativas.</p>
+        </div>
+    </div>
+    <!-- Pregunta 6 -->
+    <h2 id="accordion-collapse-heading-6">
+        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-b-xl" data-accordion-target="#accordion-collapse-body-6" aria-expanded="false" aria-controls="accordion-collapse-body-6">
+            <span class="text-base">¿Qué debo hacer si encuentro un error en el sitio web o tengo problemas técnicos al navegar?</span>
+            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-collapse-body-6" class="hidden" aria-labelledby="accordion-collapse-heading-6">
+        <div class="p-5 border border-gray-200  border-b-0 bg-white">
+            <p class="mb-2 text-gray-500 ">Si encuentras algún error en nuestro sitio web o experimentas problemas técnicos mientras navegas, queremos saberlo para poder solucionarlo de inmediato. Por favor, contáctanos utilizando nuestro formulario de contacto o envíanos un correo electrónico detallando el problema que estás experimentando. Nuestro equipo técnico revisará el problema y trabajará diligentemente para solucionarlo lo antes posible. Agradecemos tus comentarios y tu ayuda para mejorar nuestra plataforma y garantizar una experiencia óptima para todos nuestros usuarios.</p>
+        </div>
+    </div>
+</div>
 
-                        </div>
                     </div>
                 </div>
             </div>
@@ -256,6 +301,8 @@ session_start();
         FAQs.classList.remove('hidden');
     });
 
+
+//Cerrar sesion
     function confirmarCerrarSesion() {
         Swal.fire({
             title: '¿Estás seguro?',

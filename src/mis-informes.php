@@ -47,6 +47,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Mis Informes</title>
 </head>
 
@@ -124,7 +125,7 @@ $conn->close();
             <?php
                 }
             } else {
-                echo "<h3>Aún no hay informes</h3>";
+                echo "<h1>Aún no hay informes</h1>";
             }
             ?>
         </div>

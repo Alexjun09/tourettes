@@ -68,6 +68,7 @@ if ($result && $result->num_rows > 0) {
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
     <title>Pedir Cita</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="scripts/procesar-cita.js"></script>
 </head>
 

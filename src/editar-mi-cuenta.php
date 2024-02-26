@@ -73,6 +73,7 @@ if ($conn) {
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
     <title>Editar Mi Cuenta</title>
     <script src="./scripts/validacionFormularioEditarPerfil.js"> </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
