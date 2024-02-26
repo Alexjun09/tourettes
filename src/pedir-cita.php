@@ -158,24 +158,23 @@ if ($result && $result->num_rows > 0) {
 </body>
 
 </html>
-<style>
-    /* .popup-contenedor {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
-
-    /* .popup {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-        text-align: center;
-    } */
-</style>
+<script>
+    function confirmarCerrarSesion() {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¿Quieres cerrar la sesión?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1D3A46',
+            cancelButtonColor: '#92AAB3',
+            confirmButtonText: 'Cerrar Sesión',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
+                window.location.href = './server/logout.php';
+            }
+        });
+        return false; // Evita la navegación
+    }
+</script>

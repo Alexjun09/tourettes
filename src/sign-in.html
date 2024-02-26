@@ -9,6 +9,9 @@
     <title>Iniciar Sesion</title>
     <script src="scripts/validacionSignIn.js"></script>
     <script src="scripts/toggle-password.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta name="google-signin-client_id" content="553895664817-aqvkmv0qtacbbsob3963tq4h9sq609j6.apps.googleusercontent.com">
+
 </head>
 
 <body class="font-extralight w-screen h-screen font-base">
@@ -33,18 +36,56 @@
                     <br>
                     <button
                         class="rounded-tl-xl rounded-br-xl border-br-xl w-full bg-primary text-white py-2">Acceder</button>
+                    
+                    <br>
+                    <div id="g_id_signin" data-type="standard"></div>
+
                 </form>
             </div>
             <div class="flex justify-center items-center">
                 <p class="flex flex-row gap-2 text-center w-fit">No Tienes una cuenta? <a href="sign-up.html"
                         class="italic underline">Sign Up</a></p>
             </div>
-            <!-- <div class="flex flex-row gap-4">
-                <p class="border-2 border-primary px-6 py-4 rounded-full">Iniciar Sesión con Google</p>
-                <p class="border-2 border-primary px-6 py-4 rounded-full">Iniciar Sesión con Facebook</p>
-            </div> -->
+
         </div>
     </div>
+
+    <script>
+        function handleCredentialResponse(response) {
+            console.log("Encoded JWT ID token: " + response.credential);
+    
+            // Enviar el JWT al servidor utilizando fetch
+            fetch('./google-auth.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'credential=' + encodeURIComponent(response.credential)
+            })
+            .then(response => response.json()) // Asegúrate de procesar la respuesta como JSON
+            .then(data => {
+                if (!data.success) {
+                    // Si hay un error, imprímelo en la consola del navegador
+                    console.error('Error:', data.message);
+                } else {
+                    // Si todo salió bien, también puedes imprimir un mensaje de éxito
+                    window.location.href = data.redirect;
+                }
+            })
+            .catch(error => console.error('Error en la petición fetch:', error));
+        }
+    
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: '553895664817-aqvkmv0qtacbbsob3963tq4h9sq609j6.apps.googleusercontent.com',
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("g_id_signin"),
+                { theme: "outline", size: "large" }  // Personaliza el botón como desees
+            );
+        };
+    </script>
 </body>
 
 </html>
