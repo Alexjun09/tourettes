@@ -19,6 +19,8 @@ $sqlCuenta = "CREATE TABLE IF NOT EXISTS Cuenta (
     NombreUsuario VARCHAR(255) UNIQUE,
     Contrasena VARCHAR(255),
     IDPaciente INT,
+    GoogleID VARCHAR(255),
+    AuthMethod ENUM('traditional', 'google') NOT NULL,
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
 )";
 
@@ -170,17 +172,19 @@ $contrasenas = [
     'contrasena5'
 ];
 
+$authMethod = 'traditional';
+
 // Cifrar cada contraseña y preparar las consultas de inserción
 foreach ($contrasenas as $indice => $contrasenaPlana) {
     // Cifrar la contraseña
     $contrasenaCifrada = password_hash($contrasenaPlana, PASSWORD_DEFAULT);
 
-    $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES
-    ('a@gmail.com', 'juanperez1', '$contrasenaCifrada', 1),
-    ('anagarcia@mail.com', 'anitagarcia2', '$contrasenaCifrada', 2),
-    ('carlossanchez@mail.com', 'carlosanchez3', '$contrasenaCifrada', 3),
-    ('lauragomez@mail.com', 'laurita4', '$contrasenaCifrada', 4),
-    ('pedrolopez@mail.com', 'pedrolopez5', '$contrasenaCifrada', 5);";
+    $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, AuthMethod, IDPaciente) VALUES
+    ('a@gmail.com', 'juanperez1', '$contrasenaCifrada', '$authMethod', 1),
+    ('anagarcia@mail.com', 'anitagarcia2', '$contrasenaCifrada', '$authMethod', 2),
+    ('carlossanchez@mail.com', 'carlosanchez3', '$contrasenaCifrada', '$authMethod', 3),
+    ('lauragomez@mail.com', 'laurita4', '$contrasenaCifrada', '$authMethod', 4),
+    ('pedrolopez@mail.com', 'pedrolopez5', '$contrasenaCifrada', '$authMethod', 5);";
     verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 }
 $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion, FotoPsicologo) VALUES
