@@ -218,7 +218,7 @@ $conn->close();
                 <div id="event-details" class="grid grid-cols-4 gap-4 px-8 p-4 w-[600px] h-[150px] bg-secondary rounded-r-3xl">
                     <div class="flex flex-col justify-between items-center p-4 bg-contraste rounded-3xl text-white">
                         <p class="text-5xl">${day}</p>
-                        <p class="text-2xl">${dayOfTheWeek}</p>
+                        <p class="text-[24px]">${dayOfTheWeek}</p>
                     </div>
                     <div class="flex flex-col justify-between text-white col-span-2">
                         <p class="text-3xl text-primary">${doctor}</p>

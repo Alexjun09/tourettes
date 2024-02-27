@@ -121,7 +121,7 @@ if ($result && $result->num_rows > 0) {
                 </label>
                 <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                     <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                        <div class="flex flex-col text-2xl sm:text-header gap-4">
+                        <div class="flex flex-col text-[24px] sm:text-header gap-4">
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>
@@ -176,8 +176,8 @@ if ($result && $result->num_rows > 0) {
                         <img src="../media/elipse.png" alt="" class="absolute z-10">
                         <img src="../media/psicologos/<?php echo $psicologo['FotoPsicologo']; ?>" alt="" class="absolute z-20 mt-8 w-32 h-32 rounded-full border-4 border-white">
                         <div class="px-10 flex flex-col gap-6 text-center h-full justify-end py-16 pt-24">
-                            <p class="text-2xl"><?php echo $psicologo['NombreCompleto']; ?></p>
-                            <p class="text-base"><?php echo $psicologo['Especialidad']; ?></p>
+                            <p class="text-[24px]"><?php echo $psicologo['NombreCompleto']; ?></p>
+                            <p class="text-[16px]"><?php echo $psicologo['Especialidad']; ?></p>
                             <img src="../media/maps.png" alt="">
                         </div>
                     <?php else : ?>

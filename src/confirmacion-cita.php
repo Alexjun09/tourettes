@@ -103,7 +103,7 @@ if ($cita === 'exito') {
             <!-- body -->
             <div class='flex font-extralight flex-col w-full h-full items-center justify-center gap-6 px-72'>
             <div class='w-full h-fit bg-secondary flex flex-col justify-center items-center text-white text-center text-body p-10 gap-4'>
-            <h2 class='text-2xl font-bold'>Cita Anulada con Éxito</h2>
+            <h2 class='text-[24px] font-bold'>Cita Anulada con Éxito</h2>
             <p>Tu cita ha sido anulada correctamente. Si necesitas reprogramar o tienes alguna pregunta, estamos aquí para ayudarte.</p>
             <!-- Enlaces Útiles -->
             <div class='flex flex-col gap-2 mt-4'>

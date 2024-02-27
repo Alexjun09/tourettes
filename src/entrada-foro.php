@@ -98,7 +98,7 @@ if (isset($_GET['id'])) {
                         </label>
                         <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                             <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                                <div class="flex flex-col text-2xl sm:text-header gap-4">
+                                <div class="flex flex-col text-[24px] sm:text-header gap-4">
                                     <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                                     <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                                     <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>
@@ -143,7 +143,7 @@ if (isset($_GET['id'])) {
                 <!-- body -->
                 <div class="flex flex-col w-full h-full items-center px-4 lg:px-20 gap-5">
                     <div class="flex flex-col gap-4 text-center">
-                        <p class="text-4xl sm:text-title">Comunidad</p>
+                        <p class="text-[36px] sm:text-title">Comunidad</p>
                     </div>
                     <div class="w-full flex-flex-col bg-primary py-1 h-full  text-white">
                         <div class="flex flex-row w-full px-4 bg-contraste justify-between">
@@ -160,7 +160,7 @@ if (isset($_GET['id'])) {
                                     <p class="text-lg"><?php echo htmlspecialchars($autorForo); ?></p>
                                 </div>
                                 <div class="w-full bg-secondary p-2">
-                                    <p class="text-2xl sm:text-5xl font-bold text-center"><?php echo htmlspecialchars($tituloForo); ?></p>
+                                    <p class="text-[24px] sm:text-5xl font-bold text-center"><?php echo htmlspecialchars($tituloForo); ?></p>
                                 </div>
                                 <div class="px-4 lg:px-0">
                                     <div class="">
@@ -173,11 +173,11 @@ if (isset($_GET['id'])) {
                                         }
                                         ?>
                                     </div>
-                                    <p class="text-base sm:text-body"><?php echo htmlspecialchars($cuerpoForo); ?></p>
+                                    <p class="text-[16px] sm:text-body"><?php echo htmlspecialchars($cuerpoForo); ?></p>
                                 </div>
                                 <div class="w-full flex flex-col bg-contraste items-center rounded-md p-4 gap-4 self-center">
                                     <div class="w-[80%] bg-secondary rounded-md">
-                                        <p class="text-4xl text-center">Respuestas</p>
+                                        <p class="text-[36px] text-center">Respuestas</p>
                                     </div>
                                     <?php
                                     // Verificar si hay respuestas asociadas

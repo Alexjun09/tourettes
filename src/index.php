@@ -65,7 +65,7 @@ session_start();
                 </label>
                 <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                     <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                        <div class="flex flex-col text-2xl sm:text-header gap-4">
+                        <div class="flex flex-col text-[24px] sm:text-header gap-4">
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>
@@ -111,7 +111,7 @@ session_start();
         <div class="flex font-extralight flex-col w-full h-full items-end justify-center relative overflow-hidden">
             <!-- <img src="../media/bg-index.png" alt="bgindex" class="w-full z-10"> -->
             <video src="../media/videoindex.mp4" muted autoplay loop class="w-full h-full z-10 object-cover"></video>
-            <!-- <div class="flex flex-col absolute z-50 gap-10 text-4xl">
+            <!-- <div class="flex flex-col absolute z-50 gap-10 text-[36px]">
                 <p class="">Centro de Excelencia en el</p>
                 <p class="">Síndrome de &nbsp;<span class="font-bold">Touretteee</span></p>
                 
@@ -121,7 +121,7 @@ session_start();
                     <p>Centro de Excelencia en el</p>
                     <p>Síndrome de &nbsp;<span class="font-bold">Tourette</span></p>
                 </div>
-                <a class="rounded-full border-2 border-white text-white px-20 py-2 text-2xl w-fit" href="./listado-de-psicologos.php">Pedir Cita</a>
+                <a class="rounded-full border-2 border-white text-white px-20 py-2 text-[24px] w-fit" href="./listado-de-psicologos.php">Pedir Cita</a>
             </div>
         </div>
     </div>
@@ -137,8 +137,8 @@ session_start();
                     <img src="../media/elipse.png" alt="" class="absolute z-10">
                     <img src="../media/doc.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
                     <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                        <p class="text-2xl">Dra Rachel Anderson</p>
-                        <p class="text-base">Psiquiatra experta en síndrome de Tourette, dedicado a mejorar las
+                        <p class="text-[24px]">Dra Rachel Anderson</p>
+                        <p class="text-[16px]">Psiquiatra experta en síndrome de Tourette, dedicado a mejorar las
                             estrategias de manejo de tics.</p>
                     </div>
                 </div>
@@ -160,8 +160,8 @@ session_start();
                     <img src="../media/elipse.png" alt="" class="absolute z-10">
                     <img src="../media/face.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
                     <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                        <p class="text-2xl">Dr. Carlos Herrera</p>
-                        <p class="text-base">Psicoterapia para trastornos del espectro tic y Síndrome de Tourette en
+                        <p class="text-[24px]">Dr. Carlos Herrera</p>
+                        <p class="text-[16px]">Psicoterapia para trastornos del espectro tic y Síndrome de Tourette en
                             niños y adultos.
                         </p>
                     </div>
@@ -184,8 +184,8 @@ session_start();
                     <img src="../media/elipse.png" alt="" class="absolute z-10">
                     <img src="../media/indian-guy.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
                     <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                        <p class="text-2xl">Dr. Hassan Raza</p>
-                        <p class="text-base">Neuropsicólogo investigador en el impacto cognitivo y social del síndrome
+                        <p class="text-[24px]">Dr. Hassan Raza</p>
+                        <p class="text-[16px]">Neuropsicólogo investigador en el impacto cognitivo y social del síndrome
                             de Tourette, creadora de programas de apoyo para pacientes y familias.</p>
                     </div>
                 </div>
@@ -211,7 +211,7 @@ session_start();
                 <p class="text-[40px] sm:text-[60px] text-center xl:whitespace-nowrap">¿Tienes estos Síntomas?</p>
                 <div class="flex flex-row items-end">
                     <div>
-                        <p class="text-2xl sm:text-4xl font-light">Reconoce los indicadores clave y aprende más sobre cómo se
+                        <p class="text-[24px] sm:text-[36px] font-light">Reconoce los indicadores clave y aprende más sobre cómo se
                             manifiestan en el
                             día a día.</p>
                     </div>
@@ -233,7 +233,7 @@ session_start();
                 <p class="text-[40px] sm:text-[60px] ">Diagnósticos por profesionales</p>
                 <div class="flex flex-row items-end">
                     <div>
-                        <p class="text-2xl sm:text-4xl font-light">Accede a evaluaciones detalladas y apoyo diagnóstico por parte de
+                        <p class="text-[24px] sm:text-[36px] font-light">Accede a evaluaciones detalladas y apoyo diagnóstico por parte de
                             nuestro equipo experto.</p>
                     </div>
                     <img src="../media/terapia.gif" alt="" class="hidden sm:block w-20 h-20">
@@ -251,7 +251,7 @@ session_start();
                 <p class="text-[40px] sm:text-[60px]">Únete a nuestro foro GRATIS</p>
                 <div class="flex flex-row items-end">
                     <div>
-                        <p class="text-2xl sm:text-4xl font-light">Participa en nuestro foro comunitario para intercambiar
+                        <p class="text-[24px] sm:text-[36px] font-light">Participa en nuestro foro comunitario para intercambiar
                             historias, consejos y obtener apoyo mutuo.</p>
                     </div>
                     <img src="../media/sociedad.gif" alt="" class="hidden sm:block w-20 h-20">

@@ -65,7 +65,7 @@ session_start();
                 </label>
                 <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                     <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                        <div class="flex flex-col text-2xl sm:text-header gap-4">
+                        <div class="flex flex-col text-[24px] sm:text-header gap-4">
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>
@@ -117,9 +117,9 @@ session_start();
                 <article class="flex flex-col px-4 sm:px-10 xl:px-44 gap-5">
                     <div class="overflow-hidden">
                         <img src="../media/educacion1.png" alt="" class="float-left w-[500px] mb-10 mr-10">
-                        <p class="text-2xl sm:text-subtitle">Entendiendo el Síndrome de Tourette</p>
+                        <p class="text-[24px] sm:text-subtitle">Entendiendo el Síndrome de Tourette</p>
                         <br>
-                        <p class="text-base sm:text-body">El Síndrome de Tourette es un trastorno neuropsiquiátrico con inicio en la infancia,
+                        <p class="text-[16px] sm:text-body">El Síndrome de Tourette es un trastorno neuropsiquiátrico con inicio en la infancia,
                             caracterizado por múltiples tics motores y al menos un tic vocal. Estos tics suelen ser
                             repentinos, rápidos y recurrentes movimientos o sonidos. El trastorno lleva el nombre del médico
                             francés Georges Gilles de la Tourette, quien fue el primero en describir esta condición en 1885.
@@ -136,18 +136,18 @@ session_start();
                 <article class="flex flex-col w-full gap-10">
                     <div class="flex justify-center items-center h-fit relative">
                         <img src="../media/educacionseparator.png" alt="">
-                        <p class="absolute text-center text-2xl sm:text-subtitle text-white asbolute">Síntomas Comunes</p>
+                        <p class="absolute text-center text-[24px] sm:text-subtitle text-white asbolute">Síntomas Comunes</p>
                     </div>
                     <div class="overflow-hidden px-4 sm:px-10 xl:px-44">
                         <img src="../media/educacion2.png" alt="" class="lg:float-right w-[500px] mb-10 ml-10">
-                        <p class="text-2xl sm:text-subtitle">Reconociendo los Síntomas del Síndrome de Tourette</p>
-                        <p class="text-base sm:text-body">Reconocer y entender los síntomas del Síndrome de Tourette es el primer paso para vivir con el trastorno o apoyar a alguien que lo tiene. Es fundamental acercarse a este conocimiento con empatía y el deseo de comprender, para fomentar un entorno de aceptación y apoyo.
+                        <p class="text-[24px] sm:text-subtitle">Reconociendo los Síntomas del Síndrome de Tourette</p>
+                        <p class="text-[16px] sm:text-body">Reconocer y entender los síntomas del Síndrome de Tourette es el primer paso para vivir con el trastorno o apoyar a alguien que lo tiene. Es fundamental acercarse a este conocimiento con empatía y el deseo de comprender, para fomentar un entorno de aceptación y apoyo.
                         </p>
                     </div>
                     <div class="flex flex-col px-4 sm:px-20 lg:px-44 text-body gap-5">
                         <ul class="list-disc">
-                            <li class="text-base sm:text-body"><span class="font-bold">Tics Motores:</span> Los tics motores son movimientos involuntarios que pueden ser simples o complejos. Los simples incluyen gestos breves como parpadeo rápido, encogimiento de hombros, o muecas faciales.</li>
-                            <li class="text-base sm:text-body"><span class="font-bold">Tics Vocales: </span> Los tics vocales también tienen una gama que va de lo simple a lo complejo. Los simples pueden ser sonidos repentinos como carraspeos, gruñidos, o chasquidos. Los complejos pueden involucrar la repetición de palabras, la enunciación de frases fuera de contexto, o incluso la repetición de palabras o frases dichas por otros (ecolalia). </li>
+                            <li class="text-[16px] sm:text-body"><span class="font-bold">Tics Motores:</span> Los tics motores son movimientos involuntarios que pueden ser simples o complejos. Los simples incluyen gestos breves como parpadeo rápido, encogimiento de hombros, o muecas faciales.</li>
+                            <li class="text-[16px] sm:text-body"><span class="font-bold">Tics Vocales: </span> Los tics vocales también tienen una gama que va de lo simple a lo complejo. Los simples pueden ser sonidos repentinos como carraspeos, gruñidos, o chasquidos. Los complejos pueden involucrar la repetición de palabras, la enunciación de frases fuera de contexto, o incluso la repetición de palabras o frases dichas por otros (ecolalia). </li>
                         </ul>
                         <div class="w-full sm:h-[800px]">
                             <iframe class="w-full h-full" src="https://www.youtube.com/embed/_XXnnlVEKAw?si=7bxi3HQCwImrY8MI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -157,22 +157,22 @@ session_start();
                 <article class="flex flex-col gap-10">
                     <div class="flex justify-center items-center h-fit relative">
                         <img src="../media/educacionbg.png" alt="">
-                        <p class="absolute text-center text-2xl sm:text-subtitle text-white asbolute">Guías Educativas</p>
+                        <p class="absolute text-center text-[24px] sm:text-subtitle text-white asbolute">Guías Educativas</p>
                     </div>
                     <div class="flex flex-col gap-5 px-4 sm:px-20 lg:px-40">
-                        <div class="flex flex-col lg:grid grid-cols-3 text-base sm:text-body justify-center items-center">
+                        <div class="flex flex-col lg:grid grid-cols-3 text-[16px] sm:text-body justify-center items-center">
                             <p>Navegar por el mundo educativo puede ser un desafío para quienes viven con el Síndrome de Tourette.</p>
                             <div class="flex items-center justify-center">
                                 <img src="../media/educacion3.png" alt="" class="w-[300px]">
                             </div>
                             <p class="">Nuestras guías están diseñadas para empoderar tanto a los afectados como a los educadores con herramientas y conocimientos para crear entornos inclusivos y comprensivos.</p>
                         </div>
-                        <p class="text-base sm:text-body">La sección "Guías Educativas y Estrategias de Manejo" en nuestra web está dedicada a mejorar el entendimiento y manejo del Síndrome de Tourette en contextos educativos, enfatizando la importancia de educar y sensibilizar a compañeros y profesores para fomentar la empatía y la comprensión, ofreciendo materiales informativos para desmitificar los tics y promover la inclusión.</p>
+                        <p class="text-[16px] sm:text-body">La sección "Guías Educativas y Estrategias de Manejo" en nuestra web está dedicada a mejorar el entendimiento y manejo del Síndrome de Tourette en contextos educativos, enfatizando la importancia de educar y sensibilizar a compañeros y profesores para fomentar la empatía y la comprensión, ofreciendo materiales informativos para desmitificar los tics y promover la inclusión.</p>
                         <div class="bg-white p-4 sm:p-16 rounded">
                             <div id="accordion-collapse" data-accordion="collapse">
                                 <h2 id="accordion-collapse-heading-1">
                                     <button type="button" class="flex items-center justify-between p-5 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                                        <span class="text-2xl">What is Flowbite?</span>
+                                        <span class="text-[24px]">What is Flowbite?</span>
                                         <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                         </svg>
@@ -188,7 +188,7 @@ session_start();
                                 </div>
                                 <h2 id="accordion-collapse-heading-2">
                                     <button type="button" class="flex items-center    justify-between p-5 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-                                        <span class="text-2xl">Is there a Figma file available?</span>
+                                        <span class="text-[24px]">Is there a Figma file available?</span>
                                         <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                         </svg>

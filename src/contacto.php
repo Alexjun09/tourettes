@@ -19,7 +19,7 @@ session_start();
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
 
     <div class="h-screen w-screen flex flex-col">
-  <!--Desktop header -->
+        <!--Desktop header -->
         <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
@@ -51,7 +51,8 @@ session_start();
                 <!-- Otros elementos del header aquí -->
             </div>
         </header>
-        <!-- phone header -->        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
+        <!-- phone header -->
+        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
             <a class="h-16" href="./index.php">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
             </a>
@@ -66,7 +67,7 @@ session_start();
                 </label>
                 <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                     <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                        <div class="flex flex-col text-2xl sm:text-header gap-4">
+                        <div class="flex flex-col text-[24px] sm:text-header gap-4">
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>
@@ -110,19 +111,27 @@ session_start();
         </header>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full">
-            <p class="text-title text-center">Contacto</p>
-            <!-- <div class="flex flex-row w-full px-44">
-               
-                <div class="col-span-3 w-full border border-black">
-                    <img src="" alt="">
+            <p class="text-4xl sm:text-title text-center ">Contacto</p>
+            <p class="text-[24px] sm:text-subtitle text-center ">Formulario</p>
+            <div class="flex-row justify-evenly w-full h-fit px-4 py-2 flex lg:hidden z-40 bg-primary">
+                <div onclick="" id="botonInformacionDeContacto" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                    <img src="../media/personita.png" alt="" class="w-7 m-1">
+                    <p class="block text-xs pb-2 whitespace-nowrap">Nosotros</p>
                 </div>
-            </div> -->
-            <p class="text-subtitle text-center">Formulario</p>
+                <div onclick="" id="botonFormularioDeContacto" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                    <img src="../media/telefonito.png" alt="" class="w-7 m-1">
+                    <p class="block text-xs pb-2">Formulario</p>
+                </div>
+                <div onclick="" id="botonFAQs" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                    <img src="../media/lupita.png" alt="" class="w-7 m-1">
+                    <p class="block text-xs pb-2">FAQs</p>
+                </div>
+            </div>
             <div class="w-full h-full relative flex flex-row justify-center items-center">
                 <img src="../media/fondo-contacto.png" alt="" class="w-full h-[500px] absolute z-10">
                 <div class="flex flex-row absolute w-full h-[500px] justify-center items-center">
-                    <div class="absolute w-full h-full z-40">
-                        <div class="flex flex-col gap-2 w-min h-full px-20 py-10">
+                    <div class="absolute w-full h-full z-40 hidden lg:block">
+                        <div class="flex-col gap-2 w-min h-full px-20 py-10 flex">
                             <div onclick="" id="botonInformacionDeContacto" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
                                 <img src="../media/personita.png" alt="" class="w-7 m-1">
                                 <p class="block text-xs pb-2 whitespace-nowrap">Nosotros</p>
@@ -138,8 +147,8 @@ session_start();
                         </div>
                     </div>
                     <!-- información de contacto -->
-                    <div id="informacionDeContacto" class="flex flex-row items-center justify-center gap-3 z-30">
-                        <div class="flex flex-col rounded-lg max-w-[400px] bg-white ">
+                    <div id="informacionDeContacto" class="flex flex-row lg:items-center lg:justify-center gap-3 z-30 overflow-x-auto px-4 lg:px-0">
+                        <div class="flex flex-col rounded-lg max-w-[400px] bg-white">
                             <div class="flex flex-col bg-contraste rounded-lg p-4">
                                 <div class="flex flex-row items-center gap-4">
                                     <img src="../media/alex.png" alt="careto" class="rounded-full max-w-24">
@@ -205,7 +214,7 @@ session_start();
                     </div>
                     <!-- formulario de contacto -->
                     <div class="hidden w-full h-full flex justify-center items-center" id="formularioDeContacto">
-                        <form action="server/procesar-contacto.php" method="post" class="text-white flex flex-col z-50 w-[40%]" name="formulario" id="formulario">
+                        <form action="server/procesar-contacto.php" method="post" class="text-white flex flex-col z-50 px-4 sm:px-0 w-full sm:w-[40%]" name="formulario" id="formulario">
                             <input type="text" name="nombre" placeholder="Nombre Completo" class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
                             <br>
                             <input type="text" name="telefono" placeholder="Telefono" class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
@@ -224,90 +233,90 @@ session_start();
                     </div>
                     <!-- FAQs -->
                     <div id="FAQs" class="hidden z-50">
-                    <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl flex flex-col min-w-[1400px]">
-    <h2 id="accordion-collapse-heading-1">
-        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-            <span class="text-base">¿Cómo puedo ponerme en contacto con un especialista en síndrome de Tourette?</span>
-            <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-        </button>
-    </h2>
-    <div id="accordion-collapse-body-1" aria-labelledby="accordion-collapse-heading-1">
-        <div class="p-5 border border-gray-200  border-b-0 bg-white">
-            <p class="mb-2 text-gray-500 ">Para contactar a un especialista en síndrome de Tourette, te recomendaría seguir algunos pasos específicos. En primer lugar, consulta con tu médico de cabecera o de atención primaria. Ellos podrán proporcionarte recomendaciones y referencias de especialistas en tu área. Además, puedes buscar en línea en directorios médicos especializados o utilizar herramientas de búsqueda proporcionadas por instituciones médicas y hospitales. Asegúrate de verificar las credenciales y la experiencia del especialista antes de programar una consulta.</p>
-        </div>
-    </div>
-    <h2 id="accordion-collapse-heading-2">
-        <button type="button" class="flex items-center    justify-between p-2 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-            <span class="text-base">¿Esta página ofrece recursos educativos sobre el síndrome de Tourette?</span>
-            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-        </button>
-    </h2>
-    <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-        <div class="p-5 border border-gray-200  border-b-0 bg-white">
-            <p class="mb-2 text-gray-500 ">Sí, nuestro sitio web está comprometido a proporcionar una amplia gama de recursos educativos sobre el síndrome de Tourette. Estos recursos incluyen artículos detallados escritos por expertos en el campo, videos informativos que explican los síntomas y tratamientos del síndrome, enlaces a organizaciones de apoyo y grupos de investigación, así como también materiales descargables como folletos y guías para pacientes y cuidadores. Nuestro objetivo es proporcionar información precisa y comprensible que pueda ayudar a las personas a entender mejor el síndrome de Tourette y cómo manejarlo.</p>
-        </div>
-    </div>
-    <!-- Pregunta 3 -->
-    <h2 id="accordion-collapse-heading-3">
-        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
-            <span class="text-base">¿Dónde puedo encontrar historias o testimonios de personas con síndrome de Tourette?</span>
-            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-        </button>
-    </h2>
-    <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-        <div class="p-5 border border-gray-200  border-b-0 bg-white">
-            <p class="mb-2 text-gray-500 ">En nuestra página, hemos creado un espacio dedicado a compartir historias y testimonios reales de personas que viven con el síndrome de Tourette. Estas historias son relatos auténticos de individuos que han experimentado los desafíos y triunfos asociados con el síndrome. Además, ofrecemos entrevistas en profundidad, videos personales y blogs escritos por personas con síndrome de Tourette y sus seres queridos. Creemos que compartir estas experiencias puede ayudar a construir comunidad, aumentar la conciencia y fomentar la comprensión sobre el síndrome de Tourette.</p>
-        </div>
-    </div>
-    <!-- Pregunta 4 -->
-    <h2 id="accordion-collapse-heading-4">
-        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
-            <span class="text-base">¿Ofrece la página asesoramiento o apoyo emocional en línea para personas afectadas por el síndrome de Tourette?</span>
-            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-        </button>
-    </h2>
-    <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">
-        <div class="p-5 border border-gray-200  border-b-0 bg-white">
-            <p class="mb-2 text-gray-500 ">Sí, entendemos que vivir con el síndrome de Tourette puede ser desafiante y emocionalmente exigente, tanto para quienes lo padecen como para sus familiares y cuidadores. Es por eso que ofrecemos servicios de asesoramiento y apoyo emocional en línea a través de nuestra plataforma. Trabajamos con profesionales de la salud mental capacitados y compasivos que pueden brindar orientación, apoyo y recursos a las personas afectadas por el síndrome de Tourette. Nuestro objetivo es proporcionar un espacio seguro y comprensivo donde las personas puedan compartir sus preocupaciones, recibir apoyo y encontrar esperanza en su viaje hacia el bienestar emocional.</p>
-        </div>
-    </div>
-    <!-- Pregunta 5 -->
-    <h2 id="accordion-collapse-heading-5">
-        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
-            <span class="text-base">¿Cómo puedo unirme a la comunidad o foro en línea relacionado con el síndrome de Tourette en esta página?</span>
-            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-        </button>
-    </h2>
-    <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-5">
-        <div class="p-5 border border-gray-200  border-b-0 bg-white">
-            <p class="mb-2 text-gray-500 ">Para unirte a nuestra comunidad en línea sobre el síndrome de Tourette, simplemente regístrate en nuestro sitio web y accede a la sección de la comunidad. Una vez que hayas creado una cuenta, podrás participar en debates, hacer preguntas, compartir recursos y conectarte con otras personas que comparten experiencias similares. Nuestra comunidad en línea es un lugar de apoyo mutuo, comprensión y solidaridad, donde las personas pueden encontrar consuelo, compartir conocimientos y construir relaciones significativas.</p>
-        </div>
-    </div>
-    <!-- Pregunta 6 -->
-    <h2 id="accordion-collapse-heading-6">
-        <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-b-xl" data-accordion-target="#accordion-collapse-body-6" aria-expanded="false" aria-controls="accordion-collapse-body-6">
-            <span class="text-base">¿Qué debo hacer si encuentro un error en el sitio web o tengo problemas técnicos al navegar?</span>
-            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-        </button>
-    </h2>
-    <div id="accordion-collapse-body-6" class="hidden" aria-labelledby="accordion-collapse-heading-6">
-        <div class="p-5 border border-gray-200  border-b-0 bg-white">
-            <p class="mb-2 text-gray-500 ">Si encuentras algún error en nuestro sitio web o experimentas problemas técnicos mientras navegas, queremos saberlo para poder solucionarlo de inmediato. Por favor, contáctanos utilizando nuestro formulario de contacto o envíanos un correo electrónico detallando el problema que estás experimentando. Nuestro equipo técnico revisará el problema y trabajará diligentemente para solucionarlo lo antes posible. Agradecemos tus comentarios y tu ayuda para mejorar nuestra plataforma y garantizar una experiencia óptima para todos nuestros usuarios.</p>
-        </div>
-    </div>
-</div>
+                        <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl flex flex-col px-4 lg:px-0 w-full lg:min-w-[1400px] overflow-y-scroll">
+                            <h2 id="accordion-collapse-heading-1">
+                                <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                                    <span class="text-[16px]">¿Cómo puedo ponerme en contacto con un especialista en síndrome de Tourette?</span>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-collapse-body-1" aria-labelledby="accordion-collapse-heading-1">
+                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
+                                    <p class="mb-2 text-gray-500 ">Para contactar a un especialista en síndrome de Tourette, te recomendaría seguir algunos pasos específicos. En primer lugar, consulta con tu médico de cabecera o de atención primaria. Ellos podrán proporcionarte recomendaciones y referencias de especialistas en tu área. Además, puedes buscar en línea en directorios médicos especializados o utilizar herramientas de búsqueda proporcionadas por instituciones médicas y hospitales. Asegúrate de verificar las credenciales y la experiencia del especialista antes de programar una consulta.</p>
+                                </div>
+                            </div>
+                            <h2 id="accordion-collapse-heading-2">
+                                <button type="button" class="flex items-center    justify-between p-2 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                                    <span class="text-[16px]">¿Esta página ofrece recursos educativos sobre el síndrome de Tourette?</span>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
+                                    <p class="mb-2 text-gray-500 ">Sí, nuestro sitio web está comprometido a proporcionar una amplia gama de recursos educativos sobre el síndrome de Tourette. Estos recursos incluyen artículos detallados escritos por expertos en el campo, videos informativos que explican los síntomas y tratamientos del síndrome, enlaces a organizaciones de apoyo y grupos de investigación, así como también materiales descargables como folletos y guías para pacientes y cuidadores. Nuestro objetivo es proporcionar información precisa y comprensible que pueda ayudar a las personas a entender mejor el síndrome de Tourette y cómo manejarlo.</p>
+                                </div>
+                            </div>
+                            <!-- Pregunta 3 -->
+                            <h2 id="accordion-collapse-heading-3">
+                                <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                                    <span class="text-[16px]">¿Dónde puedo encontrar historias o testimonios de personas con síndrome de Tourette?</span>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
+                                    <p class="mb-2 text-gray-500 ">En nuestra página, hemos creado un espacio dedicado a compartir historias y testimonios reales de personas que viven con el síndrome de Tourette. Estas historias son relatos auténticos de individuos que han experimentado los desafíos y triunfos asociados con el síndrome. Además, ofrecemos entrevistas en profundidad, videos personales y blogs escritos por personas con síndrome de Tourette y sus seres queridos. Creemos que compartir estas experiencias puede ayudar a construir comunidad, aumentar la conciencia y fomentar la comprensión sobre el síndrome de Tourette.</p>
+                                </div>
+                            </div>
+                            <!-- Pregunta 4 -->
+                            <h2 id="accordion-collapse-heading-4">
+                                <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+                                    <span class="text-[16px]">¿Ofrece la página asesoramiento o apoyo emocional en línea para personas afectadas por el síndrome de Tourette?</span>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">
+                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
+                                    <p class="mb-2 text-gray-500 ">Sí, entendemos que vivir con el síndrome de Tourette puede ser desafiante y emocionalmente exigente, tanto para quienes lo padecen como para sus familiares y cuidadores. Es por eso que ofrecemos servicios de asesoramiento y apoyo emocional en línea a través de nuestra plataforma. Trabajamos con profesionales de la salud mental capacitados y compasivos que pueden brindar orientación, apoyo y recursos a las personas afectadas por el síndrome de Tourette. Nuestro objetivo es proporcionar un espacio seguro y comprensivo donde las personas puedan compartir sus preocupaciones, recibir apoyo y encontrar esperanza en su viaje hacia el bienestar emocional.</p>
+                                </div>
+                            </div>
+                            <!-- Pregunta 5 -->
+                            <h2 id="accordion-collapse-heading-5">
+                                <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
+                                    <span class="text-[16px]">¿Cómo puedo unirme a la comunidad o foro en línea relacionado con el síndrome de Tourette en esta página?</span>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-5">
+                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
+                                    <p class="mb-2 text-gray-500 ">Para unirte a nuestra comunidad en línea sobre el síndrome de Tourette, simplemente regístrate en nuestro sitio web y accede a la sección de la comunidad. Una vez que hayas creado una cuenta, podrás participar en debates, hacer preguntas, compartir recursos y conectarte con otras personas que comparten experiencias similares. Nuestra comunidad en línea es un lugar de apoyo mutuo, comprensión y solidaridad, donde las personas pueden encontrar consuelo, compartir conocimientos y construir relaciones significativas.</p>
+                                </div>
+                            </div>
+                            <!-- Pregunta 6 -->
+                            <h2 id="accordion-collapse-heading-6">
+                                <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-b-xl" data-accordion-target="#accordion-collapse-body-6" aria-expanded="false" aria-controls="accordion-collapse-body-6">
+                                    <span class="text-[16px]">¿Qué debo hacer si encuentro un error en el sitio web o tengo problemas técnicos al navegar?</span>
+                                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-collapse-body-6" class="hidden" aria-labelledby="accordion-collapse-heading-6">
+                                <div class="p-5 border border-gray-200  border-b-0 bg-white">
+                                    <p class="mb-2 text-gray-500 ">Si encuentras algún error en nuestro sitio web o experimentas problemas técnicos mientras navegas, queremos saberlo para poder solucionarlo de inmediato. Por favor, contáctanos utilizando nuestro formulario de contacto o envíanos un correo electrónico detallando el problema que estás experimentando. Nuestro equipo técnico revisará el problema y trabajará diligentemente para solucionarlo lo antes posible. Agradecemos tus comentarios y tu ayuda para mejorar nuestra plataforma y garantizar una experiencia óptima para todos nuestros usuarios.</p>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -315,20 +324,20 @@ session_start();
         </div>
     </div>
     <!-- footer -->
-   <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
-                <p>gLabs© 2023. Todos Los Derechos Reservados</p>
-                <div class="flex flex-row gap-4">
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/x.png" alt="x">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/insta.png" alt="insta">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
-                    </a>
-                </div>
-            </footer>
+    <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+        <div class="flex flex-row gap-4">
+            <a href="">
+                <img class="w-10 h-10" src="../media/x.png" alt="x">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+            </a>
+        </div>
+    </footer>
 
 </body>
 
@@ -360,7 +369,7 @@ session_start();
     });
 
 
-//Cerrar sesion
+    //Cerrar sesion
     function confirmarCerrarSesion() {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -379,6 +388,5 @@ session_start();
         });
         return false; // Evita la navegación
     }
-
 </script>
 <script src="https://unpkg.com/flowbite@1.3.3/dist/flowbite.js"></script>

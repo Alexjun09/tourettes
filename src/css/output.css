@@ -1150,6 +1150,10 @@ video {
   justify-content: space-between;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .gap-10 {
   gap: 2.5rem;
 }
@@ -1194,12 +1198,20 @@ video {
   overflow: hidden;
 }
 
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
 .overflow-y-auto {
   overflow-y: auto;
 }
 
 .overflow-x-scroll {
   overflow-x: scroll;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .whitespace-nowrap {
@@ -1645,6 +1657,18 @@ video {
   line-height: 1rem;
 }
 
+.text-\[32px\] {
+  font-size: 32px;
+}
+
+.text-\[36px\] {
+  font-size: 36px;
+}
+
+.text-\[16px\] {
+  font-size: 16px;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1676,6 +1700,10 @@ video {
 .ordinal {
   --tw-ordinal: ordinal;
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
+}
+
+.leading-\[0px\] {
+  line-height: 0px;
 }
 
 .text-blue-600 {
@@ -1881,6 +1909,10 @@ video {
     height: 600px;
   }
 
+  .sm\:h-full {
+    height: 100%;
+  }
+
   .sm\:w-12 {
     width: 3rem;
   }
@@ -1910,6 +1942,14 @@ video {
     width: fit-content;
   }
 
+  .sm\:w-\[40\%\] {
+    width: 40%;
+  }
+
+  .sm\:min-w-\[1400px\] {
+    min-width: 1400px;
+  }
+
   .sm\:max-w-\[300px\] {
     max-width: 300px;
   }
@@ -1932,6 +1972,10 @@ video {
 
   .sm\:justify-end {
     justify-content: flex-end;
+  }
+
+  .sm\:justify-center {
+    justify-content: center;
   }
 
   .sm\:gap-5 {
@@ -2014,6 +2058,18 @@ video {
   .sm\:text-title {
     font-size: 82px;
   }
+
+  .sm\:text-\[36px\] {
+    font-size: 36px;
+  }
+
+  .sm\:text-\[32px\] {
+    font-size: 32px;
+  }
+
+  .sm\:text-\[16px\] {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -2052,6 +2108,10 @@ video {
     width: auto;
   }
 
+  .lg\:min-w-\[1400px\] {
+    min-width: 1400px;
+  }
+
   .lg\:-translate-x-10 {
     --tw-translate-x: -2.5rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2059,6 +2119,14 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
   }
 
   .lg\:gap-0 {

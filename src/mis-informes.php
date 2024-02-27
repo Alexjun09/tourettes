@@ -100,7 +100,7 @@ $conn->close();
                 </label>
                 <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                     <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                        <div class="flex flex-col text-2xl sm:text-header gap-4">
+                        <div class="flex flex-col text-[24px] sm:text-header gap-4">
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>

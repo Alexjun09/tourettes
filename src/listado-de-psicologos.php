@@ -80,7 +80,7 @@ if ($result && $result->num_rows > 0) {
                 </label>
                 <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                     <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                        <div class="flex flex-col text-2xl sm:text-header gap-4">
+                        <div class="flex flex-col text-[24px] sm:text-header gap-4">
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>
@@ -125,8 +125,8 @@ if ($result && $result->num_rows > 0) {
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center gap-20">
             <div class="flex flex-col gap-4 text-center">
-                <p class="text-4xl sm:text-title">Pedir Cita</p>
-                <p class="text-2xl sm:text-subtitle"> Listado de Psicólogos</p>
+                <p class="text-[36px] sm:text-title">Pedir Cita</p>
+                <p class="text-[24px] sm:text-subtitle"> Listado de Psicólogos</p>
             </div>
             <?php if ($result) : ?>
                 <?php while ($row = $result->fetch_assoc()) : ?>
@@ -138,8 +138,8 @@ if ($result && $result->num_rows > 0) {
                                 <img src="../media/starts.png" alt="Calificación" class="hidden sm:block w-2/3">
                             </div>
                             <div class="flex flex-col gap-2 px-4 sm:px-0">
-                                <p class="text-2xl sm:text-subtitle text-center"><?php echo $row['NombreCompleto']; ?></p>
-                                <ul class="list-disc text-sm sm:text-base">
+                                <p class="text-[24px] sm:text-subtitle text-center"><?php echo $row['NombreCompleto']; ?></p>
+                                <ul class="list-disc text-sm sm:text-[16px]">
                                     <li>Especialidad: <?php echo $row['Especialidad']; ?></li>
                                     <li>Ubicación: <?php echo $row['Ubicacion']; ?></li>
                                     <li>Idiomas: <?php echo $row['Idiomas']; ?></li>

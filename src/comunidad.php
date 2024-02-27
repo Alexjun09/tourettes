@@ -88,7 +88,7 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                 </label>
                 <div class="fixed top-0 right-0 w-full h-full transition-all duration-500 transform translate-x-full bg-white shadow-lg peer-checked:translate-x-0 z-40">
                     <div class="w-full h-full bg-turquoise flex flex-col sm:flex-row xl:grid grid-cols-2 items-start sm:items-center px-10 sm:px-10 xl:px-60 py-40 justify-between">
-                        <div class="flex flex-col text-2xl sm:text-header gap-4">
+                        <div class="flex flex-col text-[24px] sm:text-header gap-4">
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="index.php">Home</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="educacion.php">Educacion</a>
                             <a class="hover:font-light hover:text-solarOrange ease-in duration-100" href="pedir-cita.php">Pedir Cita</a>
@@ -132,13 +132,13 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
         </header>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center gap-10 max-w-[1200px] px-4">
-            <p class="text-4xl sm:text-title">Comunidad</p>
+            <p class="text-[36px] sm:text-title">Comunidad</p>
             <div class="flex flex-col gap-5 w-full">
                 <div class="max-h-[1500px] flex flex-col shadow-lg shadow-primary rounded-md">
                     <div class="col-span-3 flex sm:grid grid-cols-[5fr_3fr_2fr] bg-primary text-white gap-5 rounded-t-md px-5">
-                        <p class="text-base sm:text-body px-4 p-1 self-center">Tema</p>
+                        <p class="text-[16px] sm:text-body px-4 p-1 self-center">Tema</p>
                         <p class="hidden sm:block text-body px-4 p-1">Autor</p>
-                        <p class="hidden sm:block text-base sm:text-body px-4 p-1 self-center">Fecha</p>
+                        <p class="hidden sm:block text-[16px] sm:text-body px-4 p-1 self-center">Fecha</p>
                     </div>
                     <div class="flex flex-col sm:grid grid-cols-[5fr_3fr_2fr] gap-2 sm:gap-5 p-5 overflow-y-auto">
                         <?php
@@ -157,7 +157,7 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                     </div>
                 </div>
                 <div class="w-full flex justify-end items-end h-fit">
-                    <a class="text-base sm:text-body rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.php">Añadir Entrada</a>
+                    <a class="text-[16px] sm:text-body rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.php">Añadir Entrada</a>
                 </div>
                 <!-- graficas chart.js -->
                 <div class="flex flex-col sm:grid grid-cols-2 gap-20 w-full mt-10">
