@@ -85,7 +85,7 @@ $conn->close();
                 <!-- Otros elementos del header aquí -->
             </div>
         </header>
-        <!-- phone header -->        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent absolute w-full z-50">
+        <!-- phone header -->        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
             <a class="h-16" href="./index.php">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
             </a>

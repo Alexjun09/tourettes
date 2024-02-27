@@ -54,8 +54,8 @@ if ($result && $result->num_rows > 0) {
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
-    <div class="h-screen w-full flex flex-col relative">
-  <!--Desktop header -->
+    <div class="lg:h-screen w-full flex flex-col relative">
+ <!--Desktop header -->
         <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
@@ -87,7 +87,8 @@ if ($result && $result->num_rows > 0) {
                 <!-- Otros elementos del header aquí -->
             </div>
         </header>
-        <!-- phone header -->        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent absolute w-full z-50">
+        <!-- phone header -->
+        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
             <a class="h-16" href="./index.php">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
             </a>
@@ -147,10 +148,10 @@ if ($result && $result->num_rows > 0) {
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center justify-between">
             <div class="flex flex-col text-center">
-                <p class="text-title">Pedir Cita</p>
-                <p class="text-subtitle"> Formulario para pedir una cita</p>
+                <p class="text-4xl sm:text-title">Pedir Cita</p>
+                <p class="text-2xl sm:text-subtitle"> Formulario para pedir una cita</p>
             </div>
-            <div class="grid grid-cols-2 w-full h-full px-44 py-12">
+            <div class="flex flex-col lg:grid grid-cols-2 w-full h-full px-14 xl:px-44 py-12 items-center gap-20 lg:gap-0">
                 <!-- card -->
                 <div class="w-96 shadow-md shadow-primary h-full relative flex flex-col items-center">
                     <?php if ($psicologo) : ?>
@@ -166,7 +167,7 @@ if ($result && $result->num_rows > 0) {
                 </div>
 
                 <!-- form -->
-                <form id="form-cita" action="server/procesar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center">
+                <form id="form-cita" action="server/procesar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center w-96 lg:w-auto">
                     <input type="hidden" name="psicologo_id" value="<?php echo $psicologo_id; ?>">
                     <br>
                     <input type="datetime-local" id="fecha" name="fecha" placeholder="Fecha" required min="<?php echo date('Y-m-d'); ?>" class="outline-none border-b border-black w-full text-opacity-50">
