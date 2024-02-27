@@ -109,17 +109,17 @@ session_start();
         </header>
         <!-- body -->
         <div class="flex font-extralight flex-col w-full h-full items-center justify-between text-primary gap-4">
-            <p class="text-title">Educación</p>
+            <p class="text-subtitle sm:text-title">Educación</p>
             <div class="w-full bg-primary py-1">
                 <p class="text-white text-3xl text-center">Información Básica</p>
             </div>
             <div class="flex flex-col gap-20">
-                <article class="flex flex-col px-10 xl:px-44 gap-5">
+                <article class="flex flex-col px-4 sm:px-10 xl:px-44 gap-5">
                     <div class="overflow-hidden">
                         <img src="../media/educacion1.png" alt="" class="float-left w-[500px] mb-10 mr-10">
-                        <p class="text-subtitle">Entendiendo el Síndrome de Tourette</p>
+                        <p class="text-2xl sm:text-subtitle">Entendiendo el Síndrome de Tourette</p>
                         <br>
-                        <p class="text-body">El Síndrome de Tourette es un trastorno neuropsiquiátrico con inicio en la infancia,
+                        <p class="text-base sm:text-body">El Síndrome de Tourette es un trastorno neuropsiquiátrico con inicio en la infancia,
                             caracterizado por múltiples tics motores y al menos un tic vocal. Estos tics suelen ser
                             repentinos, rápidos y recurrentes movimientos o sonidos. El trastorno lleva el nombre del médico
                             francés Georges Gilles de la Tourette, quien fue el primero en describir esta condición en 1885.
@@ -129,28 +129,27 @@ session_start();
                             Tourette no se conoce, pero se cree que es una combinación de factores genéticos y ambientales.
                         </p>
                     </div>
-                    <div class="w-full h-[800px]">
+                    <div class="w-full sm:h-[800px]">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/irlCibk2Bmw?si=8ZgeuW8K2ZT8jv3W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-
                 </article>
                 <article class="flex flex-col w-full gap-10">
                     <div class="flex justify-center items-center h-fit relative">
                         <img src="../media/educacionseparator.png" alt="">
-                        <p class="absolute text-center text-subtitle text-white asbolute">Síntomas Comunes</p>
+                        <p class="absolute text-center text-2xl sm:text-subtitle text-white asbolute">Síntomas Comunes</p>
                     </div>
-                    <div class="overflow-hidden px-10 xl:px-44">
-                        <img src="../media/educacion2.png" alt="" class="float-right w-[500px] mb-10 ml-10">
-                        <p class="text-subtitle">Reconociendo los Síntomas del Síndrome de Tourette</p>
-                        <p class="text-body">Reconocer y entender los síntomas del Síndrome de Tourette es el primer paso para vivir con el trastorno o apoyar a alguien que lo tiene. Es fundamental acercarse a este conocimiento con empatía y el deseo de comprender, para fomentar un entorno de aceptación y apoyo.
+                    <div class="overflow-hidden px-4 sm:px-10 xl:px-44">
+                        <img src="../media/educacion2.png" alt="" class="lg:float-right w-[500px] mb-10 ml-10">
+                        <p class="text-2xl sm:text-subtitle">Reconociendo los Síntomas del Síndrome de Tourette</p>
+                        <p class="text-base sm:text-body">Reconocer y entender los síntomas del Síndrome de Tourette es el primer paso para vivir con el trastorno o apoyar a alguien que lo tiene. Es fundamental acercarse a este conocimiento con empatía y el deseo de comprender, para fomentar un entorno de aceptación y apoyo.
                         </p>
                     </div>
-                    <div class="flex flex-col px-44 text-body gap-5">
+                    <div class="flex flex-col px-4 sm:px-20 lg:px-44 text-body gap-5">
                         <ul class="list-disc">
-                            <li><span class="font-bold">Tics Motores:</span> Los tics motores son movimientos involuntarios que pueden ser simples o complejos. Los simples incluyen gestos breves como parpadeo rápido, encogimiento de hombros, o muecas faciales.</li>
-                            <li><span class="font-bold">Tics Vocales: </span> Los tics vocales también tienen una gama que va de lo simple a lo complejo. Los simples pueden ser sonidos repentinos como carraspeos, gruñidos, o chasquidos. Los complejos pueden involucrar la repetición de palabras, la enunciación de frases fuera de contexto, o incluso la repetición de palabras o frases dichas por otros (ecolalia). </li>
+                            <li class="text-base sm:text-body"><span class="font-bold">Tics Motores:</span> Los tics motores son movimientos involuntarios que pueden ser simples o complejos. Los simples incluyen gestos breves como parpadeo rápido, encogimiento de hombros, o muecas faciales.</li>
+                            <li class="text-base sm:text-body"><span class="font-bold">Tics Vocales: </span> Los tics vocales también tienen una gama que va de lo simple a lo complejo. Los simples pueden ser sonidos repentinos como carraspeos, gruñidos, o chasquidos. Los complejos pueden involucrar la repetición de palabras, la enunciación de frases fuera de contexto, o incluso la repetición de palabras o frases dichas por otros (ecolalia). </li>
                         </ul>
-                        <div class="w-full h-[800px]">
+                        <div class="w-full sm:h-[800px]">
                             <iframe class="w-full h-full" src="https://www.youtube.com/embed/_XXnnlVEKAw?si=7bxi3HQCwImrY8MI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -158,19 +157,18 @@ session_start();
                 <article class="flex flex-col gap-10">
                     <div class="flex justify-center items-center h-fit relative">
                         <img src="../media/educacionbg.png" alt="">
-                        <p class="absolute text-center text-subtitle text-white asbolute">Guías Educativas</p>
+                        <p class="absolute text-center text-2xl sm:text-subtitle text-white asbolute">Guías Educativas</p>
                     </div>
-                    <div class="flex flex-col gap-5 px-40">
-                        <div class="grid grid-cols-3 text-body justify-center items-center">
+                    <div class="flex flex-col gap-5 px-4 sm:px-20 lg:px-40">
+                        <div class="flex flex-col lg:grid grid-cols-3 text-base sm:text-body justify-center items-center">
                             <p>Navegar por el mundo educativo puede ser un desafío para quienes viven con el Síndrome de Tourette.</p>
                             <div class="flex items-center justify-center">
                                 <img src="../media/educacion3.png" alt="" class="w-[300px]">
                             </div>
-                            <p class="text-body">Nuestras guías están diseñadas para empoderar tanto a los afectados como a los educadores con herramientas y conocimientos para crear entornos inclusivos y comprensivos.</p>
+                            <p class="">Nuestras guías están diseñadas para empoderar tanto a los afectados como a los educadores con herramientas y conocimientos para crear entornos inclusivos y comprensivos.</p>
                         </div>
-                        <p class="text-body">La sección "Guías Educativas y Estrategias de Manejo" en nuestra web está dedicada a mejorar el entendimiento y manejo del Síndrome de Tourette en contextos educativos, enfatizando la importancia de educar y sensibilizar a compañeros y profesores para fomentar la empatía y la comprensión, ofreciendo materiales informativos para desmitificar los tics y promover la inclusión.</p>
-                        <!-- Accordions -->
-                        <div class=" bg-white p-16 rounded">
+                        <p class="text-base sm:text-body">La sección "Guías Educativas y Estrategias de Manejo" en nuestra web está dedicada a mejorar el entendimiento y manejo del Síndrome de Tourette en contextos educativos, enfatizando la importancia de educar y sensibilizar a compañeros y profesores para fomentar la empatía y la comprensión, ofreciendo materiales informativos para desmitificar los tics y promover la inclusión.</p>
+                        <div class="bg-white p-4 sm:p-16 rounded">
                             <div id="accordion-collapse" data-accordion="collapse">
                                 <h2 id="accordion-collapse-heading-1">
                                     <button type="button" class="flex items-center justify-between p-5 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
