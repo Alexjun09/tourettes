@@ -1877,6 +1877,10 @@ video {
     height: 800px;
   }
 
+  .sm\:h-\[600px\] {
+    height: 600px;
+  }
+
   .sm\:w-12 {
     width: 3rem;
   }

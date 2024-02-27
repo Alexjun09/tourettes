@@ -27,7 +27,7 @@ if (isset($_GET['idForo']) && isset($_GET['idPaciente'])) {
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="h-screen w-screen flex flex-col">
-  <!--Desktop header -->
+        <!--Desktop header -->
         <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
@@ -59,7 +59,8 @@ if (isset($_GET['idForo']) && isset($_GET['idPaciente'])) {
                 <!-- Otros elementos del header aquí -->
             </div>
         </header>
-        <!-- phone header -->        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
+        <!-- phone header -->
+        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
             <a class="h-16" href="./index.php">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
             </a>
@@ -119,19 +120,19 @@ if (isset($_GET['idForo']) && isset($_GET['idPaciente'])) {
         <!-- body -->
         <div class="flex flex-col w-full h-full items-center">
             <div class="flex flex-col gap-4 text-center">
-                <p class="text-title">Comunidad</p>
-                <p class="text-subtitle">Respuesta</p>
+                <p class="text-4xl sm:text-title">Comunidad</p>
+                <p class="text-2xl sm:text-subtitle">Respuesta</p>
             </div>
             <div class="flex flex-col w-full h-[600px] justify-center items-center relative">
                 <img src="../media/fondo-contacto.png" alt="fondo" class="w-full h-full" />
-                <form action="server/procesar-respuestaforo.php" method="post" class="flex flex-col justify-center absolute z-30 text-white w-[550px]">
+                <form action="server/procesar-respuestaforo.php" method="post" class="flex flex-col justify-center absolute z-30 text-white w-full sm:w-[550px] px-4 sm:px-0">
                     <input type="hidden" name="idForo" value="<?php echo htmlspecialchars($idForo); ?>">
                     <input type="hidden" name="idPaciente" value="<?php echo htmlspecialchars($idPaciente); ?>">
                     <textarea name="cuerpo" id="cuerpo" class="border border-white resize-none w-full h-24 bg-transparent p-1 outline-none" placeholder="Cuerpo"></textarea>
                     <br>
                     <div class="flex justify-between items-center w-full">
-                        <button type="submit" class="w-52 bg-transparent border-2 border-white rounded-full text-center py-2">Enviar</button>
-                        <a href="./entrada-foro.php?id=<?php echo $idForo; ?>" class="w-52 bg-transparent border-2 border-white rounded-full text-center py-2">Volver</a>
+                        <button type="submit" class="sm:w-52 bg-transparent border-2 border-white rounded-full text-center py-2 px-4 sm:px-0">Enviar</button>
+                        <a href="./entrada-foro.php?id=<?php echo $idForo; ?>" class="sm:w-52 bg-transparent border-2 border-white rounded-full text-center py-2 px-4 sm:px-0">Volver</a>
                     </div>
                 </form>
             </div>
