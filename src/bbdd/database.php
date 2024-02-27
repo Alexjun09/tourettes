@@ -19,6 +19,8 @@ $sqlCuenta = "CREATE TABLE IF NOT EXISTS Cuenta (
     NombreUsuario VARCHAR(255) UNIQUE,
     Contrasena VARCHAR(255),
     IDPaciente INT,
+    GoogleID VARCHAR(255),
+    AuthMethod ENUM('traditional', 'google') NOT NULL,
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
 )";
 
@@ -39,6 +41,7 @@ $sqlForo = "CREATE TABLE IF NOT EXISTS Foro (
     PalabrasClave VARCHAR(255),
     Archivo VARCHAR(255),
     Cuerpo TEXT,
+    Fecha DATE,
     IDPaciente INT,
     FOREIGN KEY (IDPaciente) REFERENCES Pacientes(ID)
 )";
@@ -170,17 +173,19 @@ $contrasenas = [
     'contrasena5'
 ];
 
+$authMethod = 'traditional';
+
 // Cifrar cada contraseña y preparar las consultas de inserción
 foreach ($contrasenas as $indice => $contrasenaPlana) {
     // Cifrar la contraseña
     $contrasenaCifrada = password_hash($contrasenaPlana, PASSWORD_DEFAULT);
 
-    $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, IDPaciente) VALUES
-    ('a@gmail.com', 'juanperez1', '$contrasenaCifrada', 1),
-    ('anagarcia@mail.com', 'anitagarcia2', '$contrasenaCifrada', 2),
-    ('carlossanchez@mail.com', 'carlosanchez3', '$contrasenaCifrada', 3),
-    ('lauragomez@mail.com', 'laurita4', '$contrasenaCifrada', 4),
-    ('pedrolopez@mail.com', 'pedrolopez5', '$contrasenaCifrada', 5);";
+    $sqlInsertCuenta = "INSERT INTO Cuenta (Email, NombreUsuario, Contrasena, AuthMethod, IDPaciente) VALUES
+    ('a@gmail.com', 'juanperez1', '$contrasenaCifrada', '$authMethod', 1),
+    ('anagarcia@mail.com', 'anitagarcia2', '$contrasenaCifrada', '$authMethod', 2),
+    ('carlossanchez@mail.com', 'carlosanchez3', '$contrasenaCifrada', '$authMethod', 3),
+    ('lauragomez@mail.com', 'laurita4', '$contrasenaCifrada', '$authMethod', 4),
+    ('pedrolopez@mail.com', 'pedrolopez5', '$contrasenaCifrada', '$authMethod', 5);";
     verificarEInsertar($conn, 'Cuenta', $sqlInsertCuenta);
 }
 $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ubicacion, Idiomas, Metodologia, Educacion, FotoPsicologo) VALUES
@@ -192,12 +197,12 @@ $sqlInsertPsicologos = "INSERT INTO Psicologos (NombreCompleto, Especialidad, Ub
 ('Dr. David Abioye', 'Psicología Clínica con subespecialidad en Neuropsicología', 'Lagos, Nigeria', 'Inglés, Yoruba, Español', 'Evaluación neuropsicológica, Intervenciones psicoeducativas', 'Doctorado en Psicología Clínica, Universidad de Ibadan, 2019','../../media/psicologos/psicologo2.jpg');";
 verificarEInsertar($conn, 'Psicologos', $sqlInsertPsicologos);
 
-$sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES
-    ('Ansiedad y estrés', 'ansiedad, estrés, salud mental', '../media/entradaforo/tourette1.jpg', 'La ansiedad y el estrés son problemas comunes en la sociedad moderna. La ansiedad se manifiesta de diferentes formas y puede afectar significativamente la vida diaria de una persona. Puede ser causada por una variedad de factores, como el trabajo, las relaciones personales, la salud y otros aspectos de la vida. El estrés, por otro lado, es una respuesta natural del cuerpo a situaciones desafiantes o amenazantes. Aunque el estrés puede ser útil en pequeñas dosis, el estrés crónico puede tener efectos negativos en la salud física y mental. En este tema, exploraremos los síntomas, las causas y las estrategias de afrontamiento para la ansiedad y el estrés.', 1),
-    ('Depresión en adolescentes', 'depresión, adolescentes', '../media/entradaforo/tourette2.jpg', 'La depresión en adolescentes es un tema importante en la salud mental. Los adolescentes enfrentan una variedad de desafíos durante esta etapa de la vida, incluidos cambios hormonales, presiones académicas, problemas familiares y cambios en las relaciones sociales. Estos factores pueden contribuir al desarrollo de la depresión. La depresión puede manifestarse de diferentes maneras en los adolescentes, como cambios en el estado de ánimo, pérdida de interés en actividades que solían disfrutar, problemas de sueño y pensamientos suicidas. Es importante abordar la depresión en los adolescentes de manera temprana y brindarles el apoyo necesario para superar esta dificultad.', 2),
-    ('Autoestima y autoconcepto', 'autoestima, autoconcepto', '../media/entradaforo/tourette3.jpg', 'La autoestima y el autoconcepto son aspectos fundamentales de la salud mental y el bienestar. La autoestima se refiere a la valoración que una persona tiene de sí misma, mientras que el autoconcepto se refiere a la percepción que una persona tiene de sus habilidades, características y roles en la vida. Ambos juegan un papel importante en la forma en que una persona se ve a sí misma y cómo interactúa con el mundo que la rodea. Una autoestima y un autoconcepto saludables pueden contribuir a una mayor confianza, resiliencia y satisfacción con la vida. En este tema, exploraremos estrategias para mejorar la autoestima y el autoconcepto, así como la importancia de cultivar una imagen positiva de uno mismo.', 3),
-    ('Gestión de emociones', 'emociones, gestión, inteligencia emocional', '../media/entradaforo/tourette4.jpg', 'La gestión de emociones es un componente crucial de la inteligencia emocional y el bienestar emocional. Consiste en reconocer, comprender y regular las propias emociones de manera efectiva. La capacidad de gestionar adecuadamente las emociones puede ayudar a reducir el estrés, mejorar las relaciones interpersonales y promover un mayor bienestar psicológico. En este tema, exploraremos diversas estrategias para la gestión de emociones, como la práctica de la atención plena, la expresión emocional saludable y el desarrollo de habilidades de afrontamiento efectivas.', 4),
-    ('Mindfulness y meditación', 'mindfulness, meditación, relajación', '../media/entradaforo/tourette5.jpg', 'El mindfulness y la meditación son prácticas ancestrales que han ganado popularidad en el mundo moderno debido a sus beneficios para la salud mental y el bienestar. El mindfulness se refiere a la conciencia plena del momento presente, sin juzgar los pensamientos o sentimientos que surgen. La meditación, por otro lado, implica dedicar tiempo a prácticas específicas que fomentan la relajación, la atención y la claridad mental. Ambas prácticas han demostrado ser eficaces para reducir el estrés, mejorar la concentración y promover una mayor sensación de calma y equilibrio interior. En este tema, exploraremos los fundamentos del mindfulness y la meditación, así como las diversas técnicas que se pueden utilizar para incorporar estas prácticas en la vida cotidiana.', 5)";
+$sqlInsertForo = "INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, Fecha, IDPaciente) VALUES
+    ('Ansiedad y estrés', 'ansiedad, estrés, salud mental', '../media/entradaforo/tourette1.jpg', 'La ansiedad y el estrés son problemas comunes en la sociedad moderna. La ansiedad se manifiesta de diferentes formas y puede afectar significativamente la vida diaria de una persona. Puede ser causada por una variedad de factores, como el trabajo, las relaciones personales, la salud y otros aspectos de la vida. El estrés, por otro lado, es una respuesta natural del cuerpo a situaciones desafiantes o amenazantes. Aunque el estrés puede ser útil en pequeñas dosis, el estrés crónico puede tener efectos negativos en la salud física y mental. En este tema, exploraremos los síntomas, las causas y las estrategias de afrontamiento para la ansiedad y el estrés.','2024-01-02', 1),
+    ('Depresión en adolescentes', 'depresión, adolescentes', '../media/entradaforo/tourette2.jpg', 'La depresión en adolescentes es un tema importante en la salud mental. Los adolescentes enfrentan una variedad de desafíos durante esta etapa de la vida, incluidos cambios hormonales, presiones académicas, problemas familiares y cambios en las relaciones sociales. Estos factores pueden contribuir al desarrollo de la depresión. La depresión puede manifestarse de diferentes maneras en los adolescentes, como cambios en el estado de ánimo, pérdida de interés en actividades que solían disfrutar, problemas de sueño y pensamientos suicidas. Es importante abordar la depresión en los adolescentes de manera temprana y brindarles el apoyo necesario para superar esta dificultad.', '2024-01-14', 2),
+    ('Autoestima y autoconcepto', 'autoestima, autoconcepto', '../media/entradaforo/tourette3.jpg', 'La autoestima y el autoconcepto son aspectos fundamentales de la salud mental y el bienestar. La autoestima se refiere a la valoración que una persona tiene de sí misma, mientras que el autoconcepto se refiere a la percepción que una persona tiene de sus habilidades, características y roles en la vida. Ambos juegan un papel importante en la forma en que una persona se ve a sí misma y cómo interactúa con el mundo que la rodea. Una autoestima y un autoconcepto saludables pueden contribuir a una mayor confianza, resiliencia y satisfacción con la vida. En este tema, exploraremos estrategias para mejorar la autoestima y el autoconcepto, así como la importancia de cultivar una imagen positiva de uno mismo.','2024-02-02', 3),
+    ('Gestión de emociones', 'emociones, gestión, inteligencia emocional', '../media/entradaforo/tourette4.jpg', 'La gestión de emociones es un componente crucial de la inteligencia emocional y el bienestar emocional. Consiste en reconocer, comprender y regular las propias emociones de manera efectiva. La capacidad de gestionar adecuadamente las emociones puede ayudar a reducir el estrés, mejorar las relaciones interpersonales y promover un mayor bienestar psicológico. En este tema, exploraremos diversas estrategias para la gestión de emociones, como la práctica de la atención plena, la expresión emocional saludable y el desarrollo de habilidades de afrontamiento efectivas.','2024-02-10', 4),
+    ('Mindfulness y meditación', 'mindfulness, meditación, relajación', '../media/entradaforo/tourette5.jpg', 'El mindfulness y la meditación son prácticas ancestrales que han ganado popularidad en el mundo moderno debido a sus beneficios para la salud mental y el bienestar. El mindfulness se refiere a la conciencia plena del momento presente, sin juzgar los pensamientos o sentimientos que surgen. La meditación, por otro lado, implica dedicar tiempo a prácticas específicas que fomentan la relajación, la atención y la claridad mental. Ambas prácticas han demostrado ser eficaces para reducir el estrés, mejorar la concentración y promover una mayor sensación de calma y equilibrio interior. En este tema, exploraremos los fundamentos del mindfulness y la meditación, así como las diversas técnicas que se pueden utilizar para incorporar estas prácticas en la vida cotidiana.','2024-02-22', 5)";
 
 // Verificar e insertar
 verificarEInsertar($conn, 'Foro', $sqlInsertForo);

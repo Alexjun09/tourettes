@@ -11,9 +11,10 @@ require_once 'bbdd/database.php';
 $conn = getConexion();
 
 // he quitado Foro.Fecha
-$query = "SELECT Foro.id, Foro.Titulo, Pacientes.NombreCompleto AS Autor
+$query = "SELECT Foro.id, Foro.Titulo, Pacientes.NombreCompleto AS Autor, Foro.Fecha
           FROM Foro
           JOIN Pacientes ON Foro.IDPaciente = Pacientes.ID";
+
 
 $stmt = $conn->prepare($query);
 
@@ -21,7 +22,7 @@ $stmt = $conn->prepare($query);
 $stmt->execute();
 
 // Vincular los resultados a variables
-$stmt->bind_result($id, $titulo, $autor);
+$stmt->bind_result($id, $titulo, $autor, $fecha);
 $stmt->store_result(); // Almacenar el resultado para poder contar las filas
 ?>
 
@@ -33,6 +34,7 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/output.css">
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Comunidad</title>
 </head>
 
@@ -144,7 +146,7 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                             while ($stmt->fetch()) {
                                 echo "<a href='entrada-foro.php?id=$id'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$titulo</p></a>";
                                 echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$autor</p>";
-                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> test</p>";
+                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> $fecha</p>";
                             }
                         } else {
                             echo "<p>No hay entradas en el foro.</p>";
@@ -260,6 +262,26 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                 },
             },
         });
+        
+    function confirmarCerrarSesion() {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¿Quieres cerrar la sesión?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1D3A46',
+            cancelButtonColor: '#92AAB3',
+            confirmButtonText: 'Cerrar Sesión',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
+                window.location.href = './server/logout.php';
+            }
+        });
+        return false; // Evita la navegación
+    }
+
     </script>
 </body>
 

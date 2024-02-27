@@ -10,10 +10,10 @@ if (isset($_GET['id'])) {
     $idForo = $_GET['id'];
 
     // Consulta para obtener los detalles de la entrada del foro y su autor
-    $queryForo = "SELECT Foro.Titulo, Foro.Cuerpo, Foro.Archivo, Pacientes.NombreCompleto AS Autor, Pacientes.FotoPerfil AS FotoPerfilAutor, Foro.IDPaciente
-                  FROM Foro
-                  JOIN Pacientes ON Foro.IDPaciente = Pacientes.ID
-                  WHERE Foro.ID = ?";
+    $queryForo = "SELECT Foro.Titulo, Foro.Cuerpo, Foro.Archivo, Foro.Fecha, Pacientes.NombreCompleto AS Autor, Pacientes.FotoPerfil AS FotoPerfilAutor, Foro.IDPaciente
+              FROM Foro
+              JOIN Pacientes ON Foro.IDPaciente = Pacientes.ID
+              WHERE Foro.ID = ?";
     $stmtForo = $conn->prepare($queryForo);
     $stmtForo->bind_param('i', $idForo);
     $stmtForo->execute();
@@ -31,8 +31,9 @@ if (isset($_GET['id'])) {
 
     // Verificar si se encontraron resultados para la entrada del foro
     if ($stmtForo->num_rows > 0) {
-        $stmtForo->bind_result($tituloForo, $cuerpoForo, $archivoForo, $autorForo, $fotoPerfilAutor, $idPaciente);
+        $stmtForo->bind_result($tituloForo, $cuerpoForo, $archivoForo, $fechaForo, $autorForo, $fotoPerfilAutor, $idPaciente);
         $stmtForo->fetch();
+    
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -44,6 +45,7 @@ if (isset($_GET['id'])) {
             <link rel="icon" href="../media/logo.png" type="image/x-icon">
             <title>Entrada al Foro</title>
             <script src="scripts/procesar-entradaforo.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         </head>
 
         <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
@@ -86,8 +88,8 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="w-full flex-flex-col bg-primary py-1 h-full  text-white">
                         <div class="flex flex-row w-full px-4 bg-contraste justify-between">
-                            <p class="">fecha</p>
-                            <p>Respuestas</p>
+                            <p class=""><?php echo $fechaForo ?></p>
+                            <p><?php echo $stmtRespuestas->num_rows; ?> respuestas</p>
                         </div>
                         <br>
                         <div class="grid grid-cols-[min-content_1fr_min-content]">
@@ -179,6 +181,26 @@ if (isset($_GET['id'])) {
         </body>
 
         </html>
+        <script>
+    function confirmarCerrarSesion() {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¿Quieres cerrar la sesión?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1D3A46',
+            cancelButtonColor: '#92AAB3',
+            confirmButtonText: 'Cerrar Sesión',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
+                window.location.href = './server/logout.php';
+            }
+        });
+        return false; // Evita la navegación
+    }
+</script>
 
 <?php
     } else {
