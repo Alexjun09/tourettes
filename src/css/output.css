@@ -217,6 +217,10 @@ textarea {
   /* 3 */
 }
 
+p {
+  margin: 0px;
+}
+
 /*
 Remove the inheritance of text transform in Edge and Firefox.
 */
