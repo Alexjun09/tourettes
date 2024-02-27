@@ -170,39 +170,66 @@ session_start();
                         <p class="text-[16px] sm:text-body">La sección "Guías Educativas y Estrategias de Manejo" en nuestra web está dedicada a mejorar el entendimiento y manejo del Síndrome de Tourette en contextos educativos, enfatizando la importancia de educar y sensibilizar a compañeros y profesores para fomentar la empatía y la comprensión, ofreciendo materiales informativos para desmitificar los tics y promover la inclusión.</p>
                         <div class="bg-white p-4 sm:p-16 rounded">
                             <div id="accordion-collapse" data-accordion="collapse">
+                                <!-- Guia 1 -->
                                 <h2 id="accordion-collapse-heading-1">
-                                    <button type="button" class="flex items-center justify-between p-5 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                                        <span class="text-[24px]">What is Flowbite?</span>
-                                        <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                        </svg>
+                                    <button type="button" class="flex items-center justify-between p-5 w-full font-medium text-left border border-gray-200 border-b-0 text-contraste bg-gray-100 rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                                        <span class="text-2xl">Guía 1: Navegando el Síndrome de Tourette</span>
                                     </button>
                                 </h2>
                                 <div id="accordion-collapse-body-1" aria-labelledby="accordion-collapse-heading-1">
-                                    <div class="p-5 border border-gray-200  border-b-0">
-                                        <p class="mb-2 text-gray-500 ">Flowbite is an open-source library of interactive
-                                            components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-                                        <p class="text-gray-500 ">Check out this guide to learn how to <a href="#" target="_blank" class="text-blue-600  hover:underline">get started</a> and start developing
-                                            websites even faster with components on top of Tailwind CSS.</p>
+                                    <div class="p-5 border border-gray-200 border-b-0">
+                                        <!-- Embed del PDF -->
+                                        <embed src="./../media/guias/guia1.pdf" type="application/pdf" width="100%" height="600px">
                                     </div>
                                 </div>
+                                <!-- Guia 2 -->
                                 <h2 id="accordion-collapse-heading-2">
-                                    <button type="button" class="flex items-center    justify-between p-5 w-full font-medium border border-gray-200  border-b-0 text-left text-contraste  bg-gray-100   " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-                                        <span class="text-[24px]">Is there a Figma file available?</span>
-                                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                        </svg>
+                                    <button type="button" class="flex items-center justify-between p-5 w-full font-medium border border-gray-200 border-b-0 text-left text-contraste bg-gray-100 " data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                                        <span class="text-2xl">Guía 2: Diagnóstico y tratamiento del síndrome de Tourette y trastornos de tics</span>
                                     </button>
                                 </h2>
                                 <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                                    <div class="p-5 border border-gray-200  border-b-0">
-                                        <p class="mb-2 text-gray-500 ">Flowbite is first conceptualized and designed using the
-                                            Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-                                        <p class="text-gray-500 ">Check out the <a href="https://flowbite.com/figma/" target="_blank" class="text-blue-600  hover:underline">Figma design system</a>
-                                            based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                                    <div class="p-5 border border-gray-200 border-b-0">
+                                        <!-- Embed del PDF -->
+                                        <embed src="./../media/guias/guia2.pdf" type="application/pdf" width="100%" height="600px">
                                     </div>
                                 </div>
-
+                                <!-- Guia 3 -->
+                                <h2 id="accordion-collapse-heading-3">
+                                    <button type="button" class="flex items-center justify-between p-5 w-full font-medium border border-gray-200 border-b-0 text-left text-contraste bg-gray-100 " data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                                        <span class="text-2xl">Guía 3: Estrategias educativas para el alumnado con Tics y Síndrome de Tourette</span>
+                                    </button>
+                                </h2>
+                                <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+                                    <div class="p-5 border border-gray-200 border-b-0">
+                                        <!-- Embed del PDF -->
+                                        <embed src="./../media/guias/guia3.pdf" type="application/pdf" width="100%" height="600px">
+                                    </div>
+                                </div>
+                                <!-- Guia 4 -->
+                                <h2 id="accordion-collapse-heading-4">
+                                    <button type="button" class="flex items-center justify-between p-5 w-full font-medium border border-gray-200 border-b-0 text-left text-contraste bg-gray-100 " data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+                                        <span class="text-2xl">Guía 4: La tartamudez y el Síndrome de Tourette</span>
+                                    </button>
+                                </h2>
+                                <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-4">
+                                    <div class="p-5 border border-gray-200 border-b-0">
+                                        <!-- Embed del PDF -->
+                                        <embed src="./../media/guias/guia4.pdf" type="application/pdf" width="100%" height="600px">
+                                    </div>
+                                </div>
+                                <!-- Guia 5 -->
+                                <h2 id="accordion-collapse-heading-5">
+                                    <button type="button" class="flex items-center justify-between p-5 w-full font-medium border border-gray-200 border-b-0 text-left text-contraste bg-gray-100 " data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
+                                        <span class="text-2xl">Guía 5: El trastorno de Tourette a lo largo de la historia</span>
+                                    </button>
+                                </h2>
+                                <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-5">
+                                    <div class="p-5 border border-gray-200 border-b-0">
+                                        <!-- Embed del PDF -->
+                                        <embed src="./../media/guias/guia5.pdf" type="application/pdf" width="100%" height="600px">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -211,20 +238,20 @@ session_start();
         </div>
     </div>
     <!-- footer -->
-     <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
-                <p>gLabs© 2023. Todos Los Derechos Reservados</p>
-                <div class="flex flex-row gap-4">
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/x.png" alt="x">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/insta.png" alt="insta">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
-                    </a>
-                </div>
-            </footer>
+    <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+        <div class="flex flex-row gap-4">
+            <a href="">
+                <img class="w-10 h-10" src="../media/x.png" alt="x">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+            </a>
+        </div>
+    </footer>
 </body>
 
 </html>
