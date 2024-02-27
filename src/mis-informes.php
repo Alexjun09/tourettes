@@ -53,7 +53,7 @@ $conn->close();
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="flex flex-col h-screen">
-  <!--Desktop header -->
+        <!--Desktop header -->
         <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
@@ -85,7 +85,8 @@ $conn->close();
                 <!-- Otros elementos del header aquí -->
             </div>
         </header>
-        <!-- phone header -->        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
+        <!-- phone header -->
+        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
             <a class="h-16" href="./index.php">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
             </a>
@@ -144,7 +145,7 @@ $conn->close();
         </header>
         <!-- body -->
         <div class="flex flex-col w-full h-full items-center justify-center">
-            <p class="text-title text-center">Mis Informes</p>
+            <p class="text-[36px] sm:text-title text-center">Mis Informes</p>
             <?php
             if (count($informes) > 0) {
                 foreach ($informes as $index => $informe) {
@@ -190,20 +191,20 @@ $conn->close();
     </div>
 
     <!-- footer -->
-   <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
-                <p>gLabs© 2023. Todos Los Derechos Reservados</p>
-                <div class="flex flex-row gap-4">
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/x.png" alt="x">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/insta.png" alt="insta">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
-                    </a>
-                </div>
-            </footer>
+    <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+        <div class="flex flex-row gap-4">
+            <a href="">
+                <img class="w-10 h-10" src="../media/x.png" alt="x">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+            </a>
+        </div>
+    </footer>
 </body>
 
 </html>
