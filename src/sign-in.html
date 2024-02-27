@@ -16,10 +16,10 @@
 
 <body class="font-extralight w-screen h-screen font-base">
     <div class="w-full h-full flex flex-row">
-        <img src="../media/bg-singin.png" alt="img" class="h-full object-contain">
+        <img src="../media/bg-singin.png" alt="img" class="hidden lg:block h-full object-contain">
         <div
-            class="w-full h-full rounded-l-[60px] -translate-x-10 bg-white flex flex-col justify-center items-center  gap-20 text-primary">
-            <div class="flex flex-col gap-20 w-[370px]">
+            class="w-full h-full lg:rounded-l-[60px] lg:-translate-x-10 bg-white flex flex-col justify-center items-center  gap-20 text-primary">
+            <div class="flex flex-col gap-20 max-w-[290px] sm:max-w-[370px]">
                 <p class="text-subtitle text-center">Iniciar Sesión</p>
                 <form class="flex flex-col" method="post" action="./server/iniciar_sesion.php">
                     <input type="email" name="email" placeholder="Email"
@@ -38,7 +38,7 @@
                         class="rounded-tl-xl rounded-br-xl border-br-xl w-full bg-primary text-white py-2">Acceder</button>
                     
                     <br>
-                    <div id="g_id_signin" data-type="standard"></div>
+                    <div id="g_id_signin" data-type="standard" class="flex items-center justify-center w-full"></div>
 
                 </form>
             </div>
