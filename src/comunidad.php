@@ -190,20 +190,20 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
         </div>
     </div>
     <!-- footer -->
-  <div class="h-fit flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
-        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
-        <div class="flex flex-row gap-4">
-            <a href="">
-                <img class="w-10 h-10" src="../media/x.png" alt="x">
-            </a>
-            <a href="">
-                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
-            </a>
-            <a href="">
-                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
-            </a>
-        </div>
-    </div>
+   <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+                <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+                <div class="flex flex-row gap-4">
+                    <a href="">
+                        <img class="w-10 h-10" src="../media/x.png" alt="x">
+                    </a>
+                    <a href="">
+                        <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+                    </a>
+                    <a href="">
+                        <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+                    </a>
+                </div>
+            </footer>
     <!-- Script de Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>

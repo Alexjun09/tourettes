@@ -263,7 +263,7 @@ session_start();
         </section>
     </div>
     <!-- footer -->
-    <footer class="h-fit flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+    <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
         <p>gLabs© 2023. Todos Los Derechos Reservados</p>
         <div class="flex flex-row gap-4">
             <a href="">

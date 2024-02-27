@@ -55,7 +55,7 @@ if ($result && $result->num_rows > 0) {
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="lg:h-screen w-full flex flex-col relative">
- <!--Desktop header -->
+        <!--Desktop header -->
         <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
@@ -200,8 +200,8 @@ if ($result && $result->num_rows > 0) {
             </div>
         </div>
     </div>
-    <!-- footer -->
-  <div class="h-fit flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+       <!-- footer -->
+       <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
         <p>gLabs© 2023. Todos Los Derechos Reservados</p>
         <div class="flex flex-row gap-4">
             <a href="">
@@ -214,7 +214,7 @@ if ($result && $result->num_rows > 0) {
                 <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
             </a>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>
