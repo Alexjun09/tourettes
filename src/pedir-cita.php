@@ -151,9 +151,9 @@ if ($result && $result->num_rows > 0) {
                 <p class="text-4xl sm:text-title">Pedir Cita</p>
                 <p class="text-2xl sm:text-subtitle"> Formulario para pedir una cita</p>
             </div>
-            <div class="flex flex-col lg:grid grid-cols-2 w-full h-full px-14 xl:px-44 py-12 items-center gap-20 lg:gap-0">
+            <div class="flex flex-col lg:grid grid-cols-2 w-full h-full px-4 xl:px-44 py-12 items-center gap-20 lg:gap-0">
                 <!-- card -->
-                <div class="w-96 shadow-md shadow-primary h-full relative flex flex-col items-center">
+                <div class="max-w-[290px] sm:w-96 shadow-md shadow-primary h-full relative flex flex-col items-center">
                     <?php if ($psicologo) : ?>
                         <img src="../media/elipse.png" alt="" class="absolute z-10">
                         <img src="../media/psicologos/<?php echo $psicologo['FotoPsicologo']; ?>" alt="" class="absolute z-20 mt-8 w-32 h-32 rounded-full border-4 border-white">
@@ -167,7 +167,7 @@ if ($result && $result->num_rows > 0) {
                 </div>
 
                 <!-- form -->
-                <form id="form-cita" action="server/procesar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center w-96 lg:w-auto">
+                <form id="form-cita" action="server/procesar-cita.php" data-id-paciente="<?php echo $_SESSION['idPaciente']; ?>" method="post" class="flex flex-col justify-center lg:w-auto">
                     <input type="hidden" name="psicologo_id" value="<?php echo $psicologo_id; ?>">
                     <br>
                     <input type="datetime-local" id="fecha" name="fecha" placeholder="Fecha" required min="<?php echo date('Y-m-d'); ?>" class="outline-none border-b border-black w-full text-opacity-50">
