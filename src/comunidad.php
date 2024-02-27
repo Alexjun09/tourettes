@@ -39,9 +39,9 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
 </head>
 
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
-    <div class="h-fit w-screen flex flex-col pb-20">
-  <!--Desktop header -->
-        <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4">
+    <div class="h-fit w-screen flex flex-col pb-20 items-center">
+        <!--Desktop header -->
+        <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
@@ -72,7 +72,8 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                 <!-- Otros elementos del header aquí -->
             </div>
         </header>
-        <!-- phone header -->        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
+        <!-- phone header -->
+        <header class="sm:hidden bg-white h-20 flex flex-row justify-between items-center p-6 sm:p-10 bg-transparent w-full z-50">
             <a class="h-16" href="./index.php">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
             </a>
@@ -130,23 +131,23 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
             </div>
         </header>
         <!-- body -->
-        <div class="flex font-extralight flex-col w-full h-full items-center gap-10 px-64">
-            <p class="text-title">Comunidad</p>
-            <div class="flex flex-col gap-5 max-w-[1500px]">
+        <div class="flex font-extralight flex-col w-full h-full items-center gap-10 max-w-[1200px] px-4">
+            <p class="text-4xl sm:text-title">Comunidad</p>
+            <div class="flex flex-col gap-5 w-full">
                 <div class="max-h-[1500px] flex flex-col shadow-lg shadow-primary rounded-md">
-                    <div class="col-span-3 grid grid-cols-[6fr_3fr_1fr] bg-primary text-white gap-5 rounded-t-md px-5">
-                        <p class="text-body px-4 p-1 ">Tema</p>
-                        <p class="text-body px-4 p-1 text-center">Autor</p>
-                        <p class="text-body px-4 p-1 text-center">Fecha</p>
+                    <div class="col-span-3 flex sm:grid grid-cols-[5fr_3fr_2fr] bg-primary text-white gap-5 rounded-t-md px-5">
+                        <p class="text-base sm:text-body px-4 p-1 self-center">Tema</p>
+                        <p class="hidden sm:block text-body px-4 p-1">Autor</p>
+                        <p class="hidden sm:block text-base sm:text-body px-4 p-1 self-center">Fecha</p>
                     </div>
-                    <div class="grid grid-cols-[6fr_3fr_1fr] gap-5 p-5 overflow-y-auto">
+                    <div class="flex flex-col sm:grid grid-cols-[5fr_3fr_2fr] gap-2 sm:gap-5 p-5 overflow-y-auto">
                         <?php
                         if ($stmt->num_rows > 0) {
                             // Imprimir las entradas como filas de la tabla
                             while ($stmt->fetch()) {
-                                echo "<a href='entrada-foro.php?id=$id'><p class='text-start p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$titulo</p></a>";
-                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'>$autor</p>";
-                                echo "<p class='text-center p-1 px-4 bg-contraste rounded-md shadow-sm shadow-black'> $fecha</p>";
+                                echo "<a href='entrada-foro.php?id=$id'><p class='text-start p-1 px-1 sm:px-4 bg-contraste rounded-md shadow-sm shadow-black'>$titulo</p></a>";
+                                echo "<p class='text-center p-1 px-1 sm:px-4 bg-contraste rounded-md shadow-sm shadow-black hidden sm:block'>$autor</p>";
+                                echo "<p class='text-center p-1 px-1 sm:px-4 bg-contraste rounded-md shadow-sm shadow-black hidden sm:block'> $fecha</p>";
                             }
                         } else {
                             echo "<p>No hay entradas en el foro.</p>";
@@ -156,10 +157,10 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                     </div>
                 </div>
                 <div class="w-full flex justify-end items-end h-fit">
-                    <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.php">Añadir Entrada</a>
+                    <a class="text-base sm:text-body rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-10" href="./formulario-entrada-foro.php">Añadir Entrada</a>
                 </div>
                 <!-- graficas chart.js -->
-                <div class="grid grid-cols-2 gap-20 w-full mt-10">
+                <div class="flex flex-col sm:grid grid-cols-2 gap-20 w-full mt-10">
                     <div class="flex flex-col shadow-sm shadow-black">
                         <div class="px-10 p-4 flex flex-col border-b-2">
                             <div class="flex flex-row justify-between items-center">
@@ -190,20 +191,20 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
         </div>
     </div>
     <!-- footer -->
-   <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
-                <p>gLabs© 2023. Todos Los Derechos Reservados</p>
-                <div class="flex flex-row gap-4">
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/x.png" alt="x">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/insta.png" alt="insta">
-                    </a>
-                    <a href="">
-                        <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
-                    </a>
-                </div>
-            </footer>
+    <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+        <p>gLabs© 2023. Todos Los Derechos Reservados</p>
+        <div class="flex flex-row gap-4">
+            <a href="">
+                <img class="w-10 h-10" src="../media/x.png" alt="x">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/insta.png" alt="insta">
+            </a>
+            <a href="">
+                <img class="w-10 h-10" src="../media/facebook.png" alt="facebook">
+            </a>
+        </div>
+    </footer>
     <!-- Script de Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -262,26 +263,25 @@ $stmt->store_result(); // Almacenar el resultado para poder contar las filas
                 },
             },
         });
-        
-    function confirmarCerrarSesion() {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¿Quieres cerrar la sesión?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#1D3A46',
-            cancelButtonColor: '#92AAB3',
-            confirmButtonText: 'Cerrar Sesión',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
-                window.location.href = './server/logout.php';
-            }
-        });
-        return false; // Evita la navegación
-    }
 
+        function confirmarCerrarSesion() {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¿Quieres cerrar la sesión?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#1D3A46',
+                cancelButtonColor: '#92AAB3',
+                confirmButtonText: 'Cerrar Sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
+                    window.location.href = './server/logout.php';
+                }
+            });
+            return false; // Evita la navegación
+        }
     </script>
 </body>
 

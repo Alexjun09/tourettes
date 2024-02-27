@@ -56,7 +56,7 @@ if ($result && $result->num_rows > 0) {
 <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
     <div class="lg:h-screen w-full flex flex-col relative">
         <!--Desktop header -->
-        <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4">
+        <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">

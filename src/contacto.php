@@ -20,7 +20,7 @@ session_start();
 
     <div class="h-screen w-screen flex flex-col">
   <!--Desktop header -->
-        <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4">
+        <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
             <a class="h-16" href="./index.php">
                 <img src="../media/logoindex.png" alt="" class="h-full hidden lg:block">
                 <img src="../media/logo.png" alt="" class="h-full lg:hidden">
