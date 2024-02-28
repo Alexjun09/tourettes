@@ -150,12 +150,12 @@ session_start();
     <!-- nuestros especialistas -->
     <br>
     <br>
-    <div class="bg-contraste w-screen h-screen flex flex-col py-10 overflow-x-scroll">
+    <div class="bg-contraste w-screen h-screen flex flex-col py-10 overflow-x-scroll lg:overflow-hidden">
         <p class="text-[50px] sm:text-title text-primary bg-[#d9d9d9] text-center">Nuestros Especialistas</p>
         <div class="w-full h-full flex flex-row items-center px-4 sm:px-20 xl:px-0 xl:justify-around gap-20 overflow-x-scroll">
             <!-- card 1 -->
             <div class="flex flex-row">
-                <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white h-[400px] sm:h-[550px] relative flex flex-col items-center">
+                <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white max-h-[400px] sm:h-[550px] relative flex flex-col items-center">
                     <img src="../media/elipse.png" alt="" class="absolute z-10">
                     <img src="../media/doc.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
                     <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">

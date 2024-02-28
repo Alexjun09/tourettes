@@ -865,6 +865,10 @@ video {
   max-height: 100%;
 }
 
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
 .min-h-\[150px\] {
   min-height: 150px;
 }
@@ -2120,6 +2124,10 @@ video {
 
   .lg\:gap-10 {
     gap: 2.5rem;
+  }
+
+  .lg\:overflow-hidden {
+    overflow: hidden;
   }
 
   .lg\:rounded-l-\[60px\] {
