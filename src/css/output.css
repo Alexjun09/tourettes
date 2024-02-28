@@ -2222,6 +2222,14 @@ video {
     justify-content: space-around;
   }
 
+  .xl\:gap-20 {
+    gap: 5rem;
+  }
+
+  .xl\:overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
   .xl\:whitespace-nowrap {
     white-space: nowrap;
   }
