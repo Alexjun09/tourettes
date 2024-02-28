@@ -14,9 +14,31 @@ session_start();
     <link rel="icon" href="../media/logo.png" type="image/x-icon">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<style>
+    #journal-scroll::-webkit-scrollbar {
+        width: 4px;
+        cursor: pointer;
+        /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+    }
 
-<body class="font-extralight grid grid-rows-[1fr_min-content] text-primary w-full h-full">
-    <div class="h-screen w-screen flex flex-col">
+    #journal-scroll::-webkit-scrollbar:horizontal {
+        height: 0px;
+    }
+    #journal-scroll::-webkit-scrollbar-track {
+        background-color: rgba(229, 231, 235, var(--bg-opacity));
+        cursor: pointer;
+        /*background: red;*/
+    }
+
+    #journal-scroll::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: #a0aec0;
+        /*outline: 1px solid slategrey;*/
+    }
+</style>
+
+<body class="font-extralight grid grid-rows-[1fr_min-content] text-primary w-full h-full " id="journal-scroll">
+    <div class="h-screen w-screen flex flex-col ">
         <!--Desktop header -->
         <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
             <a class="h-16" href="./index.php">
@@ -263,7 +285,7 @@ session_start();
         </section>
     </div>
     <!-- footer -->
-    <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between">
+    <footer class="h-fit w-full flex flex-col sm:flex-row bg-contraste px-4 py-4 gap-4 md:px-12 items-center justify-between ">
         <p>gLabs© 2023. Todos Los Derechos Reservados</p>
         <div class="flex flex-row gap-4">
             <a href="">

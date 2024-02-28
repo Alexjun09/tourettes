@@ -21,6 +21,28 @@ if ($cita === 'exito') {
         <link rel='icon' href='../media/logo.png' type='image/x-icon'>
         <title>Pedir Cita</title>
     </head>
+<style>
+    #journal-scroll::-webkit-scrollbar {
+        width: 4px;
+        cursor: pointer;
+        /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+    }
+
+    #journal-scroll::-webkit-scrollbar:horizontal {
+        height: 0px;
+    }
+    #journal-scroll::-webkit-scrollbar-track {
+        background-color: rgba(229, 231, 235, var(--bg-opacity));
+        cursor: pointer;
+        /*background: red;*/
+    }
+
+    #journal-scroll::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: #a0aec0;
+        /*outline: 1px solid slategrey;*/
+    }
+</style>
     <body class='font-extralight grid grid-rows-[1fr_min-content] text-primary'>
         <div class='h-screen w-screen flex flex-col'>
             <!-- header -->
@@ -84,6 +106,28 @@ if ($cita === 'exito') {
         <link rel='icon' href='../media/logo.png' type='image/x-icon'>
         <title>Cita Anulada</title>
     </head>
+<style>
+    #journal-scroll::-webkit-scrollbar {
+        width: 4px;
+        cursor: pointer;
+        /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+    }
+
+    #journal-scroll::-webkit-scrollbar:horizontal {
+        height: 0px;
+    }
+    #journal-scroll::-webkit-scrollbar-track {
+        background-color: rgba(229, 231, 235, var(--bg-opacity));
+        cursor: pointer;
+        /*background: red;*/
+    }
+
+    #journal-scroll::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: #a0aec0;
+        /*outline: 1px solid slategrey;*/
+    }
+</style>
     <body class='font-extralight grid grid-rows-[1fr_min-content] text-primary'>
         <div class='h-screen w-screen flex flex-col'>
             <!-- header -->
@@ -150,6 +194,28 @@ if ($cita === 'exito') {
         <link rel='icon' href='../media/logo.png' type='image/x-icon'>
         <title>Error en la Cita</title>
     </head>
+<style>
+    #journal-scroll::-webkit-scrollbar {
+        width: 4px;
+        cursor: pointer;
+        /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+    }
+
+    #journal-scroll::-webkit-scrollbar:horizontal {
+        height: 0px;
+    }
+    #journal-scroll::-webkit-scrollbar-track {
+        background-color: rgba(229, 231, 235, var(--bg-opacity));
+        cursor: pointer;
+        /*background: red;*/
+    }
+
+    #journal-scroll::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: #a0aec0;
+        /*outline: 1px solid slategrey;*/
+    }
+</style>
     <body class='font-extralight grid grid-rows-[1fr_min-content] text-primary'>
         <div class='h-screen w-screen flex flex-col'>
             <!-- header -->

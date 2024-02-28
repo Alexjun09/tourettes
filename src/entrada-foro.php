@@ -47,8 +47,31 @@ if (isset($_GET['id'])) {
             <script src="scripts/procesar-entradaforo.js"></script>
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         </head>
+<style>
+    #journal-scroll::-webkit-scrollbar {
+        width: 4px;
+        cursor: pointer;
+        /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+    }
 
-        <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary">
+    #journal-scroll::-webkit-scrollbar:horizontal {
+        height: 0px;
+    }
+    #journal-scroll::-webkit-scrollbar-track {
+        background-color: rgba(229, 231, 235, var(--bg-opacity));
+        cursor: pointer;
+        /*background: red;*/
+    }
+
+    #journal-scroll::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: #a0aec0;
+        /*outline: 1px solid slategrey;*/
+    }
+</style>
+
+        <body class="font-extralight grid grid-rows-[1fr_min-content] text-primary w-full h-full " id="journal-scroll">
+
             <div class="w-screen flex flex-col pb-20">
                 <!--Desktop header -->
                 <header class="hidden px-5 xl:px-20 sm:flex flex-row justify-between items-center py-4 w-full">
