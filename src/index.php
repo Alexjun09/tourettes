@@ -24,6 +24,7 @@ session_start();
     #journal-scroll::-webkit-scrollbar:horizontal {
         height: 0px;
     }
+
     #journal-scroll::-webkit-scrollbar-track {
         background-color: rgba(229, 231, 235, var(--bg-opacity));
         cursor: pointer;
@@ -152,75 +153,77 @@ session_start();
     <br>
     <div class="bg-contraste w-screen h-screen flex flex-col py-10 overflow-x-scroll lg:overflow-hidden">
         <p class="text-[50px] sm:text-title text-primary bg-[#d9d9d9] text-center">Nuestros Especialistas</p>
-        <div class="w-full h-full flex flex-row items-center px-4 sm:px-20 xl:px-0 xl:justify-around gap-10 max-h-[400px] xl:gap-20 overflow-x-scroll xl:overflow-hidden">
-            <!-- card 1 -->
-            <div class="flex flex-row">
-                <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white sm:h-[550px] relative flex flex-col items-center">
-                    <img src="../media/elipse.png" alt="" class="absolute z-10">
-                    <img src="../media/doc.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
-                    <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                        <p class="text-[24px]">Dra Rachel Anderson</p>
-                        <p class="text-[16px]">Psiquiatra experta en síndrome de Tourette, dedicado a mejorar las
-                            estrategias de manejo de tics.</p>
+        <div class="h-full w-full flex flex-col items-center justify-center">
+            <div class="w-full h-full flex flex-row items-center px-4 sm:px-20 xl:px-0 xl:justify-around gap-10 max-h-[400px] xl:gap-20 overflow-x-scroll xl:overflow-hidden">
+                <!-- card 1 -->
+                <div class="flex flex-row">
+                    <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white sm:h-[550px] relative flex flex-col items-center">
+                        <img src="../media/elipse.png" alt="" class="absolute z-10">
+                        <img src="../media/doc.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
+                        <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
+                            <p class="text-[24px]">Dra Rachel Anderson</p>
+                            <p class="text-[16px]">Psiquiatra experta en síndrome de Tourette, dedicado a mejorar las
+                                estrategias de manejo de tics.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/linkedin.png" alt="">
+                        </a>
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/instafat.png" alt="">
+                        </a>
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/facebookfat.png" alt="">
+                        </a>
                     </div>
                 </div>
-                <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/linkedin.png" alt="">
-                    </a>
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/instafat.png" alt="">
-                    </a>
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/facebookfat.png" alt="">
-                    </a>
-                </div>
-            </div>
-            <!-- card 2 -->
-            <div class="flex flex-row">
-                <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white h-[400px] sm:h-[550px] relative flex flex-col items-center">
-                    <img src="../media/elipse.png" alt="" class="absolute z-10">
-                    <img src="../media/face.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
-                    <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                        <p class="text-[24px]">Dr. Carlos Herrera</p>
-                        <p class="text-[16px]">Psicoterapia para trastornos del espectro tic y Síndrome de Tourette en
-                            niños y adultos.
-                        </p>
+                <!-- card 2 -->
+                <div class="flex flex-row">
+                    <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white h-[400px] sm:h-[550px] relative flex flex-col items-center">
+                        <img src="../media/elipse.png" alt="" class="absolute z-10">
+                        <img src="../media/face.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
+                        <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
+                            <p class="text-[24px]">Dr. Carlos Herrera</p>
+                            <p class="text-[16px]">Psicoterapia para trastornos del espectro tic y Síndrome de Tourette en
+                                niños y adultos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/linkedin.png" alt="">
+                        </a>
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/instafat.png" alt="">
+                        </a>
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/facebookfat.png" alt="">
+                        </a>
                     </div>
                 </div>
-                <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/linkedin.png" alt="">
-                    </a>
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/instafat.png" alt="">
-                    </a>
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/facebookfat.png" alt="">
-                    </a>
-                </div>
-            </div>
-            <!-- card 3 -->
-            <div class="flex flex-row">
-                <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white h-[400px] sm:h-[550px] relative flex flex-col items-center">
-                    <img src="../media/elipse.png" alt="" class="absolute z-10">
-                    <img src="../media/indian-guy.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
-                    <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                        <p class="text-[24px]">Dr. Hassan Raza</p>
-                        <p class="text-[16px]">Neuropsicólogo investigador en el impacto cognitivo y social del síndrome
-                            de Tourette, creadora de programas de apoyo para pacientes y familias.</p>
+                <!-- card 3 -->
+                <div class="flex flex-row">
+                    <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white h-[400px] sm:h-[550px] relative flex flex-col items-center">
+                        <img src="../media/elipse.png" alt="" class="absolute z-10">
+                        <img src="../media/indian-guy.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
+                        <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
+                            <p class="text-[24px]">Dr. Hassan Raza</p>
+                            <p class="text-[16px]">Neuropsicólogo investigador en el impacto cognitivo y social del síndrome
+                                de Tourette, creadora de programas de apoyo para pacientes y familias.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/linkedin.png" alt="">
-                    </a>
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/instafat.png" alt="">
-                    </a>
-                    <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
-                        <img class="" src="../media/facebookfat.png" alt="">
-                    </a>
+                    <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/linkedin.png" alt="">
+                        </a>
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/instafat.png" alt="">
+                        </a>
+                        <a href="" target="_blank" class="w-8 h-8 sm:w-12 sm:h-12">
+                            <img class="" src="../media/facebookfat.png" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
