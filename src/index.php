@@ -154,7 +154,7 @@ session_start();
     <div class="bg-contraste w-screen h-screen flex flex-col py-10 overflow-x-scroll lg:overflow-hidden">
         <p class="text-[50px] sm:text-title text-primary bg-[#d9d9d9] text-center">Nuestros Especialistas</p>
         <div class="h-full w-full flex flex-col items-center justify-center">
-            <div class="w-full h-full flex flex-row items-center px-4 sm:px-20 xl:px-0 xl:justify-around gap-10 max-h-[400px] xl:gap-20 overflow-x-scroll xl:overflow-hidden">
+            <div class="w-full h-full flex flex-row items-center px-4 sm:px-20 xl:px-0 xl:justify-around gap-10  xl:gap-20 overflow-x-scroll xl:overflow-hidden">
                 <!-- card 1 -->
                 <div class="flex flex-row">
                     <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white sm:h-[550px] relative flex flex-col items-center">

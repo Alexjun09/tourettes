@@ -1,35 +1,35 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
-// Asumiendo que tu script se llama `database.php` y está en el mismo directorio que tu prueba
-require_once 'bbdd/connect.php';
+require_once 'bbdd/connect.php'; // Asegúrate de que la ruta es correcta
 
-class ConexionTest extends TestCase
-{
+class ConexionTest extends TestCase {
     private $conexion = null;
 
-    public function testConexionExitosa()
-    {
+    protected function setUp(): void {
+        // Inicializa la conexión antes de cada prueba
         $this->conexion = getConexion();
+    }
+
+    protected function tearDown(): void {
+        // Cierra la conexión después de cada prueba
+        if ($this->conexion) {
+            $this->conexion->close();
+            $this->conexion = null;
+        }
+    }
+
+    public function testConexionExitosa() {
+        // No necesitas inicializar la conexión aquí ya que se hace en setUp
         $this->assertInstanceOf(mysqli::class, $this->conexion);
         $this->assertEquals(0, $this->conexion->connect_errno);
     }
 
-    public function testBaseDeDatosCreada()
-    {
-        $this->conexion = getConexion();
-        $nombre_bd = 'tourettes'; // Asegúrate de que este nombre coincida con el de tu script
+    public function testBaseDeDatosCreada() {
+        // Asegura que la base de datos específica exista
+        $nombre_bd = 'tourettes'; // Nombre de tu base de datos
         $resultado = $this->conexion->select_db($nombre_bd);
         $this->assertTrue($resultado);
     }
-
-    // Método para cerrar la conexión después de cada prueba, si es necesario
-    protected function tearDown(): void
-    {
-        if ($this->conexion) {
-            $this->conexion->close();
-        }
-    }
 }
-
-?>
