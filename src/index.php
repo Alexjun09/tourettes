@@ -161,9 +161,10 @@ session_start();
                         <img src="../media/elipse.png" alt="" class="absolute z-10">
                         <img src="../media/doc.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
                         <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                            <p class="text-[24px]">Dra Rachel Anderson</p>
-                            <p class="text-[16px]">Psiquiatra experta en síndrome de Tourette, dedicado a mejorar las
-                                estrategias de manejo de tics.</p>
+                            <p class="text-[24px]">Dr. Carlos Herrera</p>
+                            <p class="text-[16px]">Psicoterapia para trastornos del espectro tic y Síndrome de Tourette en
+                                niños y adultos.
+                            </p>
                         </div>
                     </div>
                     <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">
@@ -184,10 +185,9 @@ session_start();
                         <img src="../media/elipse.png" alt="" class="absolute z-10">
                         <img src="../media/face.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
                         <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
-                            <p class="text-[24px]">Dr. Carlos Herrera</p>
-                            <p class="text-[16px]">Psicoterapia para trastornos del espectro tic y Síndrome de Tourette en
-                                niños y adultos.
-                            </p>
+                            <p class="text-[24px]">Dra Rachel Anderson</p>
+                            <p class="text-[16px]">Psiquiatra experta en síndrome de Tourette, dedicado a mejorar las
+                                estrategias de manejo de tics.</p>
                         </div>
                     </div>
                     <div class="flex flex-col bg-[#d9d9d9] gap-4 p-2 py-4 h-fit mt-4">

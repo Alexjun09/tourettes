@@ -172,7 +172,7 @@ if ($result && $result->num_rows > 0) {
                                 <div class="flex flex-row justify-end items-center">
                                     <form action="pedir-cita.php" method="post" class="w-full flex justify-center sm:w-fit">
                                         <input type="hidden" name="psicologo_id" value="<?php echo $row['ID']; ?>">
-                                        <button type="submit" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-xl text-white py-2 sm:py-4 px-4 sm:px-16">Pedir Cita</button>
+                                        <button type="submit" class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-xl text-white py-2 sm:py-4 px-4 sm:px-16 mt-8">Pedir Cita</button>
                                     </form>
                                 </div>
                             </div>
