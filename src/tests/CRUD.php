@@ -80,4 +80,17 @@ class Paciente {
             return false;
         }
     }
+
+    public function buscarPacientePorNombre($nombre) {
+        $sql = "SELECT * FROM Pacientes WHERE NombreCompleto = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $nombre);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        if ($resultado->num_rows > 0) {
+            return $resultado->fetch_assoc(); // Devuelve el primer paciente encontrado
+        } else {
+            return null; // No se encontró ningún paciente
+        }
+    }
 }
