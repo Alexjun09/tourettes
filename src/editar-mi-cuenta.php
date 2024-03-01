@@ -232,7 +232,7 @@ if ($conn) {
                         <br>
                         <input type="email" name="email" value="<?php echo $email; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <br>
-                        <input type="number" name="telefono" value="<?php echo $telefonoMovil; ?>" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
+                        <input type="number" name="telefono" value="<?php echo $telefonoMovil; ?>" placeholder="teléfono" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <br>
                         <input type="number" name="edad" value="<?php echo $Edad; ?>" placeholder="edad" class="outline-none border-b border-black w-full text-opacity-50 bg-transparent">
                         <br>

@@ -302,11 +302,8 @@ session_start();
             </a>
         </div>
     </footer>
-</body>
 
-</html>
-
-<script>
+    <script>
     function confirmarCerrarSesion() {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -324,5 +321,7 @@ session_start();
             }
         })
     };
-    return false; // Evita la navegación
 </script>
+</body>
+
+</html>

@@ -211,7 +211,16 @@ $conn->close();
                         <div class="flex flex-col">
                             <p><?php echo $nombreCompleto; ?></p>
                             <p><?php echo $email; ?></p>
-                            <p>+34 <?php echo $telefonoMovil; ?></p>
+                            <?php
+                            if ($telefonoMovil != null) {
+                                echo "<p>+34 $telefonoMovil</p>";
+                            } else {
+                                 echo "<p></p>";
+                            }
+                            ?>
+
+                            
+                            
                         </div>
                         <div class="w-full flex flex-row items-center justify-center">
                             <a class="rounded-tl-xl rounded-br-xl border-br-xl bg-primary text-white py-2 px-8 w-fit" href="./editar-mi-cuenta.php">Editar</a>
