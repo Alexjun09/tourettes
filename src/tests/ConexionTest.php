@@ -2,18 +2,18 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once 'bbdd/connect.php'; // Asegúrate de que la ruta es correcta
+require_once 'bbdd/connect.php';
 
 class ConexionTest extends TestCase {
     private $conexion = null;
 
     protected function setUp(): void {
-        // Inicializa la conexión antes de cada prueba
+        // Inicializamos la conexión con la bbdd
         $this->conexion = getConexion();
     }
 
     protected function tearDown(): void {
-        // Cierra la conexión después de cada prueba
+        // Cerramos la conexión después de cada prueba para que las pruebas no afecten al funcionamiento de la web
         if ($this->conexion) {
             $this->conexion->close();
             $this->conexion = null;
@@ -21,15 +21,18 @@ class ConexionTest extends TestCase {
     }
 
     public function testConexionExitosa() {
-        // No necesitas inicializar la conexión aquí ya que se hace en setUp
+        
+        //Nos aseguramos que la conexión devuelva un objeto 
         $this->assertInstanceOf(mysqli::class, $this->conexion);
+
+        //Comprobamos que el número de errores devueltos son 0
         $this->assertEquals(0, $this->conexion->connect_errno);
     }
 
     public function testBaseDeDatosCreada() {
-        // Asegura que la base de datos específica exista
-        $nombre_bd = 'tourettes'; // Nombre de tu base de datos
+        $nombre_bd = 'tourettes'; 
         $resultado = $this->conexion->select_db($nombre_bd);
+        //Si devuelve un true, la bbdd ha sido creada correctamente
         $this->assertTrue($resultado);
     }
 }

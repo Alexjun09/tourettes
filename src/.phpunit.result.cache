@@ -1,1 +1,1 @@
-{"version":1,"defects":{"ConexionTest::testConexionExitosa":4,"ConexionTest::testBaseDeDatosCreada":4},"times":{"ConexionTest::testConexionExitosa":0.053,"ConexionTest::testBaseDeDatosCreada":0.035}}
+{"version":1,"defects":{"ConexionTest::testConexionExitosa":4,"ConexionTest::testBaseDeDatosCreada":4},"times":{"ConexionTest::testConexionExitosa":0.008,"ConexionTest::testBaseDeDatosCreada":0.001,"PacienteTest::testInsertarYEliminarPaciente":0.008}}
