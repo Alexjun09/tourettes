@@ -25,6 +25,7 @@ session_start();
     #journal-scroll::-webkit-scrollbar:horizontal {
         height: 0px;
     }
+
     #journal-scroll::-webkit-scrollbar-track {
         background-color: rgba(229, 231, 235, var(--bg-opacity));
         cursor: pointer;
@@ -155,15 +156,15 @@ session_start();
                 <div class="flex flex-row absolute w-full h-[500px] justify-center items-center">
                     <div class="absolute w-full h-full z-40 hidden lg:block">
                         <div class="flex-col gap-2 w-min h-full px-20 py-10 flex">
-                            <div onclick="" id="botonInformacionDeContacto" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                            <div onclick="" id="botonInformacionDeContacto2" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
                                 <img src="../media/personita.png" alt="" class="w-7 m-1">
                                 <p class="block text-xs pb-2 whitespace-nowrap">Nosotros</p>
                             </div>
-                            <div onclick="" id="botonFormularioDeContacto" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                            <div onclick="" id="botonFormularioDeContacto2" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
                                 <img src="../media/telefonito.png" alt="" class="w-7 m-1">
                                 <p class="block text-xs pb-2">Formulario</p>
                             </div>
-                            <div onclick="" id="botonFAQs" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
+                            <div onclick="" id="botonFAQs2" class="flex-1 flex flex-col cursor-pointer items-center justify-center text-center mx-auto w-full h-fit text-white hover:text-contraste gap-2">
                                 <img src="../media/lupita.png" alt="" class="w-7 m-1">
                                 <p class="block text-xs pb-2">FAQs</p>
                             </div>
@@ -237,7 +238,7 @@ session_start();
                     </div>
                     <!-- formulario de contacto -->
                     <div class="hidden w-full h-full flex justify-center items-center" id="formularioDeContacto">
-                        <form action="server/procesar-contacto.php" method="post" class="text-white flex flex-col z-50 px-4 sm:px-0 w-full sm:w-[40%]" name="formulario" id="formulario">
+                        <form action="server/procesar-contacto.php" method="post" class="text-white flex flex-col z-40 px-4 sm:px-0 w-full sm:w-[40%]" name="formulario" id="formulario">
                             <input type="text" name="nombre" placeholder="Nombre Completo" class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
                             <br>
                             <input type="text" name="telefono" placeholder="Telefono" class="outline-none border-b border-white text-white w-full bg-transparent pb-2">
@@ -256,7 +257,7 @@ session_start();
                     </div>
                     <!-- FAQs -->
                     <div id="FAQs" class="hidden z-50">
-                        <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl flex flex-col px-4 lg:px-0 w-full lg:min-w-[1400px] overflow-y-scroll">
+                        <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl flex flex-col px-4 lg:px-0 w-full lg:max-w-[1000px] overflow-y-scroll">
                             <h2 id="accordion-collapse-heading-1">
                                 <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
                                     <span class="text-[16px]">¿Cómo puedo ponerme en contacto con un especialista en síndrome de Tourette?</span>
@@ -386,6 +387,28 @@ session_start();
     });
 
     botonFAQs.addEventListener('click', () => {
+        informacionDeContacto.classList.add('hidden');
+        formularioDeContacto.classList.add('hidden');
+        FAQs.classList.remove('hidden');
+    });
+
+    const botonInformacionDeContacto2 = document.getElementById('botonInformacionDeContacto2');
+    const botonFormularioDeContacto2 = document.getElementById('botonFormularioDeContacto2');
+    const botonFAQs2 = document.getElementById('botonFAQs2');
+
+    botonInformacionDeContacto2.addEventListener('click', () => {
+        informacionDeContacto.classList.remove('hidden');
+        formularioDeContacto.classList.add('hidden');
+        FAQs.classList.add('hidden');
+    });
+
+    botonFormularioDeContacto2.addEventListener('click', () => {
+        informacionDeContacto.classList.add('hidden');
+        formularioDeContacto.classList.remove('hidden');
+        FAQs.classList.add('hidden');
+    });
+
+    botonFAQs2.addEventListener('click', () => {
         informacionDeContacto.classList.add('hidden');
         formularioDeContacto.classList.add('hidden');
         FAQs.classList.remove('hidden');

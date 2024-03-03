@@ -683,6 +683,11 @@ video {
   margin-right: auto;
 }
 
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -845,6 +850,10 @@ video {
   height: 100vh;
 }
 
+.h-\[1000px\] {
+  height: 1000px;
+}
+
 .max-h-36 {
   max-height: 9rem;
 }
@@ -863,10 +872,6 @@ video {
 
 .max-h-full {
   max-height: 100%;
-}
-
-.max-h-\[400px\] {
-  max-height: 400px;
 }
 
 .min-h-\[150px\] {
@@ -1005,6 +1010,10 @@ video {
 
 .max-w-\[600px\] {
   max-width: 600px;
+}
+
+.max-w-\[1000px\] {
+  max-width: 1000px;
 }
 
 .flex-1 {
@@ -1177,10 +1186,6 @@ video {
 
 .overflow-y-auto {
   overflow-y: auto;
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
 }
 
 .overflow-x-scroll {
@@ -1564,6 +1569,11 @@ video {
   font-family: Montserrat, sans-serif;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1635,9 +1645,9 @@ video {
   line-height: 1rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .font-bold {
@@ -1671,11 +1681,6 @@ video {
 .ordinal {
   --tw-ordinal: ordinal;
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-}
-
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .text-contraste {
@@ -1815,10 +1820,6 @@ video {
 .hover\:text-contraste:hover {
   --tw-text-opacity: 1;
   color: rgb(146 170 179 / var(--tw-text-opacity));
-}
-
-.hover\:underline:hover {
-  text-decoration-line: underline;
 }
 
 .peer:checked ~ .peer-checked\:translate-x-0 {
@@ -2058,6 +2059,10 @@ video {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+
+  .md\:text-body {
+    font-size: 32px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2095,6 +2100,10 @@ video {
 
   .lg\:min-w-\[1400px\] {
     min-width: 1400px;
+  }
+
+  .lg\:max-w-\[1000px\] {
+    max-width: 1000px;
   }
 
   .lg\:-translate-x-10 {
@@ -2228,10 +2237,6 @@ video {
 
   .xl\:overflow-hidden {
     overflow: hidden;
-  }
-
-  .xl\:overflow-x-hidden {
-    overflow-x: hidden;
   }
 
   .xl\:whitespace-nowrap {

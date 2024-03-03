@@ -157,7 +157,7 @@ session_start();
             <div class="w-full h-full flex flex-row items-center px-4 sm:px-20 xl:px-0 xl:justify-around gap-10  xl:gap-20 overflow-x-scroll xl:overflow-hidden">
                 <!-- card 1 -->
                 <div class="flex flex-row">
-                    <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white sm:h-[550px] relative flex flex-col items-center">
+                <div class="w-[240px] sm:w-96 shadow-lg shadow-primary bg-white h-[400px] sm:h-[550px] relative flex flex-col items-center">
                         <img src="../media/elipse.png" alt="" class="absolute z-10">
                         <img src="../media/doc.png" alt="" class="absolute z-20 mt-2 sm:mt-8 sm:w-32 sm:h-32 w-24 h-24">
                         <div class="px-4 sm:px-10 flex flex-col gap-6 text-center h-full justify-center py-16">
@@ -304,24 +304,24 @@ session_start();
     </footer>
 
     <script>
-    function confirmarCerrarSesion() {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¿Quieres cerrar la sesión?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#1D3A46',
-            cancelButtonColor: '#92AAB3',
-            confirmButtonText: 'Cerrar Sesión',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
-                window.location.href = './server/logout.php';
-            }
-        })
-    };
-</script>
+        function confirmarCerrarSesion() {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¿Quieres cerrar la sesión?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#1D3A46',
+                cancelButtonColor: '#92AAB3',
+                confirmButtonText: 'Cerrar Sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Asumiendo que tienes un archivo logout.php que maneja el cierre de sesión
+                    window.location.href = './server/logout.php';
+                }
+            })
+        };
+    </script>
 </body>
 
 </html>

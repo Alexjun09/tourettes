@@ -75,6 +75,10 @@ $conn->close();
             max-height: 0px;
             display: none;
         }
+        .fc-toolbar-chunk{
+        display: flex;
+        flex-direction: row;
+    }
     </style>
 </head>
 <style>
