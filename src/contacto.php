@@ -256,7 +256,7 @@ session_start();
                         </form>
                     </div>
                     <!-- FAQs -->
-                    <div id="FAQs" class="hidden z-50">
+                    <div id="FAQs" class="hidden z-40">
                         <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl flex flex-col px-4 lg:px-0 w-full lg:max-w-[1000px] overflow-y-scroll">
                             <h2 id="accordion-collapse-heading-1">
                                 <button type="button" class="flex items-center justify-between p-2 w-full font-medium text-left border border-gray-200  border-b-0 text-contraste  bg-gray-100   rounded-t-xl" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
