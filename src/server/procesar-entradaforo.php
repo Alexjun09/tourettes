@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
     $titulo = $_POST['title'];
     $palabrasClave = $_POST['palabrasclave'];
     $cuerpo = $_POST['cuerpo'];
-
+    $fechaActual = date("Y-m-d");
     // Manejo de la carga del archivo
     $archivo = NULL;
     if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
@@ -45,9 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['terminos'])) {
     }
 
     // Preparar la consulta SQL para la inserción
-    $stmt = $conn->prepare("INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssi", $titulo, $palabrasClave, $archivo, $cuerpo, $idPaciente);
-
+    $stmt = $conn->prepare("INSERT INTO Foro (Titulo, PalabrasClave, Archivo, Cuerpo, IDPaciente, Fecha) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssis", $titulo, $palabrasClave, $archivo, $cuerpo, $idPaciente, $fechaActual);
     // Ejecutar la consulta
     if ($stmt->execute()) {
         // Redirigir al usuario a comunidad.php
